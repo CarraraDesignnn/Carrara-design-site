@@ -6,3 +6,17 @@
 .hero-actions{justify-content:flex-start}
 .hero .eyebrow{color:#ffffffbf}
 @media(max-width:700px){.hero-shade{background:linear-gradient(to top,#000000f5 0%,#000000c7 45%,#00000059 75%,#00000080 100%)}}
+.shop{margin-top:clamp(64px,9vw,120px)}
+.shop-head{margin-bottom:32px}
+.shop-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
+.print{display:flex;flex-direction:column;gap:16px}
+.print-media{aspect-ratio:1/1;overflow:hidden;background:#111}
+.print-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
+.print:hover .print-media img{transform:scale(1.04)}
+.print-info{display:flex;flex-direction:column;gap:6px;flex:1}
+.print-title{margin:0;font-weight:400;font-size:17px;letter-spacing:.04em}
+.print-meta{margin:0;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.print-price{margin:4px 0 0;font-size:15px}
+.print-btn{align-self:flex-start}
+@media(max-width:1000px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.shop-grid{gap:24px 14px}.print-btn{align-self:stretch;padding:14px 0;text-align:center;font-size:10px}.print-title{font-size:15px}}
