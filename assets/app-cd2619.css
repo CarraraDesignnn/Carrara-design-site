@@ -58,3 +58,82 @@
 .inquire{padding-top:clamp(56px,7vw,120px)}
 .legal{margin-top:clamp(56px,7vw,110px)}
 @media(max-width:700px){.marques{gap:12px 26px;font-size:11px;letter-spacing:.26em}.contact{margin-top:28px}}
+
+/* ===== Sectional layout: full-screen panels with snap ===== */
+html{scroll-snap-type:y mandatory}
+.panel{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;padding:96px 0 48px;margin:0;overflow:hidden;background:var(--black)}
+.hero{scroll-snap-align:start;scroll-snap-stop:always}
+.panel + .panel{border-top:1px solid var(--line)}
+
+/* About */
+.about{padding:96px 0 48px}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,110px);align-items:center}
+.about-media{margin:0;overflow:hidden;aspect-ratio:4 / 5;max-height:calc(100svh - 170px);background:var(--graphite)}
+.about-media img{width:100%;height:100%;object-fit:cover}
+.about .statement{margin:0 0 28px;max-width:none;text-align:left;font-size:clamp(24px,2.6vw,40px);line-height:1.2}
+.about .body{font-size:16px;margin-bottom:16px}
+.about .team{margin-top:28px;padding-top:24px}
+
+/* Work */
+.work{margin-top:0}
+.work .rail{margin-top:32px}
+.work .marques{margin-top:clamp(36px,5vw,64px);padding-top:28px}
+.work .eyebrow,.shop .eyebrow{margin-bottom:14px}
+.work .h3,.shop .h3{margin:0}
+
+/* Shop */
+.shop{margin-top:0}
+.shop .wrap{width:100%}
+.shop-head{margin-bottom:32px}
+
+/* Contact */
+.inquire{padding-top:110px;padding-bottom:0;justify-content:flex-start}
+.inquire .inquire-grid{flex:1;align-items:center}
+.inquire .legal{margin-top:40px}
+
+/* Section pager (desktop) */
+.pager{position:fixed;z-index:40;right:clamp(16px,2vw,32px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px}
+.pager-dot{position:relative;display:block;width:7px;height:7px;border-radius:50%;border:1px solid #ffffff8c;transition:background .4s,border-color .4s,transform .4s}
+.pager-dot.is-active{background:#fff;border-color:#fff;transform:scale(1.15)}
+.pager-label{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#fff;opacity:0;pointer-events:none;transition:opacity .3s}
+.pager-dot:hover .pager-label{opacity:.85}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .about-media{position:absolute;inset:0;max-height:none;aspect-ratio:auto;z-index:0}
+  .about-media img{opacity:.22}
+  .about-copy{position:relative;z-index:1}
+}
+@media(max-width:700px){
+  .panel{padding:84px 0 32px}
+  .pager{display:none}
+  .about .statement{font-size:22px;margin-bottom:20px}
+  .about .body{font-size:14.5px;line-height:1.55;margin-bottom:12px}
+  .about .team{margin-top:20px;padding-top:18px}
+  .work .rail{margin-top:24px}
+  .work .card{flex-basis:78vw}
+  .shop-head{margin-bottom:24px}
+  .shop-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--pad) * -1);padding:0 var(--pad) 8px;scroll-padding:0 var(--pad);scrollbar-width:none}
+  .shop-grid::-webkit-scrollbar{display:none}
+  .shop-grid .print{flex:0 0 64vw;scroll-snap-align:start}
+  .print-btn{align-self:stretch;text-align:center}
+  .inquire{padding-top:84px}
+  .inquire .inquire-grid{gap:24px}
+  .inquire .h2{margin-bottom:12px}
+  .inquire .body{font-size:14.5px;margin-bottom:0}
+  .contact{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:16px}
+  .contact div{display:block;padding:0;border:0}
+  .contact dt{display:none}
+  .contact div:nth-child(2){display:none}
+  .contact dd{font-size:13px;color:var(--muted)}
+  .form{padding:22px 20px;gap:4px 0}
+  .field{padding-top:14px}
+  .field label{top:26px}
+  .field input,.field textarea{padding:9px 0}
+  .field textarea{min-height:64px}
+  .via{padding-top:16px}
+  .form-foot{margin-top:18px;gap:12px}
+  .inquire .legal{margin-top:28px;padding-top:22px;padding-bottom:28px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
+.pager-dot{box-shadow:0 0 0 1px #0000004d,0 0 6px #00000080}
