@@ -137,3 +137,38 @@ html{scroll-snap-type:y mandatory}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-snap-type:none}}
 .pager-dot{box-shadow:0 0 0 1px #0000004d,0 0 6px #00000080}
+
+/* Contact panel: fit exactly one screen */
+.inquire{height:100vh;height:100svh;min-height:0;display:flex;flex-direction:column;justify-content:flex-start}
+.inquire .inquire-grid{flex:1;min-height:0;align-content:center}
+.inquire .legal{flex:none}
+@media(max-height:820px) and (min-width:701px){
+  .inquire{padding-top:84px}
+  .inquire .h2{font-size:clamp(30px,3.6vw,48px)}
+  .inquire .contact{margin-top:24px;gap:10px}
+  .inquire .contact div{padding-bottom:10px}
+  .form{padding:28px 40px}
+  .form-foot{margin-top:14px}
+  .inquire .legal{margin-top:0;padding-top:18px;padding-bottom:20px}
+}
+@media(max-width:700px){
+  .inquire{padding:72px 0 0}
+  .inquire .inquire-grid{display:flex;flex-direction:column;justify-content:center;gap:14px}
+  .inquire .eyebrow{display:none}
+  .inquire .h2{font-size:26px;line-height:1.1;margin:0 0 6px}
+  .inquire .inquire-copy .body{display:none}
+  .contact{margin-top:0}
+  .form{grid-template-columns:1fr 1fr;gap:0 16px;padding:12px 16px 16px}
+  .field{padding-top:10px}
+  .field label{top:20px;font-size:10.5px}
+  .field input,.field textarea{padding:8px 0;font-size:16px}
+  .field textarea{min-height:38px;height:38px;resize:none}
+  .via{padding-top:12px}
+  .via legend{margin-bottom:8px}
+  .via-opt span{padding:9px 0}
+  .form-foot{margin-top:14px;gap:10px;flex-wrap:nowrap}
+  .form-foot .btn{margin-top:0;min-height:44px;padding:0 22px;flex:none}
+  .form-note{font-size:11px;line-height:1.35}
+  .inquire .legal{margin-top:0;padding:12px var(--pad) 14px;gap:0;justify-content:center;font-size:9px;letter-spacing:.18em}
+  .inquire .legal .legal-mark,.inquire .legal span:nth-of-type(1){display:none}
+}
