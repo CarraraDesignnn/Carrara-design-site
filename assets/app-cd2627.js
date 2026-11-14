@@ -66,3 +66,4 @@ react/cjs/react-jsx-runtime.production.js:
    * LICENSE file in the root directory of this source tree.
    *)
 */
+;(()=>{let g=null,x=0,y=0;document.addEventListener("touchstart",e=>{g=e.target.closest&&e.target.closest(".shop-grid");if(g){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:!0});document.addEventListener("touchend",e=>{if(!g)return;g=null;let t=e.changedTouches[0],dx=t.clientX-x,dy=t.clientY-y;if(Math.abs(dy)>40&&Math.abs(dy)>Math.abs(dx)*1.5){let p=[...document.querySelectorAll("#top,.panel")],i=p.indexOf(document.getElementById("shop")),n=p[i+(dy<0?1:-1)];n&&n.scrollIntoView({behavior:"smooth"})}},{passive:!0})})();
