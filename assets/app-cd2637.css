@@ -338,3 +338,17 @@ body.no-scroll .pager{opacity:0}
 .work .card-name{font-size:clamp(22px,3vh,30px);white-space:nowrap;text-shadow:0 1px 14px #00000073}
 .card-type,.card-link{text-shadow:0 1px 10px #00000073}
 @media(max-width:700px){.work .card-name{font-size:17px}}
+
+/* ===== Cards: photo only; hover / press darkens and reveals titles ===== */
+.card-hit{display:block;position:relative;width:100%;height:100%;color:inherit;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;border-radius:16px}
+.card-hit:focus-visible{outline:1px solid #fff;outline-offset:4px}
+.work .card-media:after{background:#000;opacity:0;transition:opacity .45s var(--ease)}
+.work .card-overlay{justify-content:center;opacity:0;transition:opacity .45s var(--ease)}
+.card-link{display:none}
+.card-hit:hover .card-media:after,.card-hit:focus-visible .card-media:after,.card.is-pressed .card-media:after{opacity:.58}
+.card-hit:hover .card-overlay,.card-hit:focus-visible .card-overlay,.card.is-pressed .card-overlay{opacity:1}
+.card-hit:hover .card-media img,.card.is-pressed .card-media img{transform:scale(1.04)}
+@media(hover:none){.card-hit:hover .card-media:after,.card-hit:hover .card-overlay{opacity:0}.card.is-pressed .card-media:after{opacity:.58}.card.is-pressed .card-overlay{opacity:1}}
+/* Project placeholder pages */
+.project-page{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:100px var(--pad) 60px;text-align:center}
+.project-page p{margin:0;font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
