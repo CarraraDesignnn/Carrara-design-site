@@ -303,3 +303,17 @@ body.no-scroll .pager{opacity:0}
 .hero-v3 .hero-eyebrow{display:none}
 .hero-v3 .hero-title{max-width:6.2em}
 @media(max-height:700px) and (max-width:700px){.hero-v3 .hero-title{font-size:34px;margin-bottom:18px}.hero-v3 .hero-content{padding-bottom:7svh}.hero-btn{min-height:48px}.hero-btn:after{width:34px;height:34px}}
+
+/* ===== Featured commissions: Bugatti-style tall cards ===== */
+.work .rail{gap:clamp(14px,1.6vw,24px)}
+.work .card{position:relative;flex:0 0 clamp(280px,28vw,420px)}
+.work .card-media{position:relative;aspect-ratio:3 / 4;border-radius:18px}
+.work .card-media img{filter:none}
+.work .card-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,#0000008c 0%,#0000 32%,#0000 58%,#000000bf 100%);pointer-events:none}
+.card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:30px 22px 32px;text-align:center;pointer-events:none}
+.card-top{display:flex;flex-direction:column;align-items:center;gap:14px}
+.card-type{margin:0;font-size:11px;font-stretch:105%;letter-spacing:.3em;text-transform:uppercase;color:#ffffffd9}
+.card-name{margin:0;font-size:clamp(30px,2.8vw,42px);font-weight:300;font-stretch:112%;line-height:1;letter-spacing:.02em;color:#fff}
+.card-link{pointer-events:auto;padding-bottom:6px;border-bottom:1px solid #fff;font-size:12px;font-stretch:105%;letter-spacing:.24em;text-transform:uppercase;color:#fff;transition:opacity .3s}
+.card-link:hover{opacity:.7}
+@media(max-width:700px){.work .card{flex-basis:76vw}.card-name{font-size:32px}}
