@@ -512,3 +512,10 @@ html.steps-mode:has(.pager:not(.pager-alt).is-awake) .pager-alt{opacity:1!import
 .pager-alt{transform:translateY(-50%) scale(.85)}
 html.steps-mode .pager-alt{transform:translateY(-50%) scale(1)}
 html.is-typing .pager-alt{opacity:0!important}
+
+/* Steps: snap to each fully-faded-in stage (no in-between stops) */
+html.in-steps{scroll-snap-type:y mandatory}
+.steps{scroll-snap-align:none}
+.steps-end{scroll-snap-align:none}
+.steps-snap{position:absolute;left:0;width:1px;height:1px;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
+.steps{height:400vh}

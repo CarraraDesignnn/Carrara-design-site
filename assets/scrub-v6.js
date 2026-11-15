@@ -36,8 +36,13 @@
   var alt=document.createElement('div');alt.className='pager pager-alt';alt.setAttribute('aria-hidden','true');
   alt.innerHTML='<span class="pager-thumb"></span>'+all.map(function(){return '<span class="pager-dot"></span>'}).join('');
   document.body.appendChild(alt);
-  function upd(){tick=false;var vh=window.innerHeight,r=sec.getBoundingClientRect(),total=sec.offsetHeight-vh,p=Math.min(1,Math.max(0,-r.top/total)),s=p*all.length*1.08;
-    root.classList.toggle('in-steps',r.top<=2&&r.bottom>=vh-2);
+  /* one snap stop per stage, placed exactly where that stage is fully faded in */
+  var stopP=[0,1/3,2/3,1];
+  var stops=stopP.map(function(){var d=document.createElement('div');d.className='steps-snap';d.setAttribute('aria-hidden','true');document.body.appendChild(d);return d});
+  function place(){var total=sec.offsetHeight-window.innerHeight,t=sec.getBoundingClientRect().top+window.scrollY;stops.forEach(function(d,i){d.style.top=Math.round(t+stopP[i]*total)+'px'})}
+  place();window.addEventListener('resize',place);window.addEventListener('load',place);setTimeout(place,1500);
+  function upd(){tick=false;var vh=window.innerHeight,r=sec.getBoundingClientRect(),total=sec.offsetHeight-vh,p=Math.min(1,Math.max(0,-r.top/total)),s=.6+p*(all.length-1);
+    
     sec.style.setProperty('--p',p.toFixed(4));
     sec.style.setProperty('--r',Math.min(1,Math.max(0,(s-.15)/items.length)).toFixed(4));
     var hp=Math.min(1,Math.max(0,(vh-r.top)/(vh*.6)));head.forEach(function(h){h.style.opacity=hp;h.style.transform='translateY('+((1-hp)*18)+'px)'});
@@ -50,7 +55,7 @@
     price.classList.toggle('is-in',s>items.length+.5);
     /* hand the left dot bar over to the steps while this section fills the screen */
     var inMode=r.top<vh*.25&&r.bottom>vh*.75;root.classList.toggle('steps-mode',inMode);
-    if(alt){alt.style.setProperty('--sp',Math.min(all.length-1,Math.max(0,s-.4)).toFixed(3))}}
+    if(alt){alt.style.setProperty('--sp',Math.min(all.length-1,Math.max(0,s-.6)).toFixed(3))}}
   function req(){if(!tick){tick=true;requestAnimationFrame(upd)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);req();
 })();
