@@ -33,6 +33,9 @@
   var sec=document.getElementById('pricing');if(!sec)return;
   var root=document.documentElement,items=[].slice.call(sec.querySelectorAll('.step')),price=sec.querySelector('.steps-price'),head=[].slice.call(sec.querySelectorAll('.eyebrow,.steps-head')),big=[].slice.call(sec.querySelectorAll('.steps-big span')),tick=false;
   var all=items.concat([price]);
+  var alt=document.createElement('div');alt.className='pager pager-alt';alt.setAttribute('aria-hidden','true');
+  alt.innerHTML='<span class="pager-thumb"></span>'+all.map(function(){return '<span class="pager-dot"></span>'}).join('');
+  document.body.appendChild(alt);
   function upd(){tick=false;var vh=window.innerHeight,r=sec.getBoundingClientRect(),total=sec.offsetHeight-vh,p=Math.min(1,Math.max(0,-r.top/total)),s=p*all.length*1.08;
     root.classList.toggle('in-steps',r.top<=2&&r.bottom>=vh-2);
     sec.style.setProperty('--p',p.toFixed(4));
@@ -44,7 +47,10 @@
       el.style.opacity=o.toFixed(3);el.style.transform='translateY('+((1-rise)*26).toFixed(1)+'px)'});
     if(s>=items.length+.2)cur=-1;
     big.forEach(function(b,k){b.classList.toggle('is-on',k===cur)});
-    price.classList.toggle('is-in',s>items.length+.5)}
+    price.classList.toggle('is-in',s>items.length+.5);
+    /* hand the left dot bar over to the steps while this section fills the screen */
+    var inMode=r.top<vh*.25&&r.bottom>vh*.75;root.classList.toggle('steps-mode',inMode);
+    if(alt){alt.style.setProperty('--sp',Math.min(all.length-1,Math.max(0,s-.4)).toFixed(3))}}
   function req(){if(!tick){tick=true;requestAnimationFrame(upd)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);req();
 })();

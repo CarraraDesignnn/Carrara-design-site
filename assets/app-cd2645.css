@@ -499,3 +499,16 @@ html.theme-light .steps-big span{-webkit-text-stroke:1px #1010102b}
 html.theme-light .steps-rail{background:#101010}
 html.theme-light .step-num{color:#10101080}
 html.theme-light .steps-price strong{background-image:linear-gradient(100deg,#101010 0%,#101010 38%,#8a8a8a 50%,#101010 62%,#101010 100%)}
+
+/* Steps section: the left dot bar switches to the steps, then back */
+.steps-list:before,.steps-rail{display:none}
+.steps-list{padding-left:0}
+.pager-alt{opacity:0!important;pointer-events:none}
+.pager-alt .pager-thumb{transform:translateY(calc(var(--sp,0) * var(--step)))}
+.pager-alt .pager-dot,.pager-alt .pager-thumb{transform-origin:50% 50%}
+.pager,.pager-alt{transition:opacity .45s ease,transform .45s var(--ease)}
+html.steps-mode .pager:not(.pager-alt){opacity:0!important;transform:translateY(-50%) scale(.85)}
+html.steps-mode:has(.pager:not(.pager-alt).is-awake) .pager-alt{opacity:1!important}
+.pager-alt{transform:translateY(-50%) scale(.85)}
+html.steps-mode .pager-alt{transform:translateY(-50%) scale(1)}
+html.is-typing .pager-alt{opacity:0!important}
