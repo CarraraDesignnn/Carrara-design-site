@@ -5,7 +5,7 @@
   var A=sec.querySelector('.scene-a'),B=sec.querySelector('.scene-b');
   var items=[].slice.call(A.querySelectorAll('.step')),headA=[].slice.call(A.querySelectorAll('.eyebrow,.steps-head'));
   var stats=[].slice.call(B.querySelectorAll('.stat')),headB=[].slice.call(B.querySelectorAll('.eyebrow,.steps-head')),price=B.querySelector('.steps-price');
-  var big=[].slice.call(sec.querySelectorAll('.steps-big span'));
+  var big=[].slice.call(sec.querySelectorAll('.steps-big span'));var media=[].slice.call(sec.querySelectorAll('.steps-media img')),mbox=sec.querySelector('.steps-media');
   var N=items.length+2; /* stages: 3 points, numbers, price */
   var alt=document.createElement('div');alt.className='pager pager-alt';alt.setAttribute('aria-hidden','true');
   var dots='';for(var i=0;i<N;i++)dots+='<span class="pager-dot"></span>';alt.innerHTML='<span class="pager-thumb"></span>'+dots;document.body.appendChild(alt);
@@ -20,7 +20,8 @@
     var hp=cl((vh-r.top)/(vh*.6)),outA=cl((s-n-.05)/.35);
     headA.forEach(function(h){set(h,hp*(1-outA),(1-hp)*18-outA*24)});
     var cur=-1;
-    items.forEach(function(el,k){var rise=cl((s-k-.15)/.45),o=rise;if(rise>.5)cur=k;var after=s-k-1.15;if(after>0)o=Math.max(.38,1-after*1.6)*rise;set(el,o*(1-outA),(1-rise)*26-outA*24)});
+    items.forEach(function(el,k){var rise=cl((s-k-.15)/.45),leave=k<n-1?cl((s-k-1.15)/.45):0;if(rise>.5&&leave<.5)cur=k;set(el,rise*(1-leave)*(1-outA),(1-rise)*26-leave*26-outA*24)});
+    var mi=Math.max(0,Math.min(n-1,Math.round(s-.65)));media.forEach(function(im,k){im.classList.toggle('is-on',k===mi)});mbox&&(mbox.style.opacity=(cl((s-.1)/.45)*(1-outA)).toFixed(3));
     A.style.pointerEvents=outA>.5?'none':'';
     /* scene B: studio numbers, then price */
     var inB=cl((s-n-.2)/.4);
