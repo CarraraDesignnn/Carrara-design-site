@@ -533,3 +533,13 @@ html:not(.js) .scene-b *{opacity:1}
 .scene-b .stats-grid{grid-template-columns:1fr 1fr;gap:28px 40px}
 .scene-b .odo{font-size:clamp(46px,5vw,80px)}
 @media(max-width:700px){.scene-b .stats-grid{gap:22px 18px}.scene-b .odo{font-size:clamp(38px,11vw,52px)}}
+
+/* ===== One heading style site-wide (matches the hero headline) ===== */
+.h2,.h3,.step-title,.card-name,.hero-v3 .hero-title{font-weight:400;font-stretch:108%;letter-spacing:-.01em;text-transform:none}
+.h2{line-height:1}
+.h3{font-size:clamp(28px,3vw,44px);line-height:1.04}
+.steps-head{line-height:1.04}
+.statement{font-weight:400;letter-spacing:-.005em}
+.step-title{line-height:1.08}
+.card-name{letter-spacing:-.005em}
+@media(max-width:700px){.h3{font-size:30px}.scene-b .steps-head,.scene-a .steps-head{font-size:30px}}
