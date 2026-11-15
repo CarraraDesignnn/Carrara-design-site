@@ -400,3 +400,58 @@ html.in-scrub{scroll-snap-type:none}
 .scrub-copy .h3{margin:0;font-size:clamp(26px,3vw,40px)}
 .scrub-progress{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:34px;height:2px;border-radius:2px;background:#ffffff26;overflow:hidden}
 .scrub-progress span{display:block;height:100%;width:100%;background:#fff;transform-origin:0 50%;transform:scaleX(var(--p,0))}
+
+/* ===== Light mode (menu slider) ===== */
+.theme-toggle{margin-left:auto;display:inline-flex;align-items:center;gap:12px;padding:6px 0;background:none;border:0;color:var(--muted);font:inherit;font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+.theme-toggle-track{position:relative;width:46px;height:26px;border-radius:999px;border:1px solid var(--line);background:#ffffff14;transition:background .35s var(--ease),border-color .35s var(--ease)}
+.theme-toggle-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .35s var(--ease),background .35s var(--ease)}
+.theme-toggle.is-light .theme-toggle-knob{transform:translateX(20px);background:#101010}
+.theme-toggle .theme-toggle-label:first-child{color:var(--white)}
+.theme-toggle.is-light .theme-toggle-label:first-child{color:inherit}
+.theme-toggle.is-light .theme-toggle-label:last-child{color:var(--white)}
+.theme-toggle:focus-visible{outline:1px solid var(--white);outline-offset:4px}
+@media(max-width:700px){.theme-toggle{margin-left:0}}
+html{transition:background-color .4s}
+html.theme-light{--black:#f5f5f3;--ink:#ffffff;--graphite:#e7e7e4;--line:rgba(16,16,16,.12);--muted:rgba(16,16,16,.6);--white:#101010;--accent:#8a7550;color-scheme:light;background:#f5f5f3}
+html.theme-light body{background:#f5f5f3;color:#101010}
+html.theme-light .theme-toggle-track{background:#1010100f}
+/* header */
+html.theme-light .header{--white:#101010;--line:rgba(16,16,16,.1);color:#101010}
+html.theme-light .header:before{opacity:0}
+html.theme-light .header.is-solid{background:#f5f5f3e0}
+html.theme-light .header .logo-mark{content:url(/logo-dark.png)}
+html.theme-light .header-cta{border-bottom-color:currentColor}
+/* menu */
+html.theme-light .menu{background:#f5f5f3}
+html.theme-light .menu-list a{color:#10101080}
+html.theme-light .menu-list a:hover{color:#101010}
+/* hero: light fades */
+html.theme-light .hero-v3,html.theme-light .hero-v3 .hero-media{background:#f5f5f3}
+html.theme-light .hero-v3 .hero-shade{background:linear-gradient(to bottom,#f5f5f3 0%,#f5f5f300 15%,#f5f5f300 84%,#f5f5f3 100%)}
+/* general */
+html.theme-light .eyebrow{color:var(--muted)}
+html.theme-light .btn-ghost{border-color:#10101066}
+html.theme-light .btn-light{background:#101010;color:#f5f5f3;border-color:#101010}
+html.theme-light .btn-light:hover{background:transparent;color:#101010}
+html.theme-light .hero-btn{background:#101010;color:#fff}
+html.theme-light .print-media{background:var(--graphite)}
+html.theme-light .legal-mark.logo-mark{content:url(/logo-dark.png)}
+html.theme-light ::selection{background:#101010;color:#f5f5f3}
+/* contact */
+html.theme-light .inquire-bg img{opacity:.18;filter:grayscale(1)}
+html.theme-light .inquire-bg:after{background:linear-gradient(to bottom,#f5f5f3,#f5f5f3cc 30%,#f5f5f3e6 70%,#f5f5f3)}
+html.theme-light .form,html.theme-light .form-done{background:#ffffffd9}
+html.theme-light .field input,html.theme-light .field textarea{border-bottom-color:#1010104d;color:#101010}
+html.theme-light .via-opt span{border-color:#1010104d}
+html.theme-light .via-opt input:checked+span{background:#101010;border-color:#101010;color:#f5f5f3}
+html.theme-light .form-error{color:#b3261e}
+/* section dots */
+html.theme-light .pager-dot{border-color:#10101073!important;box-shadow:none}
+html.theme-light .pager-thumb{background:#101010;box-shadow:none}
+/* scroll animations: light fades */
+html.theme-light .scrub,html.theme-light .scrub-canvas{background:#f5f5f3}
+html.theme-light .scrub-stick:after{background:linear-gradient(to bottom,#f5f5f3 0%,#f5f5f300 16%,#f5f5f300 70%,#f5f5f3e6 100%)}
+html.theme-light .scrub-copy .eyebrow{color:#10101099}
+html.theme-light .scrub-copy .h3{color:#101010}
+html.theme-light .scrub-progress{background:#10101026}
+html.theme-light .scrub-progress span{background:#101010}
