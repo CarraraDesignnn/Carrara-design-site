@@ -543,3 +543,75 @@ html:not(.js) .scene-b *{opacity:1}
 .step-title{line-height:1.08}
 .card-name{letter-spacing:-.005em}
 @media(max-width:700px){.h3{font-size:30px}.scene-b .steps-head,.scene-a .steps-head{font-size:30px}}
+
+/* ===== 1. Desktop hero: photo on the left, studio backdrop extended to the right, text on the right ===== */
+@media(min-width:901px){
+  .hero-v3 .hero-media{background:linear-gradient(to bottom,#a2a2a2 0%,#b3b3b3 14%,#bdbdbd 27%,#c1c1c1 40%,#d3d3d3 53%,#d8d8d8 66%,#e0e0e0 79%,#e2e2e2 92%,#e4e4e4 100%)}
+  .hero-v3 .hero-img{left:0;width:58vw;height:100%;max-width:none;transform:none;object-fit:cover;object-position:50% 46%;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 72%,transparent 100%);mask-image:linear-gradient(to right,#000 0%,#000 72%,transparent 100%)}
+  .hero-v3 .hero-content{position:absolute;left:56vw;right:auto;bottom:0;top:auto;transform:none;width:auto;max-width:38vw;padding:0 0 max(96px,14vh)}
+  .hero-v3 .hero-title{font-size:clamp(48px,4.6vw,76px)}
+}
+html.theme-light .hero-v3 .hero-media{background:linear-gradient(to bottom,#a2a2a2 0%,#b3b3b3 14%,#bdbdbd 27%,#c1c1c1 40%,#d3d3d3 53%,#d8d8d8 66%,#e0e0e0 79%,#e2e2e2 92%,#e4e4e4 100%)}
+@media(max-width:900px){html.theme-light .hero-v3 .hero-media{background:#f5f5f3}}
+
+/* ===== 2. Everything left-aligned ===== */
+.work .work-head{justify-content:flex-start;text-align:left}
+@media(min-width:701px){.work .work-head{max-width:calc(var(--cardh) * 1.56 + var(--gap));padding-left:0;padding-right:0;margin-left:auto;margin-right:auto}}
+@media(max-width:900px){.shop-teaser{text-align:left}.shop-teaser-copy{align-items:flex-start}.shop-teaser-copy .body{max-width:none}}
+@media(max-width:700px){.inquire .inquire-grid{align-items:stretch}.inquire-copy{text-align:left}}
+
+/* ===== 4. Faint car name on each card (hidden while the full titles show) ===== */
+.card-hit:after{content:attr(data-name);position:absolute;z-index:2;left:16px;bottom:14px;right:16px;font-size:10.5px;font-stretch:105%;letter-spacing:.22em;text-transform:uppercase;color:#ffffffd9;text-shadow:0 1px 10px #000000a6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .25s;pointer-events:none}
+.card-hit:hover:after,.card-hit:focus-visible:after,.card.is-pressed .card-hit:after{opacity:0}
+@media(hover:none){.card-hit:hover:after{opacity:1}.card.is-pressed .card-hit:after{opacity:0}}
+@media(max-width:700px){.card-hit:after{left:10px;bottom:9px;right:10px;font-size:8.5px;letter-spacing:.16em}}
+
+/* ===== 5. Roomier contact form: email/Instagram and copyright move to the footer ===== */
+.inquire .contact,.inquire .legal{display:none}
+.inquire{padding-bottom:28px}
+@media(max-width:700px){
+  .inquire .inquire-grid{gap:20px}
+  .inquire .h2{font-size:32px;margin-bottom:0}
+  .form{padding:18px 18px 22px;gap:2px 16px}
+  .field{padding-top:16px}
+  .field label{top:26px}
+  .field input,.field textarea{padding:10px 0}
+  .field textarea{height:52px;min-height:52px}
+  .via{padding-top:18px}
+  .via legend{margin-bottom:10px}
+  .via-opt span{padding:11px 0}
+  .form-foot{margin-top:20px}
+}
+
+/* ===== 6. Closing footer ===== */
+.site-footer{position:relative;background:var(--black);border-top:1px solid var(--line);padding:clamp(56px,8vw,96px) 0 28px;scroll-snap-align:end}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:40px clamp(32px,5vw,80px)}
+.footer-logo{height:54px;width:auto;margin-bottom:18px}
+.footer-brand p{margin:0;max-width:26ch;font-size:15px;line-height:1.5;color:var(--muted)}
+.footer-col{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.footer-label{margin:0 0 6px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.footer-col a{font-size:15px;color:var(--white);opacity:.85;transition:opacity .25s}
+.footer-col a:hover{opacity:1;color:var(--accent)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(48px,7vw,80px);padding-top:22px;border-top:1px solid var(--line);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1 / -1}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr;gap:32px}.footer-logo{height:46px}}
+html.theme-light .footer-logo{content:url(/logo-dark.png)}
+
+/* ===== 7. Menu: faint photo behind, links cascade in ===== */
+.menu:before{content:"";position:absolute;inset:0;z-index:0;background:url(/img/hero-gt3rs-1400.jpg) 50% 42% / cover no-repeat;opacity:0;filter:grayscale(.5);transform:scale(1.08);transition:opacity .9s var(--ease),transform 1.8s var(--ease)}
+.menu:after{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 25% 55%,#000000d9 0%,#000000a6 55%,#000000e6 100%);opacity:0;transition:opacity .9s var(--ease)}
+.menu.is-open:before{opacity:.32;transform:scale(1)}
+.menu.is-open:after{opacity:1}
+.menu-list,.menu-foot{position:relative;z-index:1}
+.menu-list li{transform:translateY(36px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.menu.is-open .menu-list li:nth-child(1){transition-delay:.12s!important}
+.menu.is-open .menu-list li:nth-child(2){transition-delay:.2s!important}
+.menu.is-open .menu-list li:nth-child(3){transition-delay:.28s!important}
+.menu.is-open .menu-list li:nth-child(4){transition-delay:.36s!important}
+.menu.is-open .menu-list li:nth-child(5){transition-delay:.44s!important}
+.menu-foot{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+.menu.is-open .menu-foot{opacity:1;transform:none;transition-delay:.55s}
+.menu-list a{font-weight:400;font-stretch:108%;letter-spacing:-.01em;text-transform:none}
+html.theme-light .menu:after{background:radial-gradient(ellipse at 25% 55%,#f5f5f3e6 0%,#f5f5f3bf 55%,#f5f5f3f0 100%)}
+html.theme-light .menu.is-open:before{opacity:.28}
+@media(prefers-reduced-motion:reduce){.menu:before{transform:none}.menu-list li{transform:none}}
