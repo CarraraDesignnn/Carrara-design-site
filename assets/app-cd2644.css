@@ -472,3 +472,30 @@ html.in-steps{scroll-snap-type:none}
 .steps-price strong{display:block;margin-top:6px;font-size:clamp(30px,4vw,52px);font-weight:300;font-stretch:112%;letter-spacing:.01em;color:var(--white)}
 html:not(.js) .step,html:not(.js) .steps-price{opacity:1}
 @media(max-width:700px){.steps-stick{padding:76px 0 24px}.step{gap:14px}.step-num{font-size:10px}.steps-price strong{font-size:34px}}
+
+/* ===== "What a commission means": cinematic layer ===== */
+.steps-stick{overflow:hidden}
+.steps-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.steps-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 40%;opacity:.22;filter:grayscale(.35) blur(1px);transform:scale(calc(1.06 + var(--p,0) * .1)) translateY(calc(var(--p,0) * -3%));will-change:transform}
+.steps-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,#000000b3 0%,#00000080 45%,#000000e6 100%),linear-gradient(to bottom,#000 0%,#0000 18%,#0000 80%,#000 100%)}
+.steps-big{position:absolute;z-index:0;right:-.04em;top:50%;transform:translateY(-50%);font-size:clamp(170px,34vw,560px);font-weight:200;font-stretch:125%;line-height:.8;letter-spacing:-.04em;pointer-events:none}
+.steps-big span{position:absolute;right:0;top:50%;transform:translateY(calc(-50% + 30px));color:transparent;-webkit-text-stroke:1px #ffffff2b;opacity:0;transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.steps-big span.is-on{opacity:1;transform:translateY(-50%)}
+.steps-inner{position:relative;z-index:1}
+.steps-list{position:relative;padding-left:26px}
+.steps-list:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--line)}
+.steps-rail{position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,#fff,#ffffff99);transform-origin:top;transform:scaleY(var(--r,0))}
+.step-num{color:#ffffff8c}
+.step-title{font-weight:500;letter-spacing:.005em}
+.steps-price strong{background:linear-gradient(100deg,#fff 0%,#fff 38%,#9a9a9a 50%,#fff 62%,#fff 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+.steps-price.is-in strong{animation:priceSheen 2.8s var(--ease) .25s 1 both}
+@keyframes priceSheen{from{background-position:100% 0}to{background-position:0 0}}
+@media(max-width:700px){.steps-big{font-size:56vw;right:-.06em;top:44%}.steps-big span{-webkit-text-stroke:1px #ffffff21}.steps-list{padding-left:18px}}
+@media(prefers-reduced-motion:reduce){.steps-bg img{transform:none}.steps-price.is-in strong{animation:none;background-position:0 0}}
+/* light mode */
+html.theme-light .steps-bg img{opacity:.16;filter:grayscale(.6)}
+html.theme-light .steps-bg:after{background:radial-gradient(ellipse at 20% 50%,#f5f5f3cc 0%,#f5f5f399 45%,#f5f5f3ee 100%),linear-gradient(to bottom,#f5f5f3 0%,#f5f5f300 18%,#f5f5f300 80%,#f5f5f3 100%)}
+html.theme-light .steps-big span{-webkit-text-stroke:1px #1010102b}
+html.theme-light .steps-rail{background:#101010}
+html.theme-light .step-num{color:#10101080}
+html.theme-light .steps-price strong{background-image:linear-gradient(100deg,#101010 0%,#101010 38%,#8a8a8a 50%,#101010 62%,#101010 100%)}
