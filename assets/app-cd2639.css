@@ -357,3 +357,6 @@ body.no-scroll .pager{opacity:0}
 html.is-typing{scroll-snap-type:none}
 html.is-typing .inquire{height:auto;min-height:100svh;padding-bottom:55svh}
 html.is-typing .pager{opacity:0}
+
+.form input,.form textarea{scroll-margin:110px 0 40px}
+html.is-typing .inquire-bg img{transform:none}
