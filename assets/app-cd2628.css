@@ -228,3 +228,18 @@ html{scroll-snap-type:y mandatory}
   .shop-grid{touch-action:pan-x pinch-zoom;overscroll-behavior-x:contain;padding:0 18vw 8px;scroll-padding:0;gap:14px}
   .shop-grid .print{flex:0 0 64vw;scroll-snap-align:center;scroll-snap-stop:always}
 }
+
+/* Section dots: left side, all sizes, gliding marker */
+html{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+.pager{--step:21px;left:clamp(16px,2vw,32px);right:auto;gap:14px}
+.pager-dot{width:7px;height:7px;background:transparent!important;transform:none!important;border-color:#ffffff80!important}
+.pager-thumb{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 6px #00000080;transform:translateY(calc(var(--p,0) * var(--step)));pointer-events:none}
+.pager-label{left:20px;right:auto}
+body.no-scroll .pager{opacity:0;pointer-events:none}
+.pager{transition:opacity .4s}
+@media(max-width:700px){
+  .pager{display:flex;--step:18px;left:8px;gap:12px}
+  .pager-dot,.pager-thumb{width:6px;height:6px}
+  .pager-label{display:none}
+}
