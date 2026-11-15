@@ -634,3 +634,20 @@ html.theme-light .menu.is-open:before{opacity:.28}
   html.theme-light .sticky-cta{background:#101010;color:#fff;box-shadow:0 10px 30px #0003}
   html.theme-light .sticky-cta:after{background:#fff;color:#101010}
 }
+
+/* Header CTA becomes a "Start a commission" pill after the hero (replaces floating button) */
+.sticky-cta{display:none!important}
+.header-cta{position:relative;display:inline-grid;justify-items:end;align-items:center}
+.header-cta .cta-a,.header-cta .cta-b{grid-area:1 / 1;transition:opacity .35s var(--ease),transform .4s var(--ease)}
+.header-cta .cta-b{opacity:0;transform:translateY(6px);pointer-events:none;white-space:nowrap;padding:9px 16px;border-radius:999px;background:#fff;color:#101010;font-size:10px;letter-spacing:.2em}
+html.cta-pill .header-cta{border-bottom-color:transparent}
+html.cta-pill .header-cta .cta-a{opacity:0;transform:translateY(-6px)}
+html.cta-pill .header-cta .cta-b{opacity:1;transform:none;pointer-events:auto}
+html.theme-light .header-cta .cta-b{background:#101010;color:#fff}
+@media(max-width:700px){.header-cta .cta-b{padding:8px 13px;font-size:9px;letter-spacing:.16em}}
+.header-cta{border-bottom:0!important;padding:0}
+.header-cta .cta-a{padding:10px 0;border-bottom:1px solid currentColor}
+@media(max-width:700px){
+  .header-cta .cta-b{font-size:0;padding:0;width:auto}
+  .header-cta .cta-b:before{content:"Commission";font-size:9.5px;letter-spacing:.16em;padding:8px 14px;display:block}
+}
