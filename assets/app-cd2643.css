@@ -455,3 +455,20 @@ html.theme-light .scrub-copy .eyebrow{color:#10101099}
 html.theme-light .scrub-copy .h3{color:#101010}
 html.theme-light .scrub-progress{background:#10101026}
 html.theme-light .scrub-progress span{background:#101010}
+
+/* ===== Before you commission: pinned, items fade in as you scroll ===== */
+html.in-steps{scroll-snap-type:none}
+.steps{position:relative;height:420vh;background:var(--black);border-top:1px solid var(--line);scroll-snap-align:start}
+.steps-stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;padding:84px 0 32px}
+.steps-end{position:absolute;left:0;right:0;bottom:0;height:100vh;height:100svh;scroll-snap-align:start;pointer-events:none}
+.steps-inner{max-width:880px}
+.steps-head{margin:0 0 clamp(28px,5vh,52px)}
+.steps-list{list-style:none;margin:0;padding:0;display:grid;gap:clamp(22px,4vh,40px)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,40px);align-items:start;opacity:0;will-change:opacity,transform}
+.step-num{font-size:12px;letter-spacing:.28em;color:var(--muted);padding-top:.55em;font-variant-numeric:tabular-nums}
+.step-title{margin:0 0 8px;font-size:clamp(22px,2.6vw,34px);font-weight:400;font-stretch:108%;line-height:1.1}
+.step-body{margin:0;max-width:52ch;font-size:clamp(15px,1.2vw,17px);line-height:1.55;color:var(--muted)}
+.steps-price{margin:clamp(30px,5vh,56px) 0 0;padding-top:clamp(20px,3vh,32px);border-top:1px solid var(--line);font-size:clamp(14px,1.2vw,16px);letter-spacing:.06em;color:var(--muted);opacity:0}
+.steps-price strong{display:block;margin-top:6px;font-size:clamp(30px,4vw,52px);font-weight:300;font-stretch:112%;letter-spacing:.01em;color:var(--white)}
+html:not(.js) .step,html:not(.js) .steps-price{opacity:1}
+@media(max-width:700px){.steps-stick{padding:76px 0 24px}.step{gap:14px}.step-num{font-size:10px}.steps-price strong{font-size:34px}}
