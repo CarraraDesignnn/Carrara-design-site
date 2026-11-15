@@ -243,3 +243,8 @@ body.no-scroll .pager{opacity:0;pointer-events:none}
   .pager-dot,.pager-thumb{width:6px;height:6px}
   .pager-label{display:none}
 }
+
+/* Dots appear only while scrolling */
+.pager{opacity:0;transition:opacity .6s ease}
+.pager.is-awake,.pager:hover,.pager:focus-within{opacity:1;transition-duration:.25s}
+body.no-scroll .pager{opacity:0}
