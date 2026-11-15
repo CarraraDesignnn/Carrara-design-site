@@ -1,7 +1,7 @@
 /* Scroll-scrubbed frame sequences: <section class="scrub" data-src="/anim/x/" data-frames="105" data-ext="webp"> */
 (function(){
   var cache={},secs=[].slice.call(document.querySelectorAll('.scrub'));if(!secs.length)return;
-  var root=document.documentElement,ticking=false,dpr=Math.min(window.devicePixelRatio||1,2);
+  var root=document.documentElement,ticking=false,FRAME=1000/24,lastDraw=0,pending=false,dpr=Math.min(window.devicePixelRatio||1,2);
   function pad(n){return ('000'+n).slice(-3)}
   function seq(s){
     var key=s.dataset.src;if(cache[key])return cache[key];
@@ -21,7 +21,9 @@
   function update(){ticking=false;var vh=window.innerHeight;
     secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.bottom<-vh||r.top>2*vh)return;size(s);
       var total=s.offsetHeight-vh,p=Math.min(1,Math.max(0,-r.top/total));
-      var o=Math.max(0,Math.min(1,(p-.08)/.14,(.92-p)/.14));s.style.setProperty('--p',p.toFixed(4));s.style.setProperty('--o',o.toFixed(3));draw(s,p)});
+      var o=Math.max(0,Math.min(1,(p-.08)/.14,(.92-p)/.14));s.style.setProperty('--p',p.toFixed(4));s.style.setProperty('--o',o.toFixed(3));s._p=p});
+    /* draw at most 24 times a second; fast scrolls jump straight to the current frame instead of stepping through every one */
+    var now=performance.now();if(now-lastDraw>=FRAME){lastDraw=now;secs.forEach(function(s){s._p!=null&&draw(s,s._p)})}else if(!pending){pending=true;setTimeout(function(){pending=false;req()},FRAME-(now-lastDraw)+1)}
     var top=secs[0].getBoundingClientRect().top;root.classList.toggle('in-scrub',top<=2)}
   function req(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
   window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',function(){secs.forEach(function(s){s._last=null});req()});req();
