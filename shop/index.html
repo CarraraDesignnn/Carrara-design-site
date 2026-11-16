@@ -15,26 +15,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,300..600&display=swap" />
 <script>try{if(localStorage.getItem('cd-theme')==='light'){document.documentElement.classList.add('theme-light');document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute('content','#f5f5f3')}}catch(e){}</script>
   <link rel="stylesheet" href="/assets/app-cd2657.css" />
+  <link rel="stylesheet" href="/assets/shop-v1.css" />
   <style>html{scroll-snap-type:none}</style>
 </head>
 <body>
   <header class="header page-header is-solid">
     <a href="/#shop" class="header-back" aria-label="Back to home">&larr; Back</a>
     <a href="/" class="header-logo" aria-label="Carrara Design home"><img src="/logo.png" alt="Carrara Design" width="640" height="398" class="logo-mark" /></a>
-    <a href="/#inquire" class="header-cta">Inquire</a>
+    <button type="button" class="header-cart" data-cart-open aria-label="Open cart">Cart <span class="header-cart-n" data-cart-count>0</span></button>
   </header>
   <main>
     <section class="shop-page" aria-labelledby="shop-title">
       <div class="wrap">
         <p class="eyebrow">Shop</p>
         <h1 id="shop-title" class="h2">Prints</h1>
-        <p class="body">Fine-art giclée prints of iconic race cars, from 70 to 120 cm. To order, tap “Order print” and send us a quick inquiry.</p>
-        <ul class="shop-page-grid">
-          <li class="print"><div class="print-media"><img src="/prints/test-print.jpg" alt="Le Mans Dusk print" loading="lazy" decoding="async" /></div><div class="print-info"><h2 class="print-title">Le Mans Dusk</h2><p class="print-meta">Giclée print · 100 × 50 cm</p><p class="print-price">$350</p></div><a href="/#inquire" class="btn btn-ghost print-btn">Order print</a></li>
-          <li class="print"><div class="print-media"><img src="/prints/test-print.jpg" alt="Mulsanne Night print" loading="lazy" decoding="async" /></div><div class="print-info"><h2 class="print-title">Mulsanne Night</h2><p class="print-meta">Giclée print · 100 × 50 cm</p><p class="print-price">$350</p></div><a href="/#inquire" class="btn btn-ghost print-btn">Order print</a></li>
-          <li class="print"><div class="print-media"><img src="/prints/test-print.jpg" alt="Eau Rouge print" loading="lazy" decoding="async" /></div><div class="print-info"><h2 class="print-title">Eau Rouge</h2><p class="print-meta">Giclée print · 70 × 35 cm</p><p class="print-price">$250</p></div><a href="/#inquire" class="btn btn-ghost print-btn">Order print</a></li>
-          <li class="print"><div class="print-media"><img src="/prints/test-print.jpg" alt="Daytona Banking print" loading="lazy" decoding="async" /></div><div class="print-info"><h2 class="print-title">Daytona Banking</h2><p class="print-meta">Giclée print · 120 × 60 cm</p><p class="print-price">$450</p></div><a href="/#inquire" class="btn btn-ghost print-btn">Order print</a></li>
-        </ul>
+        <p class="body">Fine-art giclée prints of iconic race cars, from 70 to 120 cm. Secure checkout by Shopify.</p>
+        <ul class="shop-page-grid" data-shop-grid aria-live="polite"></ul>
       </div>
     </section>
   </main>
@@ -46,5 +42,6 @@
     </div>
     <div class="wrap footer-bottom"><span>© 2026 Carrara Design</span><span>Design for Drivers</span></div>
   </footer>
+  <script src="/assets/shop-v1.js" defer></script>
 </body>
 </html>
