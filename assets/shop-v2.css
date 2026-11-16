@@ -137,3 +137,6 @@ html.theme-light .drop-next{background:#1010100a}
 html.theme-light .drop-stamp{border-color:#fff;color:#fff}
 @media(prefers-reduced-motion:reduce){.drop-dot.is-live{animation:none}}
 @media(max-width:900px){.shop .shop-teaser{gap:20px}.shop .shop-teaser-media{height:calc(100svh - 500px);min-height:170px}.shop .shop-teaser-copy .body{margin-bottom:14px;font-size:14.5px}.shop .shop-teaser-copy .h3{margin-bottom:10px}.drop-home{margin-bottom:16px}.drop-home .drop-edition{margin-top:8px}}
+
+/* Desktop/trackpad: JS paging replaces CSS snap (see scroll-v1.js) */
+html.js-paging,html.js-paging.in-steps,html.js-paging.in-scrub{scroll-snap-type:none!important;scroll-behavior:auto}
