@@ -182,3 +182,13 @@ html.js-gliding,html.js-gliding.in-steps{scroll-snap-type:none!important;scroll-
 .drop-add.is-ok{background:#3ddc84!important;border-color:#3ddc84!important;color:#0b0b0b!important}
 .drop-add.is-sold{background:transparent!important;color:var(--white)!important;border:1px solid var(--line)!important;opacity:.7!important}
 .drop-fine a{color:var(--white);border-bottom:1px solid currentColor}
+
+/* Cart icon in the top bar, shown only when the cart has items */
+.cart-fab{position:fixed;z-index:61;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:#fff;cursor:pointer;opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .35s var(--ease,ease),transform .45s var(--ease,ease)}
+.cart-fab.is-on{opacity:1;transform:none;pointer-events:auto}
+.cart-fab:hover{background:#ffffff14}
+.cart-fab-n{position:absolute;top:2px;right:0;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:#fff;color:#101010;font-size:10px;font-weight:600;line-height:17px;text-align:center}
+body.no-scroll .cart-fab,body.cart-open .cart-fab{opacity:0;pointer-events:none}
+html.theme-light .cart-fab{color:#101010}
+html.theme-light .cart-fab-n{background:#101010;color:#fff}
+html.theme-light .cart-fab:hover{background:#10101014}

@@ -41,7 +41,7 @@
 
   /* ---- cart ---- */
   var CART_FIELDS='id checkoutUrl totalQuantity cost{subtotalAmount{amount currencyCode}} lines(first:50){nodes{id quantity merchandise{...on ProductVariant{id title product{title} image{url altText} price{amount currencyCode}}}}}';
-  var cart=null,drawer,list,sub,checkout,countEls=[];
+  var cart=null,drawer,list,sub,checkout,countEls=[],fab=null;
   function saveId(id){try{id?localStorage.setItem(KEY,id):localStorage.removeItem(KEY)}catch(e){}}
   function loadId(){try{return localStorage.getItem(KEY)}catch(e){return null}}
   function setCart(c){cart=c;saveId(c&&c.id);renderCart()}
@@ -62,7 +62,7 @@
   function open(){drawer.classList.add('is-open');drawer.setAttribute('aria-hidden','false');document.body.classList.add('cart-open')}
   function close(){drawer.classList.remove('is-open');drawer.setAttribute('aria-hidden','true');document.body.classList.remove('cart-open')}
   function renderCart(){
-    var n=cart?cart.totalQuantity:0;countEls.forEach(function(el){el.textContent=n;el.parentNode.classList.toggle('has-items',n>0)});
+    var n=cart?cart.totalQuantity:0;countEls.forEach(function(el){el.textContent=n;el.parentNode.classList.toggle('has-items',n>0)});if(fab){fab.classList.toggle('is-on',n>0);fab.setAttribute('aria-label','Cart, '+n+' item'+(n===1?'':'s'))}
     if(!list)return;var lines=cart?cart.lines.nodes:[];
     if(!lines.length){list.innerHTML='<li class="cart-empty">Your cart is empty.</li>';sub.textContent=money({amount:0,currencyCode:'USD'});checkout.classList.add('is-disabled');checkout.removeAttribute('href');return}
     list.innerHTML=lines.map(function(l){var m=l.merchandise,v=m.title&&m.title!=='Default Title'?'<span class="cart-variant">'+esc(m.title)+'</span>':'';
@@ -123,10 +123,19 @@
     startCountdowns(slot);
   }
 
+  /* ---- cart icon: appears in the top bar only once something is in the cart ---- */
+  function buildFab(){
+    fab=document.createElement('button');fab.type='button';fab.className='cart-fab';fab.setAttribute('aria-label','Cart');
+    fab.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 7V6a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="cart-fab-n" data-cart-count>0</span>';
+    document.body.appendChild(fab);countEls.push(fab.querySelector('[data-cart-count]'));
+    fab.addEventListener('click',open);
+    function place(){var c=document.querySelector('.header-cta');if(!c)return;var r=c.getBoundingClientRect();fab.style.top=Math.round(r.top+r.height/2-19)+'px';fab.style.left=Math.round(r.left-50)+'px'}
+    place();addEventListener('resize',place);addEventListener('load',place);setTimeout(place,600);
+  }
+
   /* ---- init ---- */
   var shopRoot=document.querySelector('[data-drop-shop]'),homeSlot=document.querySelector('[data-drop-home]'),cartBtn=document.querySelector('[data-cart-open]');
-  if(shopRoot||cartBtn||loadId())buildDrawer();
-  if(cartBtn){countEls.push(cartBtn.querySelector('[data-cart-count]'));cartBtn.addEventListener('click',function(e){e.preventDefault();open()})}
+  if(shopRoot||loadId()){buildDrawer();buildFab()}
   if(shopRoot){var nx=shopRoot.querySelector('[data-drop-next]');nx.querySelector('[data-cd-slot]').innerHTML=countdownHTML();nx.querySelector('[data-wl-slot]').innerHTML=waitlistHTML();bindWaitlist(shopRoot);bindAdd(shopRoot);startCountdowns(shopRoot)}
   if(shopRoot||homeSlot)loadProducts().then(function(d){if(shopRoot)renderShop(shopRoot,d);if(homeSlot)renderHome(homeSlot,document.querySelector('[data-drop-media]'),d)}).catch(function(){if(shopRoot)shopRoot.querySelector('[data-drop-current]').innerHTML='<p class="shop-msg">The shop is temporarily unavailable. Please <a href="/#inquire">send us an inquiry</a> to order.</p>';if(homeSlot)homeSlot.innerHTML=''});
   if(drawer)fetchCart();
