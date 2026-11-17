@@ -359,3 +359,9 @@ html.theme-light .cart-fab:hover{background:#10101014}
   .pp-story-media img{border-radius:14px}
   .pp-blurb{font-size:15px}
 }
+/* v21: Featured commissions four across on desktop (mobile unchanged) */
+@media(min-width:901px){
+  .work{--gap:20px;--cardw:min(calc((100svh - 300px) * .75),calc((min(100vw,1440px) - 2 * var(--pad) - 3 * var(--gap)) / 4));--cardh:calc(var(--cardw) / .75);justify-content:center}
+  .work .rail{grid-template-columns:repeat(4,var(--cardw));grid-auto-rows:var(--cardh)}
+}
+@media(min-width:901px){.work .work-head{max-width:calc(var(--cardw) * 4 + var(--gap) * 3)}}
