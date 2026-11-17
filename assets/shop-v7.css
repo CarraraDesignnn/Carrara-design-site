@@ -201,3 +201,18 @@ html.theme-light .cart-fab:hover{background:#10101014}
 .drop-chip{position:absolute;left:14px;top:14px;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border-radius:999px;background:#000000a6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#fff}
 .shop-teaser-media img{object-position:50% 40%}
 @media(max-width:900px){.shop .shop-teaser-media{height:calc(100svh - 430px)}}
+
+/* shop page v7: cleaner first screen */
+.drop-top .drop-intro{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.drop-media{position:relative}
+.drop-sub{margin:10px 0 0;font-size:15px;color:var(--muted)}
+.drop-meta{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 20px;margin:22px 0 20px}
+.drop-meta .drop-price{margin:0}
+.drop-meta .drop-edition{margin:0;padding:0;border:0;border-radius:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.drop-top .drop-media{height:calc(100svh - 300px)}
+@media(max-width:900px){
+  .drop-top .drop-media{height:calc(100svh - 430px)}
+  .drop-top .drop-sub{margin-top:4px;font-size:14px}
+  .drop-top .drop-meta{margin:12px 0 14px}
+  .drop-top .drop-meta .drop-price{margin:0}
+}
