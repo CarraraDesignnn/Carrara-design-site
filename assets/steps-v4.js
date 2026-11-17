@@ -26,7 +26,7 @@
     /* scene B: studio numbers, then price */
     var inB=cl((s-n-.2)/.4);
     headB.forEach(function(h){set(h,inB,(1-inB)*24)});
-    stats.forEach(function(el,k){var o=cl((s-n-.2-k*.06)/.4);set(el,o,(1-o)*24)});
+    stats.forEach(function(el,k){var o=cl((s-n-.1-k*.04)/.3);set(el,o,(1-o)*24)});
     var on=s>n+.3;stats.forEach(function(el){el.classList.toggle('is-in',on)});
     var pr=cl((s-n-1-.15)/.45);set(price,pr,(1-pr)*26);price.classList.toggle('is-in',pr>.5);
     B.style.pointerEvents=inB<.5?'none':'';
