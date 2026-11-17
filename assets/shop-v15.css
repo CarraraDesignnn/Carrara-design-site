@@ -259,3 +259,21 @@ html.theme-light .cart-fab:hover{background:#10101014}
 .shop-teaser-hook{margin:0;font-size:clamp(30px,3.4vw,48px);font-weight:400;font-stretch:110%;line-height:1;letter-spacing:-.02em}
 @media(min-width:901px){.shop .shop-teaser{row-gap:clamp(24px,4vh,44px)}.shop .shop-teaser-media{max-height:calc(100svh - 300px)}.shop-teaser-media.is-pair{aspect-ratio:auto;height:calc(100svh - 300px)}}
 @media(max-width:900px){.shop .shop-teaser-head{margin-bottom:-4px}.shop-teaser-hook{font-size:30px}.shop .shop-teaser-media{height:calc(100svh - 520px)}}
+/* v15: one consistent vertical rhythm for the home drop section */
+.shop .shop-teaser{row-gap:0}
+.shop .shop-teaser-head{margin:0 0 var(--dr-l)}
+.shop .shop-teaser-copy .eyebrow{margin:0 0 var(--dr-s)}
+.shop .shop-teaser-copy .h3{margin:0 0 var(--dr-s)}
+.shop .shop-teaser-copy .body{margin:0 0 var(--dr-l)}
+.shop .drop-home.is-empty{display:none}
+.shop{--dr-s:14px;--dr-l:40px}
+@media(min-width:901px){
+  .shop .shop-teaser-media,.shop .shop-teaser-media.is-pair{height:calc(100svh - 330px);max-height:none;aspect-ratio:auto}
+}
+@media(max-width:900px){
+  .shop{--dr-s:12px;--dr-l:28px}
+  .shop .shop-teaser{gap:0}
+  .shop .shop-teaser-head{margin-bottom:var(--dr-l)}
+  .shop .shop-teaser-media{height:calc(100svh - 430px);min-height:220px;margin-bottom:var(--dr-l)}
+  .shop .shop-teaser-copy .body{font-size:15px}
+}
