@@ -252,3 +252,10 @@ html.theme-light .cart-fab:hover{background:#10101014}
   .drop-pair .drop-meta .drop-edition{font-size:9.5px;letter-spacing:.18em}
   .drop-pair .drop-add{min-height:44px;padding:0 10px;font-size:10px;letter-spacing:.16em}
 }
+
+/* v14: heading above the home drop teaser */
+.shop-teaser-head{grid-column:1 / -1;margin:0}
+.shop-teaser-head .eyebrow{margin:0 0 10px}
+.shop-teaser-hook{margin:0;font-size:clamp(30px,3.4vw,48px);font-weight:400;font-stretch:110%;line-height:1;letter-spacing:-.02em}
+@media(min-width:901px){.shop .shop-teaser{row-gap:clamp(24px,4vh,44px)}.shop .shop-teaser-media{max-height:calc(100svh - 300px)}.shop-teaser-media.is-pair{aspect-ratio:auto;height:calc(100svh - 300px)}}
+@media(max-width:900px){.shop .shop-teaser-head{margin-bottom:-4px}.shop-teaser-hook{font-size:30px}.shop .shop-teaser-media{height:calc(100svh - 520px)}}
