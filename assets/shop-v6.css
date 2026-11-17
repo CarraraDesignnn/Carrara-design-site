@@ -192,3 +192,12 @@ body.no-scroll .cart-fab,body.cart-open .cart-fab{opacity:0;pointer-events:none}
 html.theme-light .cart-fab{color:#101010}
 html.theme-light .cart-fab-n{background:#101010;color:#fff}
 html.theme-light .cart-fab:hover{background:#10101014}
+
+/* home drop teaser v6: fewer layers */
+.drop-home.is-empty{display:none}
+.shop-teaser-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px 24px}
+.drop-left{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.drop-left:empty{display:none}
+.drop-chip{position:absolute;left:14px;top:14px;z-index:1;display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border-radius:999px;background:#000000a6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#fff}
+.shop-teaser-media img{object-position:50% 40%}
+@media(max-width:900px){.shop .shop-teaser-media{height:calc(100svh - 430px)}}

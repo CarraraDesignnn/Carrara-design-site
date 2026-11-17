@@ -114,12 +114,24 @@
 
   /* ---- home teaser ---- */
   function renderHome(slot,media,d){
-    var p=d.current[0];
-    if(p&&p.featuredImage&&media){media.innerHTML='<img src="'+esc(img(p.featuredImage.url,1200))+'" alt="'+esc(p.featuredImage.altText||p.title)+'" decoding="async">'+(d.live?'':'<span class="drop-stamp">Sold out</span>')}
-    slot.innerHTML=d.live&&p
-      ?'<p class="drop-kicker"><span class="drop-dot is-live"></span>'+esc(dropLabel(d.number))+' · Live now</p><p class="drop-home-title">'+esc(p.title)+'</p><p class="drop-edition">'+esc(editionLine(p))+'</p>'
-      :'<p class="drop-kicker"><span class="drop-dot"></span>'+(p?esc(dropLabel(d.number))+' · Sold out':'Next drop')+'</p><p class="drop-home-title">Next drop · '+esc(dateLabel())+'</p>'+countdownHTML();
-    var btn=slot.parentNode.querySelector('[data-drop-cta]');if(btn)btn.textContent=d.live?'Shop the drop':'Get notified';if(btn&&!d.live)btn.setAttribute('href','/shop/#notify');
+    var p=d.current[0],copy=slot.parentNode,q=function(a){return copy.querySelector('[data-drop-'+a+']')};
+    var kick=q('kicker'),title=q('title'),sub=q('sub'),lft=q('left'),btn=q('cta');
+    var month=new Date().toLocaleString('en-US',{month:'long'});
+    function clean(t){return String(t||'').replace(/\s*framed print\s*$/i,'').replace(/GT(\d)RS/g,'GT$1 RS')}
+    if(p&&p.featuredImage&&media){media.innerHTML='<img src="'+esc(img(p.featuredImage.url,1200))+'" alt="'+esc(p.featuredImage.altText||p.title)+'" decoding="async">'+(d.live?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':'<span class="drop-stamp">Sold out</span>')}
+    if(d.live&&p){
+      if(kick)kick.textContent=dropLabel(d.number)+' · '+month;
+      if(title)title.textContent=clean(p.title);
+      if(sub)sub.textContent='Framed print. Strictly limited, never reprinted.';
+      if(lft)lft.textContent=editionLine(p);
+      slot.innerHTML='';slot.classList.add('is-empty');
+    }else{
+      if(kick)kick.textContent=p?dropLabel(d.number)+' · Sold out':'Monthly drop';
+      if(title)title.textContent='Next drop · '+dateLabel();
+      if(lft)lft.textContent='';
+      slot.classList.remove('is-empty');slot.innerHTML=countdownHTML();
+    }
+    if(btn){btn.textContent=d.live?'Shop the drop':'Get notified';if(!d.live)btn.setAttribute('href','/shop/#notify')}
     startCountdowns(slot);
   }
 
