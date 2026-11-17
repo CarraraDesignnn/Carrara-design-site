@@ -277,3 +277,13 @@ html.theme-light .cart-fab:hover{background:#10101014}
   .shop .shop-teaser-media{height:calc(100svh - 430px);min-height:220px;margin-bottom:var(--dr-l)}
   .shop .shop-teaser-copy .body{font-size:15px}
 }
+/* v16: drop prints match the commission cards (no frame, same gap and corners) */
+.shop .shop-teaser-media.is-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;height:auto;max-height:none;min-height:0;padding:0;background:none;border-radius:0;overflow:visible}
+.shop .shop-teaser-media.is-pair img{width:100%;height:auto;max-height:none;aspect-ratio:4/5;object-fit:cover;border-radius:16px;box-shadow:none}
+.shop .shop-teaser-media.is-pair .drop-chip{left:12px;top:12px}
+@media(min-width:901px){.shop .shop-teaser-media.is-pair{max-width:calc((100svh - 330px) * 1.6 + 16px)}}
+@media(max-width:900px){
+  .shop .shop-teaser-media.is-pair{gap:12px;height:auto;min-height:0}
+  .shop .shop-teaser-media.is-pair img{border-radius:14px}
+  .shop .shop-teaser-media.is-pair .drop-chip{left:10px;top:10px;padding:7px 11px;font-size:9px}
+}
