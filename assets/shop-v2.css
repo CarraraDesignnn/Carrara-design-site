@@ -140,3 +140,36 @@ html.theme-light .drop-stamp{border-color:#fff;color:#fff}
 
 /* Mouse-wheel paging: pause CSS snap while gliding (see scroll-v2.js) */
 html.js-gliding,html.js-gliding.in-steps{scroll-snap-type:none!important;scroll-behavior:auto!important}
+
+/* Shop page: intro + current drop fill exactly the first screen */
+.drop-page{padding-top:0}
+.drop-top{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 32px}
+.drop-top .drop-intro{margin-bottom:clamp(20px,3.5vh,40px)}
+.drop-top .drop-intro .h2{font-size:clamp(34px,4.2vw,56px);margin:0}
+.drop-top .drop-intro .body{margin-top:10px;font-size:15px}
+.drop-top .drop-current{gap:0}
+.drop-top .drop-feature{align-items:center}
+.drop-top .drop-media{aspect-ratio:auto;height:calc(100svh - 330px);min-height:280px;max-height:760px}
+.drop-next{margin-top:clamp(24px,4vw,56px)}
+@media(min-width:901px){
+  .drop-top .drop-feature{grid-template-columns:auto 1fr}
+  .drop-top .drop-media{width:calc((100svh - 330px) * .8);max-width:52vw}
+}
+@media(max-width:900px){
+  .drop-top{padding:84px 0 20px;justify-content:flex-start}
+  .drop-top .drop-intro .body{display:none}
+  .drop-top .drop-intro .h2{font-size:30px}
+  .drop-top .drop-intro{margin-bottom:16px}
+  .drop-top .drop-feature{gap:16px}
+  .drop-top .drop-media{height:calc(100svh - 470px);min-height:200px}
+  .drop-top .drop-kicker{margin-bottom:6px}
+  .drop-top .drop-title{font-size:26px}
+  .drop-top .drop-desc{display:none}
+  .drop-top .drop-edition{margin-top:10px}
+  .drop-top .drop-price{margin:10px 0 12px;font-size:20px}
+  .drop-top .drop-fine{margin-top:8px}
+}
+
+/* Manthey card: tighter on the car, never cropping it */
+.work .card-hit[data-name="Manthey GT3 RS"] .card-media img,.work .card-hit[data-name="Manthey GT3 RS"]:hover .card-media img,.work .card.is-pressed .card-hit[data-name="Manthey GT3 RS"] .card-media img{transform:scale(1.2);transform-origin:50% 68%}
+@media(max-width:700px){.work .card-hit[data-name="Manthey GT3 RS"] .card-media img,.work .card.is-pressed .card-hit[data-name="Manthey GT3 RS"] .card-media img{transform:scale(1.04)}}
