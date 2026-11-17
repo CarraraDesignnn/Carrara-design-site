@@ -147,7 +147,7 @@
       +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone. <a href="/shop/#notify">Join the list</a> to hear about the next drop first.</p>')
       +(desc?'<div class="pp-desc">'+desc+'</div>':'')
       +'<dl class="pp-specs"><div><dt>Edition</dt><dd>'+(p.edition?'Limited to '+p.edition:'Limited')+', never reprinted</dd></div><div><dt>Size</dt><dd>'+esc(X.size||'—')+'</dd></div><div><dt>Format</dt><dd>Framed, ready to display</dd></div>'+(coll?'<div><dt>Collection</dt><dd>'+esc(coll)+'</dd></div>':'')+'<div><dt>Shipping</dt><dd>Calculated at checkout</dd></div></dl>'
-      +'</div></article>'
+      +'</div>'+(ok?'<div class="pp-bar drop-info" role="region" aria-label="Buy"><div class="pp-bar-t"><span class="pp-bar-name">'+esc(t)+'</span><span class="pp-bar-meta"><span data-price>'+money(v.price)+'</span> · <span class="drop-edition">'+esc(editionLine(p))+'</span></span></div><button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button></div>':'')+'</article>'
       +(X.story?'<section class="pp-story"><div class="pp-story-copy"><p class="drop-kicker">The commission</p><h2 class="pp-story-title">'+esc(X.story.title)+'</h2>'+X.story.body.map(function(b){return '<p>'+esc(b)+'</p>'}).join('')
         +(X.car?'<dl class="pp-specs pp-car">'+X.car.map(function(c){return '<div><dt>'+esc(c[0])+'</dt><dd>'+esc(c[1])+'</dd></div>'}).join('')+'</dl>':'')
         +(X.story.link?'<a class="pp-story-link" href="'+esc(X.story.link)+'">Read the full commission &rarr;</a>':'')+'</div>'
@@ -193,6 +193,7 @@
   /* ---- init ---- */
   var prodRoot=document.querySelector('[data-drop-product]'),shopRoot=document.querySelector('[data-drop-shop]'),homeSlot=document.querySelector('[data-drop-home]'),cartBtn=document.querySelector('[data-cart-open]');
   if(shopRoot||prodRoot||loadId()){buildDrawer();buildFab()}
+  if(prodRoot){document.body.classList.add('has-pp-bar');addEventListener('scroll',function(){var b=prodRoot.querySelector('.pp-info > .drop-add');document.body.classList.toggle('pp-scrolled',!!b&&b.getBoundingClientRect().bottom<70)},{passive:true})}
   if(prodRoot){bindAdd(prodRoot);loadProducts().then(function(d){renderProduct(prodRoot,d)}).catch(function(){prodRoot.innerHTML='<p class="shop-msg">The shop is temporarily unavailable. Please <a href="/#inquire">send us an inquiry</a> to order.</p>'})}
   if(shopRoot){var nx=shopRoot.querySelector('[data-drop-next]');nx.querySelector('[data-cd-slot]').innerHTML=countdownHTML();nx.querySelector('[data-wl-slot]').innerHTML=waitlistHTML();bindWaitlist(shopRoot);bindAdd(shopRoot);startCountdowns(shopRoot)}
   if(shopRoot||homeSlot)loadProducts().then(function(d){if(shopRoot)renderShop(shopRoot,d);if(homeSlot)renderHome(homeSlot,document.querySelector('[data-drop-media]'),d)}).catch(function(){if(shopRoot)shopRoot.querySelector('[data-drop-current]').innerHTML='<p class="shop-msg">The shop is temporarily unavailable. Please <a href="/#inquire">send us an inquiry</a> to order.</p>';if(homeSlot)homeSlot.innerHTML=''});
