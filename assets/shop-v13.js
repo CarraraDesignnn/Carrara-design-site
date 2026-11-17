@@ -97,7 +97,7 @@
       +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone.</p>')+'</div></article>';
   }
   function pairHead(d){var e=d.current[0].edition,same=d.current.every(function(p){return p.edition===e});
-    return '<header class="drop-pair-head"><p class="drop-kicker">'+(d.live?'<span class="drop-dot is-live"></span>':'')+esc(dropLabel(d.number))+' · '+esc(new Date().toLocaleString('en-US',{month:'long'}))+(d.live?' · Live now':' · Sold out')+'</p><h2 class="drop-pair-title">'+esc(joinTitles(d.current.map(function(p){return cleanTitle(p.title)})))+'</h2><p class="drop-pair-sub">'+(d.current.length===2?'Two':d.current.length)+' framed prints'+(same&&e?', '+e+' of each':'')+'. Strictly limited, never reprinted.</p></header>'}
+    return '<header class="drop-pair-head"><p class="drop-kicker">'+(d.live?'<span class="drop-dot is-live"></span>':'')+esc(dropLabel(d.number))+' · '+esc(new Date().toLocaleString('en-US',{month:'long'}))+(d.live?' · Live now':' · Sold out')+'</p><h2 class="drop-pair-title">'+esc(collectionName(d.current.map(function(p){return cleanTitle(p.title)})))+'</h2><p class="drop-pair-sub">'+(d.current.length===2?'Two':d.current.length)+' framed prints'+(same&&e?', '+e+' of each':'')+'. Strictly limited, never reprinted.</p></header>'}
   function archiveCard(p){p=Object.assign({},p,{title:cleanTitle(p.title)});var im=p.featuredImage;return '<li class="arch-item'+(p.availableForSale?'':' is-sold')+'"><div class="arch-media">'+(im?'<img src="'+esc(img(im.url,700))+'" alt="'+esc(im.altText||p.title)+'" loading="lazy" decoding="async">':'')+'</div><p class="arch-kicker">'+esc(dropLabel(p.drop))+'</p><h3 class="arch-title">'+esc(p.title)+'</h3><p class="arch-status">'+esc(p.edition?'Edition of '+p.edition+' · ':'')+(p.availableForSale?'Last few available':'Sold out')+'</p></li>'}
   function renderShop(root,d){
     var feat=root.querySelector('[data-drop-current]'),arch=root.querySelector('[data-drop-archive]'),next=root.querySelector('[data-drop-next]');
@@ -138,7 +138,7 @@
     if(d.live&&p){
       if(kick)kick.textContent=dropLabel(d.number)+' · '+month;
       if(title)title.textContent=multi?collectionName(d.current.map(function(x){return clean(x.title)})):clean(p.title);
-      if(sub)sub.textContent=multi?joinTitles(d.current.map(function(x){return clean(x.title)}))+'. Two framed prints, strictly limited, never reprinted.':'Framed print. Strictly limited, never reprinted.';
+      if(sub)sub.textContent=multi?'Two framed prints. Strictly limited, never reprinted.':'Framed print. Strictly limited, never reprinted.';
       if(lft)lft.textContent=multi?(function(){var e=d.current[0].edition,same=d.current.every(function(x){return x.edition===e});return same&&e?e+' of each':'Limited editions'})():editionLine(p);
       slot.innerHTML='';slot.classList.add('is-empty');
     }else{
