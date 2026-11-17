@@ -133,6 +133,7 @@
     var h=new URLSearchParams(location.search).get('p')||'',all=d.current.concat(d.archive),p=all.filter(function(x){return x.handle===h})[0];
     if(!p){root.innerHTML='<div class="pp-missing"><p class="drop-kicker">Not found</p><h1 class="pp-title">This print isn’t available.</h1><a class="btn btn-light" href="/shop/">Back to the shop</a></div>';return}
     var inCur=d.current.indexOf(p)>-1,group=inCur?d.current:all.filter(function(x){return x.drop===p.drop}),coll=group.length>1?collectionName(group.map(function(x){return cleanTitle(x.title)})):'';
+    var X=(window.PRINTS||{})[p.handle]||{};
     var t=cleanTitle(p.title),v=firstVariant(p),ok=p.availableForSale,ims=(p.images&&p.images.nodes.length?p.images.nodes:(p.featuredImage?[p.featuredImage]:[]));
     document.title=t+' — Carrara Design';
     var desc=p.descriptionHtml&&!/^\s*(<p>)?\s*framed print\.?\s*(<\/p>)?\s*$/i.test(p.descriptionHtml)?p.descriptionHtml:'';
@@ -141,12 +142,16 @@
       +'<article class="pp drop-feature'+(ok?'':' is-sold')+'">'
       +'<div class="pp-gallery"><div class="pp-main drop-media">'+(ims[0]?'<img data-main src="'+esc(img(ims[0].url,1600))+'" srcset="'+esc(img(ims[0].url,900))+' 900w, '+esc(img(ims[0].url,1600))+' 1600w, '+esc(img(ims[0].url,2400))+' 2400w" sizes="(max-width: 900px) 100vw, 55vw" alt="'+esc(ims[0].altText||t)+'" decoding="async">':'')+(ok?(inCur?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':''):'<span class="drop-stamp">Sold out</span>')+'</div>'
       +(ims.length>1?'<div class="pp-thumbs">'+ims.map(function(m,i){return '<button type="button" class="pp-thumb'+(i?'':' is-on')+'" data-img="'+esc(m.url)+'" aria-label="Image '+(i+1)+'"><img src="'+esc(img(m.url,240))+'" alt="" loading="lazy"></button>'}).join('')+'</div>':'')+'</div>'
-      +'<div class="pp-info drop-info"><p class="drop-kicker">'+esc(dropLabel(p.drop!=null?p.drop:d.number))+(coll?' · '+esc(coll):'')+'</p><h1 class="pp-title">'+esc(t)+'</h1><p class="drop-sub">Framed print</p>'
+      +'<div class="pp-info drop-info"><p class="drop-kicker">'+esc(dropLabel(p.drop!=null?p.drop:d.number))+(coll?' · '+esc(coll):'')+'</p><h1 class="pp-title">'+esc(t)+'</h1><p class="drop-sub">Framed print'+(X.size?' · '+esc(X.size):'')+'</p>'+(X.blurb?'<p class="pp-blurb">'+esc(X.blurb)+'</p>':'')
       +'<p class="drop-meta"><span class="drop-price" data-price>'+money(v.price)+'</span><span class="drop-edition">'+esc(editionLine(p))+'</span></p>'
       +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone. <a href="/shop/#notify">Join the list</a> to hear about the next drop first.</p>')
       +(desc?'<div class="pp-desc">'+desc+'</div>':'')
-      +'<dl class="pp-specs"><div><dt>Edition</dt><dd>'+(p.edition?'Limited to '+p.edition:'Limited')+', never reprinted</dd></div><div><dt>Format</dt><dd>Framed print</dd></div>'+(coll?'<div><dt>Collection</dt><dd>'+esc(coll)+'</dd></div>':'')+'<div><dt>Shipping</dt><dd>Calculated at checkout</dd></div></dl>'
+      +'<dl class="pp-specs"><div><dt>Edition</dt><dd>'+(p.edition?'Limited to '+p.edition:'Limited')+', never reprinted</dd></div><div><dt>Size</dt><dd>'+esc(X.size||'—')+'</dd></div><div><dt>Format</dt><dd>Framed, ready to display</dd></div>'+(coll?'<div><dt>Collection</dt><dd>'+esc(coll)+'</dd></div>':'')+'<div><dt>Shipping</dt><dd>Calculated at checkout</dd></div></dl>'
       +'</div></article>'
+      +(X.story?'<section class="pp-story"><div class="pp-story-copy"><p class="drop-kicker">The commission</p><h2 class="pp-story-title">'+esc(X.story.title)+'</h2>'+X.story.body.map(function(b){return '<p>'+esc(b)+'</p>'}).join('')
+        +(X.car?'<dl class="pp-specs pp-car">'+X.car.map(function(c){return '<div><dt>'+esc(c[0])+'</dt><dd>'+esc(c[1])+'</dd></div>'}).join('')+'</dl>':'')
+        +(X.story.link?'<a class="pp-story-link" href="'+esc(X.story.link)+'">Read the full commission &rarr;</a>':'')+'</div>'
+        +(X.story.photos?'<div class="pp-story-media">'+X.story.photos.map(function(ph){return '<img src="'+esc(ph.src)+'" alt="'+esc(ph.alt||'')+'" loading="lazy" decoding="async">'}).join('')+'</div>':'')+'</section>':'')
       +(others.length?'<section class="pp-more"><p class="drop-kicker">Also in '+esc(coll||'this drop')+'</p><div class="pp-more-grid">'+others.map(function(o){var oi=o.featuredImage;return '<a class="pp-more-card" href="/shop/print/?p='+esc(encodeURIComponent(o.handle))+'">'+(oi?'<img src="'+esc(img(oi.url,800))+'" alt="'+esc(oi.altText||o.title)+'" loading="lazy">':'')+'<span>'+esc(cleanTitle(o.title))+'</span></a>'}).join('')+'</div></section>':'');
     root.addEventListener('click',function(e){var b=e.target.closest('.pp-thumb');if(!b)return;var m=root.querySelector('[data-main]');m.removeAttribute('srcset');m.src=img(b.dataset.img,1600);[].forEach.call(root.querySelectorAll('.pp-thumb'),function(x){x.classList.toggle('is-on',x===b)})});
   }
