@@ -173,3 +173,12 @@ html.js-gliding,html.js-gliding.in-steps{scroll-snap-type:none!important;scroll-
 /* Manthey card: tighter on the car, never cropping it */
 .work .card-hit[data-name="Manthey GT3 RS"] .card-media img,.work .card-hit[data-name="Manthey GT3 RS"]:hover .card-media img,.work .card.is-pressed .card-hit[data-name="Manthey GT3 RS"] .card-media img{transform:scale(1.2);transform-origin:50% 68%}
 @media(max-width:700px){.work .card-hit[data-name="Manthey GT3 RS"] .card-media img,.work .card.is-pressed .card-hit[data-name="Manthey GT3 RS"] .card-media img{transform:scale(1.04)}}
+
+/* Live availability check on the drop button */
+.drop-add{display:inline-flex;align-items:center;gap:12px;transition:background .3s,color .3s,border-color .3s}
+.drop-add.is-checking{opacity:1!important;cursor:progress}
+.chk-spin{width:14px;height:14px;border-radius:50%;border:1.5px solid currentColor;border-right-color:transparent;animation:chkSpin .8s linear infinite;flex:none}
+@keyframes chkSpin{to{transform:rotate(360deg)}}
+.drop-add.is-ok{background:#3ddc84!important;border-color:#3ddc84!important;color:#0b0b0b!important}
+.drop-add.is-sold{background:transparent!important;color:var(--white)!important;border:1px solid var(--line)!important;opacity:.7!important}
+.drop-fine a{color:var(--white);border-bottom:1px solid currentColor}

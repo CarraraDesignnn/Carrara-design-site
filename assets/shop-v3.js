@@ -83,7 +83,7 @@
     return '<article class="drop-feature'+(ok?'':' is-sold')+'"><div class="drop-media">'+(im?'<img src="'+esc(img(im.url,1400))+'" srcset="'+esc(img(im.url,800))+' 800w, '+esc(img(im.url,1400))+' 1400w, '+esc(img(im.url,2000))+' 2000w" sizes="(max-width: 900px) 100vw, 50vw" alt="'+esc(im.altText||p.title)+'" decoding="async">':'')+(ok?'':'<span class="drop-stamp">Sold out</span>')+'</div>'
       +'<div class="drop-info"><p class="drop-kicker"><span class="drop-dot'+(ok?' is-live':'')+'"></span>'+esc(dropLabel(num))+(ok?' · Live now':' · Sold out')+'</p><h2 class="drop-title">'+esc(p.title)+'</h2>'+(p.description?'<p class="drop-desc">'+esc(p.description)+'</p>':'')
       +'<p class="drop-edition">'+esc(editionLine(p))+'</p><p class="drop-price" data-price>'+money(v.price)+'</p>'
-      +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button><p class="drop-fine">Strictly limited. Never reprinted.</p>':'<p class="drop-fine">This edition is gone. Join the list to hear about the next drop first.</p>')+'</div></article>';
+      +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Check availability</button><p class="drop-fine">Strictly limited. Never reprinted.</p>':'<p class="drop-fine">This edition is gone. Join the list to hear about the next drop first.</p>')+'</div></article>';
   }
   function archiveCard(p){var im=p.featuredImage;return '<li class="arch-item'+(p.availableForSale?'':' is-sold')+'"><div class="arch-media">'+(im?'<img src="'+esc(img(im.url,700))+'" alt="'+esc(im.altText||p.title)+'" loading="lazy" decoding="async">':'')+'</div><p class="arch-kicker">'+esc(dropLabel(p.drop))+'</p><h3 class="arch-title">'+esc(p.title)+'</h3><p class="arch-status">'+esc(p.edition?'Edition of '+p.edition+' · ':'')+(p.availableForSale?'Last few available':'Sold out')+'</p></li>'}
   function renderShop(root,d){
@@ -94,10 +94,22 @@
     if(arch){var a=d.archive.concat(d.live?[]:[]);arch.closest('.drop-archive').hidden=!a.length;arch.innerHTML=a.map(archiveCard).join('')}
     startCountdowns(root);
   }
+  function liveCheck(id){
+    return gql('query($id:ID!){node(id:$id){...on ProductVariant{availableForSale quantityAvailable}}}',{id:id})
+      .catch(function(){return gql('query($id:ID!){node(id:$id){...on ProductVariant{availableForSale}}}',{id:id})})
+      .then(function(d){return d.node||{availableForSale:false}})}
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  function markSold(box){var f=box.closest('.drop-feature');if(!f)return;f.classList.add('is-sold');var m=f.querySelector('.drop-media');if(m&&!m.querySelector('.drop-stamp'))m.insertAdjacentHTML('beforeend','<span class="drop-stamp">Sold out</span>');var k=f.querySelector('.drop-kicker');if(k)k.innerHTML=k.innerHTML.replace('Live now','Sold out').replace(' is-live','');var dot=f.querySelector('.drop-dot');if(dot)dot.classList.remove('is-live');var fine=f.querySelector('.drop-fine');if(fine)fine.innerHTML='This edition is gone. <a href="#notify">Join the list</a> to hear about the next drop first.'}
   function bindAdd(root){
     root.addEventListener('change',function(e){var s=e.target.closest('[data-variant]');if(!s)return;var box=s.closest('.drop-info'),o=s.options[s.selectedIndex];box.querySelector('[data-add]').dataset.add=s.value;box.querySelector('[data-price]').textContent=o.dataset.price});
-    root.addEventListener('click',function(e){var b=e.target.closest('[data-add]');if(!b||b.disabled)return;var t=b.textContent;b.disabled=true;b.textContent='Adding…';
-      add(b.dataset.add).then(function(){b.textContent='Added';open();setTimeout(function(){b.textContent=t;b.disabled=false},1200)}).catch(function(){b.textContent='Sold out or unavailable';setTimeout(function(){b.textContent=t;b.disabled=false},2000)})});
+    root.addEventListener('click',function(e){var b=e.target.closest('[data-add]');if(!b||b.disabled)return;var box=b.closest('.drop-info'),label=b.textContent,ed=box.querySelector('.drop-edition');
+      b.disabled=true;b.classList.add('is-checking');b.innerHTML='<span class="chk-spin" aria-hidden="true"></span>Checking availability…';
+      Promise.all([liveCheck(b.dataset.add),wait(700)]).then(function(r){var v=r[0];
+        if(!v.availableForSale){b.classList.remove('is-checking');b.classList.add('is-sold');b.textContent='Sold out';markSold(box);return}
+        if(typeof v.quantityAvailable==='number'&&ed){var m=/of (\d+)/.exec(ed.textContent);ed.textContent=v.quantityAvailable+(m?' of '+m[1]:'')+' left'}
+        return add(b.dataset.add).then(function(){b.classList.remove('is-checking');b.classList.add('is-ok');b.textContent='Available · Added to cart';open();
+          setTimeout(function(){b.classList.remove('is-ok');b.textContent=label;b.disabled=false},2600)});
+      }).catch(function(){b.classList.remove('is-checking');b.textContent='Couldn’t check. Try again';b.disabled=false;setTimeout(function(){if(!b.disabled)b.textContent=label},2500)})});
   }
 
   /* ---- home teaser ---- */
