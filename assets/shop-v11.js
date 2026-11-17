@@ -17,13 +17,14 @@
   function tagNum(p,prefix){for(var i=0;i<p.tags.length;i++){var m=new RegExp('^'+prefix+'-?(\\d+)$','i').exec(p.tags[i]);if(m)return +m[1]}return null}
   function nextDrop(){if(NEXT_DROP)return new Date(NEXT_DROP);var n=new Date(),y=n.getUTCFullYear(),m=n.getUTCMonth()+1;if(m>11){m=0;y++}var dst=m>=3&&m<=9;return new Date(Date.UTC(y,m,1,dst?16:17,0,0))}
   function left(p){var q=0,known=false;p.variants.nodes.forEach(function(v){if(typeof v.quantityAvailable==='number'){known=true;q+=Math.max(0,v.quantityAvailable)}});return known?q:null}
+  var DEFAULT_EDITION=25,DEFAULT_DROP=1; /* used only when a product has no edition-NN / drop-NN tag */
   function organise(ps){
-    ps.forEach(function(p){p.drop=tagNum(p,'drop');p.edition=tagNum(p,'edition')});
+    ps.forEach(function(p){p.drop=tagNum(p,'drop');p.edition=tagNum(p,'edition');if(p.edition==null)p.edition=DEFAULT_EDITION});
     var max=ps.reduce(function(a,p){return p.drop!=null&&p.drop>a?p.drop:a},-1);
     var current=max<0?ps.slice():ps.filter(function(p){return p.drop===max});
     var archive=max<0?[]:ps.filter(function(p){return p.drop!==max});
     archive.sort(function(a,b){return (b.drop||0)-(a.drop||0)});
-    return {number:max<0?null:max,current:current,live:current.some(function(p){return p.availableForSale}),archive:archive};
+    return {number:max<0?DEFAULT_DROP:max,current:current,live:current.some(function(p){return p.availableForSale}),archive:archive};
   }
   function dropLabel(n){return n==null?'Current drop':'Drop '+pad(n)}
   function editionLine(p){var l=left(p),e=p.edition;if(!p.availableForSale)return e?'Edition of '+e+' · Sold out':'Sold out';if(l!=null&&e)return l+' of '+e+' left';if(l!=null)return l+' left';return e?'Edition of '+e:'Limited edition'}
@@ -86,10 +87,21 @@
       +'<p class="drop-meta"><span class="drop-price" data-price>'+money(v.price)+'</span><span class="drop-edition">'+esc(editionLine(p))+'</span></p>'
       +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button><p class="drop-fine">Strictly limited. Never reprinted.</p>':'<p class="drop-fine">This edition is gone. Join the list to hear about the next drop first.</p>')+'</div></article>';
   }
+  function joinTitles(ts){if(ts.length<2)return ts.join('');var w=ts.map(function(t){return t.split(' ')}),k=0;while(w.every(function(x){return x.length>k+1&&x[k]===w[0][k]}))k++;return ts.map(function(t,i){return (i&&k?w[i].slice(k).join(' '):t).replace(/(GT\d) (RS)/g,'$1\u00a0$2')}).join(' & ')}
+  function card(p){
+    var im=p.featuredImage,v=firstVariant(p),ok=p.availableForSale;
+    return '<article class="drop-feature drop-card'+(ok?'':' is-sold')+'"><div class="drop-media">'+(im?'<img src="'+esc(img(im.url,1000))+'" srcset="'+esc(img(im.url,700))+' 700w, '+esc(img(im.url,1000))+' 1000w, '+esc(img(im.url,1500))+' 1500w" sizes="(max-width: 900px) 100vw, 40vw" alt="'+esc(im.altText||p.title)+'" decoding="async">':'')+(ok?'':'<span class="drop-stamp">Sold out</span>')+'</div>'
+      +'<div class="drop-info"><h3 class="drop-title">'+esc(cleanTitle(p.title))+'</h3>'
+      +'<p class="drop-meta"><span class="drop-price" data-price>'+money(v.price)+'</span><span class="drop-edition">'+esc(editionLine(p))+'</span></p>'
+      +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone.</p>')+'</div></article>';
+  }
+  function pairHead(d){var e=d.current[0].edition,same=d.current.every(function(p){return p.edition===e});
+    return '<header class="drop-pair-head"><p class="drop-kicker">'+(d.live?'<span class="drop-dot is-live"></span>':'')+esc(dropLabel(d.number))+' · '+esc(new Date().toLocaleString('en-US',{month:'long'}))+(d.live?' · Live now':' · Sold out')+'</p><h2 class="drop-pair-title">'+esc(joinTitles(d.current.map(function(p){return cleanTitle(p.title)})))+'</h2><p class="drop-pair-sub">'+(d.current.length===2?'Two':d.current.length)+' framed prints'+(same&&e?', '+e+' of each':'')+'. Strictly limited, never reprinted.</p></header>'}
   function archiveCard(p){p=Object.assign({},p,{title:cleanTitle(p.title)});var im=p.featuredImage;return '<li class="arch-item'+(p.availableForSale?'':' is-sold')+'"><div class="arch-media">'+(im?'<img src="'+esc(img(im.url,700))+'" alt="'+esc(im.altText||p.title)+'" loading="lazy" decoding="async">':'')+'</div><p class="arch-kicker">'+esc(dropLabel(p.drop))+'</p><h3 class="arch-title">'+esc(p.title)+'</h3><p class="arch-status">'+esc(p.edition?'Edition of '+p.edition+' · ':'')+(p.availableForSale?'Last few available':'Sold out')+'</p></li>'}
   function renderShop(root,d){
     var feat=root.querySelector('[data-drop-current]'),arch=root.querySelector('[data-drop-archive]'),next=root.querySelector('[data-drop-next]');
     if(!d.current.length){feat.innerHTML='<div class="drop-empty"><p class="drop-kicker">'+esc(dropLabel(d.number))+'</p><h2 class="drop-title">The first drop is coming.</h2></div>'}
+    else if(d.current.length>1){feat.classList.add('is-pair');feat.innerHTML=pairHead(d)+'<div class="drop-pair">'+d.current.map(card).join('')+'</div>'}
     else feat.innerHTML=d.current.map(function(p){return featured(p,d.number)}).join('');
     next.querySelector('[data-next-head]').textContent=d.live?'Next drop':'Next drop — '+dateLabel();
     if(arch){var a=d.archive.concat(d.live?[]:[]);arch.closest('.drop-archive').hidden=!a.length;arch.innerHTML=a.map(archiveCard).join('')}
@@ -119,12 +131,14 @@
     var kick=q('kicker'),title=q('title'),sub=q('sub'),lft=q('left'),btn=q('cta');
     var month=new Date().toLocaleString('en-US',{month:'long'});
     var clean=cleanTitle;
-    if(p&&p.featuredImage&&media){media.innerHTML='<img src="'+esc(img(p.featuredImage.url,1200))+'" alt="'+esc(p.featuredImage.altText||p.title)+'" decoding="async">'+(d.live?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':'<span class="drop-stamp">Sold out</span>')}
+    var multi=d.current.length>1;
+    if(multi&&media){media.classList.add('is-pair');media.innerHTML=d.current.slice(0,2).map(function(x){return x.featuredImage?'<img src="'+esc(img(x.featuredImage.url,900))+'" alt="'+esc(x.featuredImage.altText||x.title)+'" decoding="async">':''}).join('')+(d.live?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':'<span class="drop-stamp">Sold out</span>')}
+    else if(p&&p.featuredImage&&media){media.innerHTML='<img src="'+esc(img(p.featuredImage.url,1200))+'" alt="'+esc(p.featuredImage.altText||p.title)+'" decoding="async">'+(d.live?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':'<span class="drop-stamp">Sold out</span>')}
     if(d.live&&p){
       if(kick)kick.textContent=dropLabel(d.number)+' · '+month;
-      if(title)title.textContent=clean(p.title);
-      if(sub)sub.textContent='Framed print. Strictly limited, never reprinted.';
-      if(lft)lft.textContent=editionLine(p);
+      if(title)title.textContent=multi?joinTitles(d.current.map(function(x){return clean(x.title)})):clean(p.title);
+      if(sub)sub.textContent=multi?(d.current.length===2?'Two':d.current.length)+' framed prints. Strictly limited, never reprinted.':'Framed print. Strictly limited, never reprinted.';
+      if(lft)lft.textContent=multi?(function(){var e=d.current[0].edition,same=d.current.every(function(x){return x.edition===e});return same&&e?e+' of each':'Limited editions'})():editionLine(p);
       slot.innerHTML='';slot.classList.add('is-empty');
     }else{
       if(kick)kick.textContent=p?dropLabel(d.number)+' · Sold out':'Monthly drop';
