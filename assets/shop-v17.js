@@ -29,7 +29,7 @@
   function dropLabel(n){return n==null?'Current drop':'Drop '+pad(n)}
   function editionLine(p){var l=left(p),e=p.edition;if(!p.availableForSale)return e?'Edition of '+e+' · Sold out':'Sold out';if(l!=null&&e)return l+' of '+e+' left';if(l!=null)return l+' left';return e?'Edition of '+e:'Limited edition'}
 
-  var Q_PRODUCTS='products(first:100,sortKey:CREATED_AT,reverse:true){nodes{id title description tags availableForSale featuredImage{url altText} images(first:4){nodes{url altText}} priceRange{minVariantPrice{amount currencyCode}} variants(first:30){nodes{id title availableForSale %Q% price{amount currencyCode}}}}}';
+  var Q_PRODUCTS='products(first:100,sortKey:CREATED_AT,reverse:true){nodes{id handle title description descriptionHtml tags availableForSale featuredImage{url altText} images(first:12){nodes{url altText}} priceRange{minVariantPrice{amount currencyCode}} variants(first:30){nodes{id title availableForSale %Q% price{amount currencyCode}}}}}';
   function loadProducts(){return gql('{'+Q_PRODUCTS.replace('%Q%','quantityAvailable')+'}').catch(function(){return gql('{'+Q_PRODUCTS.replace('%Q%','')+'}')}).then(function(d){return organise(d.products.nodes)})}
 
   /* ---- countdown ---- */
@@ -91,8 +91,9 @@
   function collectionName(ts){var w=ts.map(function(t){return t.split(' ')}),k=0;while(w.every(function(x){return x.length>k+1&&x[k]===w[0][k]}))k++;return k?w[0].slice(0,k).join(' ')+' Collection':joinTitles(ts)}
   function card(p){
     var im=p.featuredImage,v=firstVariant(p),ok=p.availableForSale;
-    return '<article class="drop-feature drop-card'+(ok?'':' is-sold')+'"><div class="drop-media">'+(im?'<img src="'+esc(img(im.url,1000))+'" srcset="'+esc(img(im.url,700))+' 700w, '+esc(img(im.url,1000))+' 1000w, '+esc(img(im.url,1500))+' 1500w" sizes="(max-width: 900px) 100vw, 40vw" alt="'+esc(im.altText||p.title)+'" decoding="async">':'')+(ok?'':'<span class="drop-stamp">Sold out</span>')+'</div>'
-      +'<div class="drop-info"><h3 class="drop-title">'+esc(cleanTitle(p.title))+'</h3>'
+    var href='/shop/print/?p='+encodeURIComponent(p.handle);
+    return '<article class="drop-feature drop-card'+(ok?'':' is-sold')+'"><a class="drop-media drop-link" href="'+esc(href)+'" aria-label="View '+esc(cleanTitle(p.title))+'">'+(im?'<img src="'+esc(img(im.url,1000))+'" srcset="'+esc(img(im.url,700))+' 700w, '+esc(img(im.url,1000))+' 1000w, '+esc(img(im.url,1500))+' 1500w" sizes="(max-width: 900px) 100vw, 40vw" alt="'+esc(im.altText||p.title)+'" decoding="async">':'')+(ok?'':'<span class="drop-stamp">Sold out</span>')+'<span class="drop-view">View details</span></a>'
+      +'<div class="drop-info"><h3 class="drop-title"><a href="'+esc(href)+'">'+esc(cleanTitle(p.title))+'</a></h3>'
       +'<p class="drop-meta"><span class="drop-price" data-price>'+money(v.price)+'</span><span class="drop-edition">'+esc(editionLine(p))+'</span></p>'
       +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone.</p>')+'</div></article>';
   }
@@ -126,6 +127,29 @@
       }).catch(function(){b.classList.remove('is-checking');b.textContent='Something went wrong. Try again';b.disabled=false;setTimeout(function(){if(!b.disabled)b.textContent=label},2500)})});
   }
 
+
+  /* ---- product page (/shop/print/?p=handle) ---- */
+  function renderProduct(root,d){
+    var h=new URLSearchParams(location.search).get('p')||'',all=d.current.concat(d.archive),p=all.filter(function(x){return x.handle===h})[0];
+    if(!p){root.innerHTML='<div class="pp-missing"><p class="drop-kicker">Not found</p><h1 class="pp-title">This print isn’t available.</h1><a class="btn btn-light" href="/shop/">Back to the shop</a></div>';return}
+    var inCur=d.current.indexOf(p)>-1,group=inCur?d.current:all.filter(function(x){return x.drop===p.drop}),coll=group.length>1?collectionName(group.map(function(x){return cleanTitle(x.title)})):'';
+    var t=cleanTitle(p.title),v=firstVariant(p),ok=p.availableForSale,ims=(p.images&&p.images.nodes.length?p.images.nodes:(p.featuredImage?[p.featuredImage]:[]));
+    document.title=t+' — Carrara Design';
+    var desc=p.descriptionHtml&&!/^\s*(<p>)?\s*framed print\.?\s*(<\/p>)?\s*$/i.test(p.descriptionHtml)?p.descriptionHtml:'';
+    var others=group.filter(function(x){return x!==p});
+    root.innerHTML='<a class="pp-back" href="/shop/">&larr; '+esc(coll||'Back to the shop')+'</a>'
+      +'<article class="pp drop-feature'+(ok?'':' is-sold')+'">'
+      +'<div class="pp-gallery"><div class="pp-main drop-media">'+(ims[0]?'<img data-main src="'+esc(img(ims[0].url,1600))+'" srcset="'+esc(img(ims[0].url,900))+' 900w, '+esc(img(ims[0].url,1600))+' 1600w, '+esc(img(ims[0].url,2400))+' 2400w" sizes="(max-width: 900px) 100vw, 55vw" alt="'+esc(ims[0].altText||t)+'" decoding="async">':'')+(ok?(inCur?'<span class="drop-chip"><span class="drop-dot is-live"></span>Live now</span>':''):'<span class="drop-stamp">Sold out</span>')+'</div>'
+      +(ims.length>1?'<div class="pp-thumbs">'+ims.map(function(m,i){return '<button type="button" class="pp-thumb'+(i?'':' is-on')+'" data-img="'+esc(m.url)+'" aria-label="Image '+(i+1)+'"><img src="'+esc(img(m.url,240))+'" alt="" loading="lazy"></button>'}).join('')+'</div>':'')+'</div>'
+      +'<div class="pp-info drop-info"><p class="drop-kicker">'+esc(dropLabel(p.drop!=null?p.drop:d.number))+(coll?' · '+esc(coll):'')+'</p><h1 class="pp-title">'+esc(t)+'</h1><p class="drop-sub">Framed print</p>'
+      +'<p class="drop-meta"><span class="drop-price" data-price>'+money(v.price)+'</span><span class="drop-edition">'+esc(editionLine(p))+'</span></p>'
+      +(ok?variantSelect(p)+'<button type="button" class="btn btn-light drop-add" data-add="'+esc(v.id)+'">Add to cart</button>':'<p class="drop-fine">This edition is gone. <a href="/shop/#notify">Join the list</a> to hear about the next drop first.</p>')
+      +(desc?'<div class="pp-desc">'+desc+'</div>':'')
+      +'<dl class="pp-specs"><div><dt>Edition</dt><dd>'+(p.edition?'Limited to '+p.edition:'Limited')+', never reprinted</dd></div><div><dt>Format</dt><dd>Framed print</dd></div>'+(coll?'<div><dt>Collection</dt><dd>'+esc(coll)+'</dd></div>':'')+'<div><dt>Shipping</dt><dd>Calculated at checkout</dd></div></dl>'
+      +'</div></article>'
+      +(others.length?'<section class="pp-more"><p class="drop-kicker">Also in '+esc(coll||'this drop')+'</p><div class="pp-more-grid">'+others.map(function(o){var oi=o.featuredImage;return '<a class="pp-more-card" href="/shop/print/?p='+esc(encodeURIComponent(o.handle))+'">'+(oi?'<img src="'+esc(img(oi.url,800))+'" alt="'+esc(oi.altText||o.title)+'" loading="lazy">':'')+'<span>'+esc(cleanTitle(o.title))+'</span></a>'}).join('')+'</div></section>':'');
+    root.addEventListener('click',function(e){var b=e.target.closest('.pp-thumb');if(!b)return;var m=root.querySelector('[data-main]');m.removeAttribute('srcset');m.src=img(b.dataset.img,1600);[].forEach.call(root.querySelectorAll('.pp-thumb'),function(x){x.classList.toggle('is-on',x===b)})});
+  }
   /* ---- home teaser ---- */
   function renderHome(slot,media,d){
     var p=d.current[0],copy=slot.parentNode,q=function(a){return copy.querySelector('[data-drop-'+a+']')};
@@ -162,8 +186,9 @@
   }
 
   /* ---- init ---- */
-  var shopRoot=document.querySelector('[data-drop-shop]'),homeSlot=document.querySelector('[data-drop-home]'),cartBtn=document.querySelector('[data-cart-open]');
-  if(shopRoot||loadId()){buildDrawer();buildFab()}
+  var prodRoot=document.querySelector('[data-drop-product]'),shopRoot=document.querySelector('[data-drop-shop]'),homeSlot=document.querySelector('[data-drop-home]'),cartBtn=document.querySelector('[data-cart-open]');
+  if(shopRoot||prodRoot||loadId()){buildDrawer();buildFab()}
+  if(prodRoot){bindAdd(prodRoot);loadProducts().then(function(d){renderProduct(prodRoot,d)}).catch(function(){prodRoot.innerHTML='<p class="shop-msg">The shop is temporarily unavailable. Please <a href="/#inquire">send us an inquiry</a> to order.</p>'})}
   if(shopRoot){var nx=shopRoot.querySelector('[data-drop-next]');nx.querySelector('[data-cd-slot]').innerHTML=countdownHTML();nx.querySelector('[data-wl-slot]').innerHTML=waitlistHTML();bindWaitlist(shopRoot);bindAdd(shopRoot);startCountdowns(shopRoot)}
   if(shopRoot||homeSlot)loadProducts().then(function(d){if(shopRoot)renderShop(shopRoot,d);if(homeSlot)renderHome(homeSlot,document.querySelector('[data-drop-media]'),d)}).catch(function(){if(shopRoot)shopRoot.querySelector('[data-drop-current]').innerHTML='<p class="shop-msg">The shop is temporarily unavailable. Please <a href="/#inquire">send us an inquiry</a> to order.</p>';if(homeSlot)homeSlot.innerHTML=''});
   if(drawer)fetchCart();
