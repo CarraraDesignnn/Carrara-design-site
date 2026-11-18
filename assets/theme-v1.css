@@ -1,0 +1,9 @@
+/* Header theme icon + crossfade */
+.theme-ico{position:fixed;z-index:51;display:grid;place-items:center;width:30px;height:30px;padding:0;margin:0;border:0;background:none;color:#fff;opacity:.55;cursor:pointer;transition:opacity .3s;-webkit-tap-highlight-color:transparent}
+.theme-ico:hover,.theme-ico:focus-visible{opacity:1;outline:none}
+html.theme-light .theme-ico{color:#101010;opacity:.5}
+html.theme-light .theme-ico:hover{opacity:1}
+body.cart-open .theme-ico{opacity:0;pointer-events:none}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.5s;animation-timing-function:ease}
+html.theme-fading *{transition:none!important}
+.theme-toggle{display:none!important}
