@@ -1,6 +1,6 @@
 /* Home cover slideshow */
 .hs{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hs-slide{position:absolute;inset:0;opacity:0;background:#000;transition:opacity 1s ease;overflow:hidden}
+.hs-slide{position:absolute;inset:0;opacity:0;background:#000;transition:opacity .5s ease;overflow:hidden}
 .hs-slide.is-on{opacity:1}
 .hs-base{background:none}
 .hs-studio{background:linear-gradient(to bottom,#a3a3a3 0%,#acacac 8%,#b7b7b7 18%,#c1c1c1 30%,#cbcbcb 42%,#d4d4d4 54%,#dbdbdb 66%,#e0e0e0 78%,#e3e3e3 90%,#e4e4e4 100%)}
@@ -14,7 +14,7 @@
 /* scrim behind the headline on dark slides */
 .hs-scrim{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
 .hero-v3[data-tone=dark] .hs-scrim{opacity:1}
-.hero-title{transition:opacity .28s ease}
+.hero-title{transition:opacity .18s ease}
 .hero-title.hs-out{opacity:0}
 /* caption + progress */
 .hs-ui{display:flex;flex-direction:column;gap:14px;margin-top:26px}
@@ -67,3 +67,17 @@
   .theme-light .hs-frame{box-shadow:0 24px 60px #0000002e}
   .theme-light .hs-scrim{opacity:0!important}
 }
+
+/* v2: two-option toggle instead of progress bars */
+.hs-cap{display:none}
+.hs-tabs{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:#00000014;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hero-v3[data-tone=dark] .hs-tabs{background:#ffffff1f}
+.hs-tabs .hs-seg{position:relative;width:auto;height:auto;padding:9px 16px;border-radius:999px;overflow:hidden;font:500 10.5px/1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:inherit;opacity:.6;transition:opacity .2s,background .2s}
+.hs-tabs .hs-seg:before{display:none}
+.hs-tabs .hs-seg.is-on{opacity:1;background:#ffffff26}
+.theme-light .hs-tabs .hs-seg.is-on{background:#ffffffd9}
+.hs-tabs .hs-seg i{top:auto;bottom:3px;left:16px;right:16px;height:1.5px;opacity:.7}
+.hs-tabs .hs-seg:not(.is-on) i{display:none}
+.hs-tabs .hs-seg.is-done i{transform:scaleX(0)}
+@media(max-width:700px){.hs-tabs .hs-seg{padding:10px 16px}}
+.theme-light .hs-tabs .hs-seg.is-on,.theme-light .hero-v3[data-tone=dark] .hs-tabs .hs-seg.is-on{color:#101010!important}

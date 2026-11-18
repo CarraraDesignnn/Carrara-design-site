@@ -1,17 +1,11 @@
 /* Home cover slideshow: render → reality pairs and reels, with a headline per slide. */
 (function(){
   var SLIDES=[
-    {type:'base',title:'From Render to Reality',tone:'light'},
-    {type:'reel',src:'/img/reel-serafino.mp4',poster:'/img/reel-serafino.jpg',blur:'/img/reel-serafino-blur.jpg',ratio:'9/16',title:'Designed Before It’s Built',cap:'Manthey GT3 RS · Render',href:'/work/manthey-gt3-rs/'},
-    {type:'photo',src:'/img/manthey-hero2.jpg',mobile:'/img/manthey-real-front.jpg',title:'Delivered Exactly as Rendered',cap:'Manthey GT3 RS · Reality',href:'/work/manthey-gt3-rs/',pos:'50% 55%'},
-    {type:'reel',src:'/img/reel-w1.mp4',poster:'/img/reel-w1.jpg',blur:'/img/reel-w1-blur.jpg',ratio:'9/16',title:'Your Hypercar, Specified',cap:'McLaren W1 · Render'},
-    {type:'studio',src:'/img/gt2rs-r-front34.jpg',title:'Every Detail, Decided',cap:'GT2 RS Weissach · Render',href:'/work/gt2-rs-weissach/',tone:'light'},
-    {type:'photo',src:'/img/gt2rs-real-show.jpg',mobile:'/img/gt2rs-real-building.jpg',title:'Then Delivered for Real',cap:'GT2 RS Weissach · Reality',href:'/work/gt2-rs-weissach/',pos:'50% 60%'},
-    {type:'reel',src:'/img/reel-f80.mp4',poster:'/img/reel-f80.jpg',blur:'/img/reel-f80-blur.jpg',ratio:'9/16',title:'Specified Without Compromise',cap:'Ferrari F80 · Render'},
-    {type:'reel',src:'/img/reel-911.mp4',poster:'/img/reel-911.jpg',blur:'/img/reel-911-blur.jpg',ratio:'4/5',title:'Every Surface, Considered',cap:'Porsche 911 · Render'},
-    {type:'reel',src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:'Inside the Studio',cap:'Behind the Scenes'}
+    {type:'reel',src:'/img/reel-serafino.mp4',poster:'/img/reel-serafino.jpg',blur:'/img/reel-serafino-blur.jpg',ratio:'9/16',title:'From Render to Reality',label:'The GT3 RS',href:'/work/manthey-gt3-rs/'},
+    {type:'reel',src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:'Inside the Studio',label:'The Studio'}
   ];
-  var IMG_MS=6500,REEL_MAX=15000,FALLBACK_MS=8000;
+
+  var IMG_MS=5000,REEL_MAX=7000,FALLBACK_MS=7000;
   var hero=document.querySelector('.hero-v3');if(!hero)return;
   var media=hero.querySelector('.hero-media'),shade=hero.querySelector('.hero-shade'),content=hero.querySelector('.hero-content'),title=hero.querySelector('.hero-title');
   if(!media||!content||!title)return;
@@ -35,7 +29,7 @@
     var scrim=document.createElement('div');scrim.className='hs-scrim';layer.appendChild(scrim);
 
     var ui=document.createElement('div');ui.className='hs-ui';
-    ui.innerHTML='<a class="hs-cap" href="#"></a><div class="hs-segs" role="tablist" aria-label="Cover slides">'+SLIDES.map(function(s,i){return '<button type="button" class="hs-seg" role="tab" aria-label="'+s.title+'"><i></i></button>'}).join('')+'</div>';
+    ui.innerHTML='<div class="hs-tabs" role="tablist" aria-label="Cover">'+SLIDES.map(function(x){return '<button type="button" class="hs-seg" role="tab">'+x.label+'<i></i></button>'}).join('')+'</div><a class="hs-cap" href="#"></a>';
     content.appendChild(ui);
     var cap=ui.querySelector('.hs-cap'),segs=[].slice.call(ui.querySelectorAll('.hs-seg'));
 
@@ -49,7 +43,7 @@
     function setTitle(t){
       if(title.textContent===t)return;
       title.classList.add('hs-out');
-      setTimeout(function(){title.textContent=t;title.classList.remove('hs-out')},280);
+      setTimeout(function(){title.textContent=t;title.classList.remove('hs-out')},180);
     }
     function schedule(ms){clearTimeout(timer);dur=ms;started=Date.now();remaining=ms;if(!reduce&&visible)timer=setTimeout(next,ms);
       var seg=segs[cur].querySelector('i');seg.style.animation='none';void seg.offsetWidth;seg.style.animation='hsfill '+ms+'ms linear forwards';seg.style.animationPlayState=(visible&&!reduce)?'running':'paused'}
