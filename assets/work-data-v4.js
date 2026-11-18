@@ -287,15 +287,27 @@ window.ARCHIVE=[
   "title": "Efrin Castro’s GT3 Cup",
   "caption": "Efrin’s Porsche 911 (992) GT3 Cup · Three seasons, three liveries",
   "type": "Livery Design",
-  "label": "Livery Design · 2022–2024",
+  "label": "Livery Design · 2021–2023",
   "make": "Porsche",
   "img": "/img/archive/castro-23-card.jpg",
   "photos": [],
   "source": "https://carrara.design/castro-23",
   "story": [
-   "Three seasons racing the same Porsche 911 (992) GT3 Cup, each with a new identity. Here they are side by side."
+   "Three seasons racing the same Porsche 911 (992) GT3 Cup, each with a new identity. The 2021 and 2023 cars both won championships. Here they are side by side."
   ],
   "seasons": [
+   {
+    "year": "2021",
+    "name": "Navy and neon yellow · Championship winner",
+    "photos": [
+     "/img/archive/efrin-castros-porsche-livery-design-6.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-1.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-2.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-3.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-4.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-5.jpg"
+    ]
+   },
    {
     "year": "2022",
     "name": "Pink and black",
@@ -310,7 +322,7 @@ window.ARCHIVE=[
    },
    {
     "year": "2023",
-    "name": "Red, white and blue",
+    "name": "Red, white and blue · Championship winner",
     "photos": [
      "/img/archive/castro-23-1.jpg",
      "/img/archive/castro-23-2.jpg",
@@ -318,18 +330,6 @@ window.ARCHIVE=[
      "/img/archive/castro-23-4.jpg",
      "/img/archive/castro-23-5.jpg",
      "/img/archive/castro-23-6.jpg"
-    ]
-   },
-   {
-    "year": "2024",
-    "name": "Navy and neon yellow",
-    "photos": [
-     "/img/archive/efrin-castros-porsche-livery-design-6.jpg",
-     "/img/archive/efrin-castros-porsche-livery-design-1.jpg",
-     "/img/archive/efrin-castros-porsche-livery-design-2.jpg",
-     "/img/archive/efrin-castros-porsche-livery-design-3.jpg",
-     "/img/archive/efrin-castros-porsche-livery-design-4.jpg",
-     "/img/archive/efrin-castros-porsche-livery-design-5.jpg"
     ]
    }
   ]
@@ -443,22 +443,44 @@ window.ARCHIVE=[
   "source": "https://carrara.design/993-livery-design"
  },
  {
-  "slug": "audi-rs3-lms-livery-designs",
-  "title": "Audi RS3 LMS Liveries",
-  "caption": "Precision Racing LA’s Audi RS3 LMS X2",
+  "slug": "precision-racing-la",
+  "title": "Precision Racing LA",
+  "caption": "Team identity design across the Audi RS3 LMS and Acura Integra Type S TCX",
   "type": "Livery Design",
-  "label": "Livery Design & Team Identity",
-  "make": "Audi",
+  "label": "Team Identity Design",
+  "make": "Audi · Acura",
   "img": "/img/archive/audi-rs3-lms-livery-designs-card.jpg",
-  "photos": [
-   "/img/archive/audi-rs3-lms-livery-designs-1.jpg",
-   "/img/archive/audi-rs3-lms-livery-designs-2.jpg",
-   "/img/archive/audi-rs3-lms-livery-designs-3.jpg",
-   "/img/archive/audi-rs3-lms-livery-designs-4.jpg",
-   "/img/archive/audi-rs3-lms-livery-designs-5.jpg",
-   "/img/archive/audi-rs3-lms-livery-designs-6.jpg"
+  "photos": [],
+  "source": "https://carrara.design/audi-rs3-lms-livery-designs",
+  "story": [
+   "One team identity, carried across two cars for Precision Racing LA."
   ],
-  "source": "https://carrara.design/audi-rs3-lms-livery-designs"
+  "seasons": [
+   {
+    "year": "Audi RS3 LMS",
+    "name": "",
+    "photos": [
+     "/img/archive/audi-rs3-lms-livery-designs-2.jpg",
+     "/img/archive/audi-rs3-lms-livery-designs-1.jpg",
+     "/img/archive/audi-rs3-lms-livery-designs-3.jpg",
+     "/img/archive/audi-rs3-lms-livery-designs-4.jpg",
+     "/img/archive/audi-rs3-lms-livery-designs-5.jpg",
+     "/img/archive/audi-rs3-lms-livery-designs-6.jpg"
+    ]
+   },
+   {
+    "year": "Acura Integra Type S TCX",
+    "name": "",
+    "photos": [
+     "/img/archive/sro-livery-design-4.jpg",
+     "/img/archive/sro-livery-design-1.jpg",
+     "/img/archive/sro-livery-design-2.jpg",
+     "/img/archive/sro-livery-design-3.jpg",
+     "/img/archive/sro-livery-design-5.jpg",
+     "/img/archive/sro-livery-design-6.jpg"
+    ]
+   }
+  ]
  },
  {
   "slug": "cayenne-dakar",
@@ -513,24 +535,6 @@ window.ARCHIVE=[
    "/img/archive/996-gt3-livery-design-6.jpg"
   ],
   "source": "https://carrara.design/996-gt3-livery-design"
- },
- {
-  "slug": "sro-livery-design",
-  "title": "SRO Livery Design",
-  "caption": "Precision Honda’s Acura Integra Type S TCX X2",
-  "type": "Livery Design",
-  "label": "Livery Design & Team Identity",
-  "make": "Acura",
-  "img": "/img/archive/sro-livery-design-card.jpg",
-  "photos": [
-   "/img/archive/sro-livery-design-1.jpg",
-   "/img/archive/sro-livery-design-2.jpg",
-   "/img/archive/sro-livery-design-3.jpg",
-   "/img/archive/sro-livery-design-4.jpg",
-   "/img/archive/sro-livery-design-5.jpg",
-   "/img/archive/sro-livery-design-6.jpg"
-  ],
-  "source": "https://carrara.design/sro-livery-design"
  },
  {
   "slug": "gt4-clubsport-livery-design",

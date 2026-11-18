@@ -17,6 +17,7 @@
 @media(max-width:700px){.arc-page{padding-top:92px}.arc-grid{grid-template-columns:1fr 1fr;gap:8px}.arc-f.is-lead{aspect-ratio:4/3}}
 
 .arc-cmp{max-width:1240px;margin:0 auto 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.arc-cmp-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .arc-cmp-f{margin:0}
 .arc-cmp-f img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius,14px)}
 .arc-cmp-f figcaption{margin-top:10px;font-size:13px;color:var(--muted)}
