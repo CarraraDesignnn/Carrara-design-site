@@ -4,7 +4,7 @@
   var P=window.PROJECT,root=document.getElementById('art');if(!P||!root)return;
   var ALL=[
     {slug:'carrera-gt',title:'Carrera GT',type:'Recommission',img:'https://lh3.googleusercontent.com/d/1DYEPebzTFXNFtJFGMkUjbvGwKPdH26LK=w2000'},
-    {slug:'gt2-rs-weissach',title:'GT2 RS Weissach',type:'Specification',img:'/img/work-gt2rs-1400.jpg'},
+    {slug:'urban-bamboo-gt2-rs',title:'Urban Bamboo GT2 RS',type:'Specification',img:'/img/work-gt2rs-1400.jpg'},
     {slug:'manthey-gt3-rs',title:'Manthey GT3 RS',type:'Specification',img:'/img/work-manthey-gt3rs-1400.jpg'},
     {slug:'huayra-bc',title:'Huayra BC',type:'Specification',img:'/img/work-huayra-bc-1400.jpg'}
   ];
@@ -13,7 +13,7 @@
   var me=ALL.filter(function(p){return p.slug===P.slug})[0]||{},next=ALL[(ALL.indexOf(me)+1)%ALL.length];
   var hero=P.hero||me.img,title=P.title||me.title,kicker=P.kicker||me.type;
 
-  var meta=(P.meta||[]).map(function(m){return '<div><dt>'+esc(m[0])+'</dt><dd>'+esc(m[1]||'—')+'</dd></div>'}).join('');
+  var meta=(P.meta||[]).map(function(m){return '<div><dt>'+esc(m[0])+'</dt><dd>'+(m[2]?'<a href="'+esc(m[2])+'" target="_blank" rel="noopener">'+esc(m[1]||'—')+'</a>':esc(m[1]||'—'))+'</dd></div>'}).join('');
   var story=(P.story||[]).map(function(t){return '<p class="art-p art-r">'+esc(t)+'</p>'}).join('');
   var photos=P.flow?[]:(P.photos||[]).slice(0,12);if(!P.flow)while(photos.length<(P.slots||10))photos.push({});
   var lbList=[];
@@ -34,6 +34,8 @@
       case 'split':return '<section class="art-b art-split art-r'+(b.flip?' is-flip':'')+'"><div class="art-split-c">'+head(b)+'<div class="art-ch-b">'+paras(b)+'</div></div>'+fig(b.photo,'art-split-f')+'</section>';
       case 'pair':return '<div class="art-b art-pair art-r">'+b.photos.map(function(p){return fig(p)}).join('')+'</div>';
       case 'trio':return '<div class="art-b art-trio art-r">'+b.photos.map(function(p){return fig(p)}).join('')+'</div>';
+      case 'compare':return '<section class="art-b art-cmp-wrap art-r">'+head(b)+(b.body?'<div class="art-ch-b art-cmp-copy">'+paras(b)+'</div>':'')+'<div class="art-cmp" style="--x:50%"><img src="'+esc(b.render)+'" alt="Render" loading="lazy" decoding="async"'+(b.pos?' style="object-position:'+esc(b.pos)+'"':'')+'><div class="art-cmp-top"><img src="'+esc(b.reality)+'" alt="Reality" loading="lazy" decoding="async"'+(b.pos2?' style="object-position:'+esc(b.pos2)+'"':'')+'></div><span class="art-cmp-l">Render</span><span class="art-cmp-r">Reality</span><span class="art-cmp-h" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Drag to compare render and reality"></div></section>';
+      case 'sheet':var g=P.sheet||{};return '<section class="art-b art-sheet art-r">'+head(b)+'<div class="art-sheet-g">'+Object.keys(g).map(function(k){var rows=g[k];return '<div class="art-sheet-col"><p class="art-sheet-k">'+esc(k)+'</p>'+(typeof rows[0]==='string'?'<ol class="art-wishes">'+rows.map(function(r,i){return '<li><span>'+(i<9?'0':'')+(i+1)+'</span>'+esc(r)+'</li>'}).join('')+'</ol>':'<dl>'+rows.map(function(r){return '<div><dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join('')+'</dl>')+'</div>'}).join('')+'</div></section>';
       case 'quote':return P.quote?'<figure class="art-b art-quote art-r"><blockquote>'+esc(P.quote[0])+'</blockquote>'+(P.quote[1]?'<figcaption>'+esc(P.quote[1])+'</figcaption>':'')+'</figure>':'';
       default:return '<div class="art-b art-one art-r is-'+(b.layout||'wide')+'">'+fig(b)+'</div>';
     }
@@ -42,16 +44,17 @@
   var specs=(P.specs||[]).map(function(s){return '<div><dt>'+esc(s[0])+'</dt><dd>'+esc(s[1]||'—')+'</dd></div>'}).join('');
 
   root.innerHTML=
-    '<section class="art-hero">'+(P.heroMobile?'<picture><source media="(max-width:700px)" srcset="'+esc(P.heroMobile)+'">':'')+'<img src="'+esc(hero)+'" alt="'+esc(title)+' by Carrara Design" fetchpriority="high"'+(P.heroPos?' style="object-position:'+esc(P.heroPos)+'"':'')+'>'
+    '<section class="art-hero'+(P.heroCopy==='top'?' copy-top':'')+'">'+(P.heroMobile?'<picture><source media="(max-width:700px)" srcset="'+esc(P.heroMobile)+'">':'')+'<img src="'+esc(hero)+'" alt="'+esc(title)+' by Carrara Design" fetchpriority="high"'+(P.heroPos?' style="object-position:'+esc(P.heroPos)+'"':'')+'>'
       +(P.heroMobile?'</picture>':'')+'<div class="art-hero-copy"><p class="art-kicker">'+esc(kicker)+(P.year?' · '+esc(P.year):'')+'</p><h1 class="art-title">'+esc(title)+'</h1></div><span class="art-cue">Scroll</span></section>'
     +(meta?'<dl class="art-meta">'+meta+'</dl>':'')
     +'<section class="art-story"><p class="art-lead art-r">'+esc(P.lead||'')+'</p>'+story+'</section>'
     +(P.flow?flowHTML:'<section class="art-gallery" aria-label="Photos">'+gallery+'</section>')
     +(specs?'<section class="art-spec art-r"><div><p class="eyebrow">The specification</p><h2 class="h3">Details</h2></div><dl>'+specs+'</dl></section>':'')
     +'<a class="art-next" href="/work/'+next.slug+'/"><img src="'+esc(next.img)+'" alt="" loading="lazy" decoding="async"><div class="art-next-copy"><p>Next commission · '+esc(next.type)+'</p><strong>'+esc(next.title)+'</strong></div></a>'
-    +'<section class="art-cta"><h2 class="h3">Have a car in mind? Let’s specify it together.</h2><a class="btn btn-light" href="/#pricing">Start a commission</a></section>';
+    +'<section class="art-cta"><h2 class="h3">Have a Car in Mind? Let’s Specify It Together.</h2><a class="btn btn-light" href="/#pricing">Start a commission</a></section>';
   document.title=title+' — Carrara Design';
 
+  [].forEach.call(root.querySelectorAll('.art-cmp'),function(c){var r=c.querySelector('input');function u(){c.style.setProperty('--x',r.value+'%')}r.addEventListener('input',u);u()});
   /* reveal on scroll */
   var els=[].slice.call(root.querySelectorAll('.art-r'));
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}

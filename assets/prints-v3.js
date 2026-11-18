@@ -21,20 +21,20 @@ window.PRINTS={
   },
   "serafino-gt2rs":{
     size:"24 × 35 in",
-    blurb:"A GT2 RS Weissach personalized through Porsche’s Sonderwunsch program. Soft green-grey paint over exposed Weissach carbon, bronze wheels and yellow ceramic calipers, captured in studio light and framed at 24 × 35 in.",
+    blurb:"A 2019 GT2 RS in Urban Bamboo Chromaflair, Porsche’s color-shifting effect paint, with White Gold Metallic accents and a bespoke Chalk and Agate Grey cabin. Captured in studio light and framed at 24 × 35 in.",
     story:{
-      title:"Specified Down to the Sills",
+      title:"A Color With Many Personalities",
       body:[
-        "Another commission for James Serafino: one of the most extreme 911s ever built, personalized inside and out through Porsche’s Sonderwunsch program.",
-        "Outside, a soft green-grey finish sits over the Weissach carbon, with the exposed weave of the hood and roof left to contrast the paint. Bronze wheels frame the yellow ceramic brakes, and a ‘GT2 RS’ script sits low on each door.",
-        "Inside, light grey leather meets black with houndstooth seat inserts. ‘Weissach RS’ is embroidered on the headrests, and illuminated ‘GT2 RS Sonderwunsch’ sill plates mark its place in Porsche’s personalization program."
+        "In 2018, James Serafino was offered the elusive Urban Bamboo Chromaflair and asked us to design the car around it. From a handful of iPhone photos, we recreated the color and nailed the exterior on the very first attempt.",
+        "Chromaflair shifts between green, gold and grey with the light, so every accent had to work in all of them. Rendering the full spectrum led us to carbon fiber and White Gold Metallic outside, and Chalk and Agate Grey leather with Pepita inserts inside.",
+        "Delivered in 2019, the car is now on display at the Porsche Experience Center Atlanta."
       ],
       photos:[
         {src:"/img/gt2rs-real-interior.jpg",alt:"The finished GT2 RS interior"},
         {src:"/img/gt2rs-real-sill.jpg",alt:"Illuminated GT2 RS Sonderwunsch sill plate"}
       ],
-      link:"/work/gt2-rs-weissach/"
+      link:"/work/urban-bamboo-gt2-rs/"
     },
-    car:[["Package","Weissach"],["Wheels","Bronze, yellow ceramic calipers"],["Interior","Light grey and black, houndstooth inserts"],["Program","Porsche Sonderwunsch"]]
+    car:[["Exterior","Urban Bamboo Chromaflair"],["Wheels","White Gold Metallic"],["Interior","Chalk and Agate Grey, Pepita inserts"],["Program","Paint to Sample · Sonderwunsch"]]
   }
 };
