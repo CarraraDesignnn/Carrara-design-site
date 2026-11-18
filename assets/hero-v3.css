@@ -81,3 +81,25 @@
 .hs-tabs .hs-seg.is-done i{transform:scaleX(0)}
 @media(max-width:700px){.hs-tabs .hs-seg{padding:10px 16px}}
 .theme-light .hs-tabs .hs-seg.is-on,.theme-light .hero-v3[data-tone=dark] .hs-tabs .hs-seg.is-on{color:#101010!important}
+
+/* v3: the page opens directly on the GT3 RS reel's first frame (no flash of the old cover) */
+.hero-v3 .hero-media{background:#000}
+.theme-light .hero-v3 .hero-media,html.theme-light .hero-v3 .hero-media{background:#f5f5f3}
+.hero-v3 .hero-img{content:url(/img/reel-serafino.jpg);-webkit-mask-image:none!important;mask-image:none!important;object-fit:cover;opacity:1!important;animation:none!important}
+.hero-v3 .hero-media:before{content:"";position:absolute;inset:-40px;background:url(/img/reel-serafino-blur.jpg) center/cover;filter:blur(30px) brightness(.55);transform:scale(1.1)}
+.theme-light .hero-v3 .hero-media:before{display:none}
+.hero-v3:not([data-tone]) .hero-title,.hero-v3:not([data-tone]) .hs-ui{color:#fff}
+.theme-light .hero-v3:not([data-tone]) .hero-title{color:var(--brand-grey,#9b9c9b)}
+@media(min-width:701px){
+  .hero-v3 .hero-img{position:absolute!important;top:50%!important;left:28vw!important;right:auto!important;bottom:auto!important;width:auto!important;height:min(78vh,820px)!important;aspect-ratio:9/16;transform:translate(-50%,-50%)!important;border-radius:16px;box-shadow:0 30px 80px #000000a6}
+  .theme-light .hero-v3 .hero-img{box-shadow:0 24px 60px #0000002e}
+}
+@media(max-width:700px){
+  .hero-v3 .hero-img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;transform:none!important;object-position:50% 50%}
+  .hero-v3 .hero-media:before{display:none}
+  .hero-v3 .hero-media:after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(to bottom,#0000 0%,#0000 30%,#00000059 48%,#000000b3 68%,#000000d9 86%)}
+  .theme-light .hero-v3:not([data-tone]) .hero-title{color:#fff}
+}
+/* reserve the toggle's space before it appears, so nothing shifts */
+.hero-v3:not(.hs-ready) .hero-content:after{content:"";display:block;height:63px}
+@media(max-width:700px){.hero-v3:not(.hs-ready) .hero-content:after{height:59px}}
