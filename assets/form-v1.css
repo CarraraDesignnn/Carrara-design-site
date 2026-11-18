@@ -1,0 +1,6 @@
+/* Contact form: service dropdown */
+.field-select select{padding:12px 24px 12px 0;font-size:16px;letter-spacing:0;text-transform:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.field-select select:invalid{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+html.theme-light .field-select select{border-bottom-color:#1010104d;color:#101010;background-image:linear-gradient(45deg,transparent 50%,#101010 50%),linear-gradient(135deg,#101010 50%,transparent 50%)}
+html.theme-light .field-select select:invalid{color:var(--muted)}
+html.theme-light .field select option{background:#fff;color:#101010}
