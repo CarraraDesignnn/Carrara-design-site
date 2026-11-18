@@ -283,22 +283,56 @@ window.ARCHIVE=[
   "source": "https://carrara.design/jaegermeister-935"
  },
  {
-  "slug": "castro-23",
-  "title": "Castro ’23",
-  "caption": "Efrin’s Porsche 911 (992) GT3 Cup",
+  "slug": "efrin-castro-gt3-cup",
+  "title": "Efrin Castro’s GT3 Cup",
+  "caption": "Efrin’s Porsche 911 (992) GT3 Cup · Three seasons, three liveries",
   "type": "Livery Design",
-  "label": "Livery & Suit Design",
+  "label": "Livery Design · 2022–2024",
   "make": "Porsche",
   "img": "/img/archive/castro-23-card.jpg",
-  "photos": [
-   "/img/archive/castro-23-1.jpg",
-   "/img/archive/castro-23-2.jpg",
-   "/img/archive/castro-23-3.jpg",
-   "/img/archive/castro-23-4.jpg",
-   "/img/archive/castro-23-5.jpg",
-   "/img/archive/castro-23-6.jpg"
+  "photos": [],
+  "source": "https://carrara.design/castro-23",
+  "story": [
+   "Three seasons racing the same Porsche 911 (992) GT3 Cup, each with a new identity. Here they are side by side."
   ],
-  "source": "https://carrara.design/castro-23"
+  "seasons": [
+   {
+    "year": "2022",
+    "name": "Pink and black",
+    "photos": [
+     "/img/archive/gt3-cup-livery-design-1.jpg",
+     "/img/archive/gt3-cup-livery-design-2.jpg",
+     "/img/archive/gt3-cup-livery-design-3.jpg",
+     "/img/archive/gt3-cup-livery-design-4.jpg",
+     "/img/archive/gt3-cup-livery-design-5.jpg",
+     "/img/archive/gt3-cup-livery-design-6.jpg"
+    ]
+   },
+   {
+    "year": "2023",
+    "name": "Red, white and blue",
+    "photos": [
+     "/img/archive/castro-23-1.jpg",
+     "/img/archive/castro-23-2.jpg",
+     "/img/archive/castro-23-3.jpg",
+     "/img/archive/castro-23-4.jpg",
+     "/img/archive/castro-23-5.jpg",
+     "/img/archive/castro-23-6.jpg"
+    ]
+   },
+   {
+    "year": "2024",
+    "name": "Navy and neon yellow",
+    "photos": [
+     "/img/archive/efrin-castros-porsche-livery-design-6.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-1.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-2.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-3.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-4.jpg",
+     "/img/archive/efrin-castros-porsche-livery-design-5.jpg"
+    ]
+   }
+  ]
  },
  {
   "slug": "jg-wentworth-nsx",
@@ -337,24 +371,6 @@ window.ARCHIVE=[
   "source": "https://carrara.design/own-lamborghini"
  },
  {
-  "slug": "gt3-cup-livery-design",
-  "title": "GT3 Cup Livery Design",
-  "caption": "Efrin’s Porsche 911 (992) GT3 Cup",
-  "type": "Livery Design",
-  "label": "Livery Design",
-  "make": "Porsche",
-  "img": "/img/archive/gt3-cup-livery-design-card.jpg",
-  "photos": [
-   "/img/archive/gt3-cup-livery-design-1.jpg",
-   "/img/archive/gt3-cup-livery-design-2.jpg",
-   "/img/archive/gt3-cup-livery-design-3.jpg",
-   "/img/archive/gt3-cup-livery-design-4.jpg",
-   "/img/archive/gt3-cup-livery-design-5.jpg",
-   "/img/archive/gt3-cup-livery-design-6.jpg"
-  ],
-  "source": "https://carrara.design/gt3-cup-livery-design"
- },
- {
   "slug": "bandit-911",
   "title": "Bandit 911",
   "caption": "Philip’s Porsche 911 ‘Bandit’",
@@ -389,24 +405,6 @@ window.ARCHIVE=[
    "/img/archive/gt3-rs-livery-design-6.jpg"
   ],
   "source": "https://carrara.design/gt3-rs-livery-design"
- },
- {
-  "slug": "efrin-castros-porsche-livery-design",
-  "title": "Efrin Castro’s Porsche Livery",
-  "caption": "Efrin’s Porsche 911 (992) GT3 Cup",
-  "type": "Livery Design",
-  "label": "Livery Design",
-  "make": "Porsche",
-  "img": "/img/archive/efrin-castros-porsche-livery-design-card.jpg",
-  "photos": [
-   "/img/archive/efrin-castros-porsche-livery-design-1.jpg",
-   "/img/archive/efrin-castros-porsche-livery-design-2.jpg",
-   "/img/archive/efrin-castros-porsche-livery-design-3.jpg",
-   "/img/archive/efrin-castros-porsche-livery-design-4.jpg",
-   "/img/archive/efrin-castros-porsche-livery-design-5.jpg",
-   "/img/archive/efrin-castros-porsche-livery-design-6.jpg"
-  ],
-  "source": "https://carrara.design/efrin-castros-porsche-livery-design"
  },
  {
   "slug": "momo-f40-lm",
