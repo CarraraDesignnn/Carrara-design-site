@@ -1,4 +1,4 @@
-/* Header light/dark switch: a small sun/moon icon left of "Inquire", with a full-page crossfade. */
+/* Header light/dark switch: a small sun/moon icon left of the CD logo, with a full-page crossfade. */
 (function(){
   var root=document.documentElement,doc=document;
   var SUN='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>';
@@ -16,10 +16,10 @@
     else apply();
   });
   var raf=0;
-  function place(){raf=0;var cta=doc.querySelector('.header-cta');if(!cta){btn.style.display='none';return}
-    var r=cta.getBoundingClientRect();btn.style.display='';
+  function place(){raf=0;var lg=doc.querySelector('.header-logo');if(!lg){btn.style.display='none';return}
+    var r=lg.getBoundingClientRect();btn.style.display='';
     btn.style.top=Math.round(r.top+r.height/2-btn.offsetHeight/2)+'px';
-    btn.style.right=Math.round(innerWidth-r.left+(innerWidth<=700?14:22))+'px'}
+    btn.style.right=Math.round(innerWidth-r.left+(innerWidth<=700?8:16))+'px'}
   function req(){if(!raf)raf=requestAnimationFrame(place)}
   function init(){paint();doc.body.appendChild(btn);place();
     addEventListener('resize',req);addEventListener('scroll',req,{passive:true});addEventListener('load',req);
