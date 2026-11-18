@@ -1,0 +1,20 @@
+/* Header theme icon + crossfade */
+.theme-ico{position:fixed;z-index:51;display:flex;align-items:center;width:50px;height:26px;padding:0 3px;margin:0;border:1px solid rgba(255,255,255,.28);border-radius:99px;background:none;color:#fff;cursor:pointer;transition:border-color .3s;-webkit-tap-highlight-color:transparent}
+.theme-ico:hover,.theme-ico:focus-visible{border-color:rgba(255,255,255,.6);outline:none}
+.ti-knob{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX(24px);transition:transform .45s cubic-bezier(.65,0,.35,1)}
+.ti-i{position:relative;display:grid;place-items:center;width:20px;height:20px;transition:color .45s,opacity .45s}
+.ti-sun{margin-right:auto;opacity:.55}
+.ti-moon{color:#000}
+html.theme-light .theme-ico{border-color:rgba(16,16,16,.22);color:#101010}
+html.theme-light .theme-ico:hover{border-color:rgba(16,16,16,.5)}
+html.theme-light .ti-knob{background:#101010;transform:none}
+html.theme-light .ti-sun{color:#fff;opacity:1}
+html.theme-light .ti-moon{color:#101010;opacity:.5}
+body.cart-open .theme-ico{opacity:0;pointer-events:none}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.5s;animation-timing-function:ease}
+html.theme-fading *:not(.ti-knob):not(.ti-i){transition:none!important}
+.theme-toggle{display:none!important}
+.theme-ico.ti-compact{width:26px;padding:0;justify-content:center}
+.ti-compact .ti-knob{transform:none!important}
+.ti-compact .ti-i{position:absolute;top:2px;left:2px;margin:0}
+html:not(.theme-light) .ti-compact .ti-sun,html.theme-light .ti-compact .ti-moon{opacity:0}
