@@ -103,3 +103,21 @@
 /* reserve the toggle's space before it appears, so nothing shifts */
 .hero-v3:not(.hs-ready) .hero-content:after{content:"";display:block;height:63px}
 @media(max-width:700px){.hero-v3:not(.hs-ready) .hero-content:after{height:59px}}
+/* desktop: reels full-bleed */
+@media(min-width:701px){
+  .hs-frame{inset:0!important;top:0!important;left:0!important;height:100%!important;width:100%!important;aspect-ratio:auto!important;transform:none!important;border-radius:0!important;box-shadow:none!important}
+  .hs-bg,.hero-v3 .hero-media:before{display:none}
+  .hero-v3 .hero-img{inset:0!important;top:0!important;left:0!important;width:100%!important;height:100%!important;aspect-ratio:auto;transform:none!important;border-radius:0;box-shadow:none!important;object-position:50% 50%}
+  .hs-scrim,.hero-v3 .hero-media:after{background:linear-gradient(to right,#0000 0%,#0000 35%,#00000080 60%,#000000bf 100%)}
+  .hero-v3 .hero-media:after{content:"";position:absolute;inset:0;z-index:0}
+  .hero-v3.hs-ready .hero-media:after{display:none}
+  .theme-light .hs-scrim{opacity:1!important;background:linear-gradient(to right,#f5f5f300 0%,#f5f5f300 35%,#f5f5f3b3 60%,#f5f5f3e6 100%)}
+  .theme-light .hero-v3 .hero-media:after{background:linear-gradient(to right,#f5f5f300 0%,#f5f5f300 35%,#f5f5f3b3 60%,#f5f5f3e6 100%)}
+}
+/* light mode desktop: same dark scrim + white headline over full-bleed video, like phones */
+@media(min-width:701px){
+  .theme-light .hs-scrim,.theme-light .hero-v3 .hero-media:after{background:linear-gradient(to right,#0000 0%,#0000 35%,#00000080 60%,#000000bf 100%)!important}
+  .theme-light .hero-v3 .hero-title,.theme-light .hero-v3 .hs-ui{color:#fff!important}
+  .theme-light .hero-v3 .hs-tabs .hs-seg.is-on{color:#fff!important;background:#ffffff26!important}
+  .theme-light .hero-v3 .hs-tabs{background:#ffffff1f}
+}

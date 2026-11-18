@@ -1,7 +1,7 @@
 /* Home cover slideshow: render → reality pairs and reels, with a headline per slide. */
 (function(){
   var SLIDES=[
-    {type:'reel',src:'/img/reel-serafino.mp4',poster:'/img/reel-serafino.jpg',blur:'/img/reel-serafino-blur.jpg',ratio:'9/16',title:'From Render to Reality',label:'The GT3 RS',href:'/work/manthey-gt3-rs/'},
+    {type:'reel',src:'/img/reel-serafino.mp4',hd:'/img/reel-serafino-hd.mp4',poster:'/img/reel-serafino.jpg',blur:'/img/reel-serafino-blur.jpg',ratio:'9/16',title:'From Render to Reality',label:'The GT3 RS',href:'/work/manthey-gt3-rs/'},
     {type:'reel',src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:'Inside the Studio',label:'The Studio'}
   ];
 
@@ -37,7 +37,7 @@
 
     function load(i){
       var s=SLIDES[i],el=els[i];if(!s||el._loaded)return;el._loaded=true;
-      if(s.type==='reel'){var v=el.querySelector('video');v.src=s.src;v.preload='auto';v.addEventListener('ended',function(){if(cur===i)next()})}
+      if(s.type==='reel'){var v=el.querySelector('video');v.src=(!mobile.matches&&s.hd)?s.hd:s.src;v.preload='auto';v.addEventListener('ended',function(){if(cur===i)next()})}
       else if(s.type!=='base'){el.querySelector('img').src=(mobile.matches&&s.mobile)?s.mobile:s.src}
     }
     function setTitle(t){
