@@ -1,0 +1,17 @@
+.arc-page{padding:112px var(--pad) 0}
+.arc-head{max-width:760px;margin:0 auto 28px;text-align:center}
+.arc-head .eyebrow{margin:0 0 10px}
+.arc-head h1{margin:0}
+.arc-cap{margin:12px 0 0;font-size:16px;color:var(--muted)}
+.arc-story{margin:14px auto 0;max-width:60ch;font-size:15.5px;line-height:1.65;color:var(--muted)}
+.arc-credit{margin:14px 0 0;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.arc-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.arc-f{margin:0;cursor:zoom-in;border-radius:var(--radius,14px);overflow:hidden;background:var(--graphite);aspect-ratio:4/3}
+.arc-f.is-lead{grid-column:1/-1;aspect-ratio:16/8}
+.arc-f img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
+.arc-f:hover img{transform:scale(1.03)}
+.arc-nav{max-width:1240px;margin:28px auto 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.arc-nav a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.arc-nav a:hover{color:var(--white)}
+.arc-page .art-cta{max-width:1240px;margin:0 auto;padding-left:0;padding-right:0}
+@media(max-width:700px){.arc-page{padding-top:92px}.arc-grid{grid-template-columns:1fr 1fr;gap:8px}.arc-f.is-lead{aspect-ratio:4/3}}
