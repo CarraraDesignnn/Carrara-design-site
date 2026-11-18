@@ -29,3 +29,6 @@ body{font-weight:400;font-stretch:normal}
 
 /* Big numerals keep their light, airy weight */
 .odo,.odo *,.steps-num,.steps-num *,.price-num,.count b{font-family:var(--font)}
+
+/* Light mode logo: grey CD, colored stripes kept */
+.theme-light .logo-mark,.theme-light .footer-logo,.theme-light .legal-mark,html.theme-light .header .logo-mark{content:url(/logo-grey.png) !important}
