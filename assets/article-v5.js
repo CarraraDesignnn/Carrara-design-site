@@ -49,7 +49,7 @@
     +(P.flow?flowHTML:'<section class="art-gallery" aria-label="Photos">'+gallery+'</section>')
     +(specs?'<section class="art-spec art-r"><div><p class="eyebrow">The specification</p><h2 class="h3">Details</h2></div><dl>'+specs+'</dl></section>':'')
     +'<a class="art-next" href="/work/'+next.slug+'/"><img src="'+esc(next.img)+'" alt="" loading="lazy" decoding="async"><div class="art-next-copy"><p>Next commission · '+esc(next.type)+'</p><strong>'+esc(next.title)+'</strong></div></a>'
-    +'<section class="art-cta"><h2 class="h3">Have a car in mind? Let’s specify it together.</h2><a class="btn btn-light" href="/#pricing">Start a commission</a></section>';
+    +'<section class="art-cta"><h2 class="h3">Have a Car in Mind? Let’s Specify It Together.</h2><a class="btn btn-light" href="/#pricing">Start a commission</a></section>';
   document.title=title+' — Carrara Design';
 
   /* reveal on scroll */

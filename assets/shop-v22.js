@@ -105,7 +105,7 @@
     if(!d.current.length){feat.innerHTML='<div class="drop-empty"><p class="drop-kicker">'+esc(dropLabel(d.number))+'</p><h2 class="drop-title">The first drop is coming.</h2></div>'}
     else if(d.current.length>1){feat.classList.add('is-pair');feat.innerHTML=pairHead(d)+'<div class="drop-pair">'+d.current.map(card).join('')+'</div>'}
     else feat.innerHTML=d.current.map(function(p){return featured(p,d.number)}).join('');
-    next.querySelector('[data-next-head]').textContent=d.live?'Next drop':'Next drop — '+dateLabel();
+    next.querySelector('[data-next-head]').textContent=d.live?'Next Drop':'Next Drop — '+dateLabel();
     if(arch){var a=d.archive.concat(d.live?[]:[]);arch.closest('.drop-archive').hidden=!a.length;arch.innerHTML=a.map(archiveCard).join('')}
     startCountdowns(root);
   }
@@ -131,7 +131,7 @@
   /* ---- product page (/shop/print/?p=handle) ---- */
   function renderProduct(root,d){
     var h=new URLSearchParams(location.search).get('p')||'',all=d.current.concat(d.archive),p=all.filter(function(x){return x.handle===h})[0];
-    if(!p){root.innerHTML='<div class="pp-missing"><p class="drop-kicker">Not found</p><h1 class="pp-title">This print isn’t available.</h1><a class="btn btn-light" href="/shop/">Back to the shop</a></div>';return}
+    if(!p){root.innerHTML='<div class="pp-missing"><p class="drop-kicker">Not found</p><h1 class="pp-title">This Print Isn’t Available</h1><a class="btn btn-light" href="/shop/">Back to the shop</a></div>';return}
     var inCur=d.current.indexOf(p)>-1,group=inCur?d.current:all.filter(function(x){return x.drop===p.drop}),coll=group.length>1?collectionName(group.map(function(x){return cleanTitle(x.title)})):'';
     var X=(window.PRINTS||{})[p.handle]||{};
     var t=cleanTitle(p.title),v=firstVariant(p),ok=p.availableForSale,ims=(p.images&&p.images.nodes.length?p.images.nodes:(p.featuredImage?[p.featuredImage]:[]));
@@ -172,7 +172,7 @@
       slot.innerHTML='';slot.classList.add('is-empty');
     }else{
       if(kick)kick.textContent=p?dropLabel(d.number)+' · Sold out':'Monthly drop';
-      if(title)title.textContent='Next drop · '+dateLabel();
+      if(title)title.textContent='Next Drop · '+dateLabel();
       if(lft)lft.textContent='';
       slot.classList.remove('is-empty');slot.innerHTML=countdownHTML();
     }
