@@ -32,3 +32,20 @@ body{font-weight:400;font-stretch:normal}
 
 /* Light mode logo: grey CD, colored stripes kept */
 .theme-light .logo-mark,.theme-light .footer-logo,.theme-light .legal-mark,html.theme-light .header .logo-mark{content:url(/logo-grey.png) !important}
+
+/* Smaller display headings, site-wide */
+.hero-title{font-size:clamp(36px,3.5vw,50px)!important}
+.h2{font-size:clamp(27px,3.2vw,46px)!important}
+.h3,.shop-teaser-hook,.steps-head,.pp-story-title{font-size:clamp(25px,2.4vw,34px)!important}
+.drop-pair-title{font-size:clamp(25px,2.7vw,38px)!important}
+.pp-title{font-size:clamp(30px,3vw,44px)!important}
+.step-title{font-size:clamp(20px,1.9vw,28px)!important}
+
+/* Remove the scroll-tracking dots on every page */
+.pager,.pager-alt{display:none!important}
+
+/* "View all" beside Featured Commissions */
+.work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.work-all{flex:none;padding-bottom:8px;font:500 11px/1 var(--font);letter-spacing:.24em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;opacity:.75}
+.work-all:hover{opacity:1}
+.work-all:after{content:" →"}
