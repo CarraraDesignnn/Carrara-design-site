@@ -1,0 +1,31 @@
+/* Carrara Design type system
+   - Display headings: Helvetica Neue Bold Italic (grey #9B9C9B in light mode)
+   - Everything else: Barlow (Light for long text, Regular for body and labels,
+     Medium/SemiBold for names, values and buttons) */
+:root{--font:"Barlow","Helvetica Neue",Arial,sans-serif;--display:"Helvetica Neue",Helvetica,Arial,sans-serif;--brand-grey:#9b9c9b}
+html,body,button,input,select,textarea{font-family:var(--font)}
+body{font-weight:400;font-stretch:normal}
+*{font-stretch:normal !important}
+
+/* 1. Display headings */
+.hero-title,.h2,.h3,.shop-teaser-hook,.drop-pair-title,.pp-title,.pp-story-title,.art-title,.art-ch-t,.art-next strong,.steps-head{
+  font-family:var(--display) !important;font-weight:700 !important;font-style:italic !important;text-transform:none !important;letter-spacing:-.015em !important}
+.theme-light .h2,.theme-light .h3,.theme-light .shop-teaser-hook,.theme-light .drop-pair-title,.theme-light .pp-title,.theme-light .pp-story-title,.theme-light .art-ch-t,.theme-light .steps-head,.theme-light .hero-title{color:var(--brand-grey)}
+
+/* 2. Sub-headings, names and values: Barlow Medium/SemiBold */
+.step-title,.card-name,.drop-title,.drop-pair .drop-title,.pp-more-card span,.art-meta dd,.pp-specs dd,.art-spec dd,.drop-price,.pp-bar-name{font-family:var(--font);font-weight:500;font-style:normal}
+.step-title{font-weight:600;letter-spacing:-.005em}
+.card-name{font-weight:600}
+
+/* 3. Labels: Barlow Regular, uppercase, tracked, grey */
+.eyebrow,.drop-kicker,.art-ch-n,.art-kicker,.pp-specs dt,.art-meta dt,.art-spec dt,.card-type,.drop-edition,.drop-left,.art-f figcaption,.hero-caption,.pp-back,.pp-story-link{font-family:var(--font);font-weight:400;font-style:normal}
+
+/* 4. Long and lead text: Barlow Light */
+.statement,.art-lead,.art-quote blockquote,.pp-blurb,.drop-pair-sub,.hero-sub,.art-ch-b p:first-child{font-family:var(--font);font-weight:300}
+.body,.art-ch-b p,.pp-desc,.pp-story-copy p,.art-story p{font-weight:400}
+
+/* 5. Buttons and navigation: Barlow Medium, uppercase */
+.btn,.header-cta,.menu-list a,.header-back,.drop-add,.drop-view,.drop-chip{font-family:var(--font);font-weight:500;font-style:normal}
+
+/* Big numerals keep their light, airy weight */
+.odo,.odo *,.steps-num,.steps-num *,.price-num,.count b{font-family:var(--font)}
