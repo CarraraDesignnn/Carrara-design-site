@@ -12,6 +12,7 @@
     var s=[0];
     ['work','shop','inquire'].forEach(function(id){var el=document.getElementById(id);if(el)s.push(el.getBoundingClientRect().top+scrollY)});
     [].slice.call(document.querySelectorAll('.steps-snap')).forEach(function(el){s.push(parseFloat(el.style.top)||0)});
+    [].slice.call(document.querySelectorAll('.steps-scene')).forEach(function(el){s.push(el.getBoundingClientRect().top+scrollY)});
     [].slice.call(document.querySelectorAll('.ap')).forEach(function(el){s.push(el.getBoundingClientRect().top+scrollY)});
     s.push(root.scrollHeight-innerHeight);
     return s.map(Math.round).filter(function(v,i,a){return v>=0&&a.indexOf(v)===i}).sort(function(a,b){return a-b});
