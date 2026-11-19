@@ -3,11 +3,11 @@
 .steps .steps-stick{position:relative;height:auto;display:block;padding:0;overflow:visible}
 .steps .steps-bg,.steps .steps-big,.steps .steps-end,.steps .steps-rail{display:none!important}
 .steps .steps-inner{display:block;max-width:none;padding:0}
-.steps .steps-scene{position:relative;min-height:100vh;min-height:100svh;box-sizing:border-box;scroll-snap-align:start;scroll-snap-stop:always;padding:clamp(84px,11vh,104px) var(--pad) clamp(24px,4vh,44px)}
+.steps .steps-scene{position:relative;min-height:100vh;min-height:100lvh;box-sizing:border-box;scroll-snap-align:start;scroll-snap-stop:always;padding:clamp(84px,11vh,104px) var(--pad) clamp(24px,4vh,44px)}
 /* scene A: card grid sized exactly like the Featured Commissions cards above it */
 .steps .scene-a{--gap:16px;--reserve:270px;--cardh:calc((100svh - var(--reserve)) / 2);--colw:min(calc(var(--cardh) * .78),calc((100vw - 2 * var(--pad) - var(--gap)) / 2));
   display:grid;grid-template-columns:repeat(2,var(--colw));grid-template-rows:auto auto var(--cardh) var(--cardh);grid-template-areas:"e e" "h h" "a a" "b c";
-  justify-content:center;align-content:start;gap:var(--gap);row-gap:var(--gap);height:100vh;height:100svh;max-width:none;padding:96px 0 40px;margin:0}
+  justify-content:center;align-content:start;gap:var(--gap);row-gap:var(--gap);height:100vh;height:100lvh;max-width:none;padding:96px 0 40px;margin:0}
 .steps .scene-a .eyebrow{grid-area:e;margin:0}
 .steps .scene-a .steps-head{grid-area:h;margin:0 0 4px}
 .steps .scene-a .eyebrow,.steps .scene-a .steps-head,.steps .scene-a .step{opacity:1!important;transform:none!important}
@@ -41,3 +41,15 @@ html:not(.js) .steps .scene-b *{opacity:1!important;transform:none!important}
   .steps .step .step-body{display:none}
 }
 @media(prefers-reduced-motion:reduce){.steps .scene-b *{transition:none!important}}
+
+/* small scroll cue in the empty space at the bottom of both screens */
+.steps .steps-scene:after{content:"";position:absolute;left:50%;bottom:var(--cue-b,72px);width:1px;height:34px;margin-left:-.5px;
+  background:linear-gradient(to bottom,transparent 0%,var(--white) 50%,transparent 100%) 0 -34px/1px 68px no-repeat,linear-gradient(#ffffff26,#ffffff26);
+  opacity:0;transition:opacity .8s var(--ease) .6s;animation:scrollCue 2.2s cubic-bezier(.6,0,.4,1) infinite;pointer-events:none}
+.steps .steps-scene:before{content:"Scroll";position:absolute;left:0;right:0;bottom:calc(var(--cue-b,72px) + 44px);text-align:center;font-size:9px;font-stretch:105%;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);opacity:0;transition:opacity .8s var(--ease) .6s;pointer-events:none}
+.steps .steps-scene.cue-on:not(.no-cue):after{opacity:.9}
+.steps .steps-scene.cue-on:not(.no-cue):before{opacity:.8}
+@keyframes scrollCue{0%{background-position:0 -34px,0 0}100%{background-position:0 34px,0 0}}
+html.theme-light .steps .steps-scene:after{background:linear-gradient(to bottom,transparent 0%,#101010 50%,transparent 100%) 0 -34px/1px 68px no-repeat,linear-gradient(#10101026,#10101026)}
+/* desktop: the cards sit lower, keep the cue tucked under them */
+@media(prefers-reduced-motion:reduce){.steps .steps-scene:after{animation:none}}
