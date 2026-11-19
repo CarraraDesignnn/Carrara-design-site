@@ -21,3 +21,11 @@ html:not(.theme-light) .ti-compact .ti-sun,html.theme-light .ti-compact .ti-moon
 
 /* keep the footer below the fold until page content renders (prevents footer flash / layout shift) */
 main{min-height:100vh}
+
+/* home: featured commissions in one row of 4 on desktop (phones/tablets unchanged) */
+@media(min-width:1024px){
+  .work{--colw:min(calc((100svh - 300px) * .78),calc((min(100vw,1760px) - 2 * var(--pad) - 3 * var(--gap)) / 4))}
+  .work .rail{grid-template-columns:repeat(4,var(--colw));grid-auto-rows:calc(var(--colw) / .78)}
+  .work .work-head{max-width:calc(4 * var(--colw) + 3 * var(--gap))}
+  .work{justify-content:center;padding-bottom:56px}
+}
