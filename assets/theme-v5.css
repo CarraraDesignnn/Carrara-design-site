@@ -29,3 +29,7 @@ main{min-height:100vh}
   .work .work-head{max-width:calc(4 * var(--colw) + 3 * var(--gap))}
   .work{justify-content:center;padding-bottom:56px}
 }
+
+/* pause section snapping + smooth scrolling while the site scrolls for you (menu/buttons/wheel paging).
+   Lived in the shop stylesheet before the prints were hidden; needed on every page. */
+html.js-gliding,html.js-gliding.in-steps{scroll-snap-type:none!important;scroll-behavior:auto!important}
