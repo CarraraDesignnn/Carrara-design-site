@@ -1,0 +1,43 @@
+/* "What a commission means": one screen of three image cards (one wide, two below), then the numbers screen */
+.steps{height:auto!important;scroll-snap-align:none!important;border-top:0}
+.steps .steps-stick{position:relative;height:auto;display:block;padding:0;overflow:visible}
+.steps .steps-bg,.steps .steps-big,.steps .steps-end,.steps .steps-rail{display:none!important}
+.steps .steps-inner{display:block;max-width:none;padding:0}
+.steps .steps-scene{position:relative;min-height:100vh;min-height:100svh;box-sizing:border-box;scroll-snap-align:start;scroll-snap-stop:always;padding:clamp(84px,11vh,104px) var(--pad) clamp(24px,4vh,44px)}
+/* scene A: card grid sized exactly like the Featured Commissions cards above it */
+.steps .scene-a{--gap:16px;--reserve:270px;--cardh:calc((100svh - var(--reserve)) / 2);--colw:min(calc(var(--cardh) * .78),calc((100vw - 2 * var(--pad) - var(--gap)) / 2));
+  display:grid;grid-template-columns:repeat(2,var(--colw));grid-template-rows:auto auto var(--cardh) var(--cardh);grid-template-areas:"e e" "h h" "a a" "b c";
+  justify-content:center;align-content:start;gap:var(--gap);row-gap:var(--gap);height:100vh;height:100svh;max-width:none;padding:96px 0 40px;margin:0}
+.steps .scene-a .eyebrow{grid-area:e;margin:0}
+.steps .scene-a .steps-head{grid-area:h;margin:0 0 4px}
+.steps .scene-a .eyebrow,.steps .scene-a .steps-head,.steps .scene-a .step{opacity:1!important;transform:none!important}
+.steps .steps-list,.steps .steps-media{display:contents}
+.steps .steps-media>*{position:relative!important;inset:auto!important;width:100%;height:100%;min-height:0;object-fit:cover;opacity:1!important;transform:none!important;border-radius:16px;background:var(--graphite)}
+.steps .steps-media>:nth-child(1),.steps .step:nth-of-type(1){grid-area:a}
+.steps .steps-media>:nth-child(2),.steps .step:nth-of-type(2){grid-area:b}
+.steps .steps-media>:nth-child(3),.steps .step:nth-of-type(3){grid-area:c}
+/* light labels, same type as the card names above */
+.steps .step{position:relative;z-index:1;align-self:end;display:block;margin:0;padding:34px 16px 14px;border-radius:0 0 16px 16px;background:linear-gradient(to bottom,#0000,#0000004d);pointer-events:none;text-shadow:0 1px 10px #000000a6}
+.steps .step .step-num{display:none}
+.steps .step .step-title{margin:0 0 4px;font-family:var(--font);font-size:10.5px!important;font-weight:400!important;font-stretch:105%;letter-spacing:.22em;line-height:1.3;text-transform:uppercase;color:#ffffffd9!important}
+.steps .step .step-body{margin:0;max-width:none;font-size:12px;line-height:1.4;color:#ffffffb3!important}
+@media(min-width:1024px){
+  /* desktop: one row on the same 4-column grid as the cards above: wide card (2 columns) + two cards */
+  .steps .scene-a{--colw:min(calc((100svh - 300px) * .78),calc((min(100vw,1760px) - 2 * var(--pad) - 3 * var(--gap)) / 4));
+    grid-template-columns:repeat(4,var(--colw));grid-template-rows:auto auto calc(var(--colw) / .78);grid-template-areas:"e e e e" "h h h h" "a a b c";align-content:center;padding:84px 0 56px}
+}
+/* scene B: numbers + price, centered on its own screen */
+.steps .scene-b{display:flex;flex-direction:column;justify-content:center;max-width:960px;margin:0 auto}
+.steps .scene-b .eyebrow,.steps .scene-b .steps-head,.steps .scene-b .stat,.steps .scene-b .steps-price{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.steps .scene-b.is-vis .eyebrow,.steps .scene-b.is-vis .steps-head,.steps .scene-b.is-vis .stat,.steps .scene-b.is-vis .steps-price{opacity:1;transform:none}
+.steps .scene-b.is-vis .stat:nth-child(2){transition-delay:.06s}.steps .scene-b.is-vis .stat:nth-child(3){transition-delay:.12s}.steps .scene-b.is-vis .stat:nth-child(4){transition-delay:.18s}
+.steps .scene-b.is-vis .steps-price{transition-delay:.35s}
+html:not(.js) .steps .scene-b *{opacity:1!important;transform:none!important}
+@media(max-width:700px){
+  .steps .scene-a{--gap:12px;--reserve:224px;padding:84px 0 28px}
+  .steps .steps-media>*{border-radius:14px}
+  .steps .step{padding:26px 10px 9px;border-radius:0 0 14px 14px}
+  .steps .step .step-title{font-size:8.5px!important;letter-spacing:.16em;margin:0}
+  .steps .step .step-body{display:none}
+}
+@media(prefers-reduced-motion:reduce){.steps .scene-b *{transition:none!important}}
