@@ -49,7 +49,7 @@
       var seg=segs[cur].querySelector('i');seg.style.animation='none';void seg.offsetWidth;seg.style.animation='hsfill '+ms+'ms linear forwards';seg.style.animationPlayState=(visible&&!reduce)?'running':'paused'}
     function show(i){
       var prev=cur;cur=(i+SLIDES.length)%SLIDES.length;var s=SLIDES[cur];
-      load(cur);load((cur+1)%SLIDES.length);
+      load(cur);var nx=(cur+1)%SLIDES.length;setTimeout(function(){load(nx)},2500);
       els.forEach(function(el,k){el.classList.toggle('is-on',k===cur)});
       if(prev!==cur){var pv=els[prev].querySelector('video');if(pv){pv.pause()}}
       hero.setAttribute('data-tone',s.tone||'dark');hero.setAttribute('data-slide',s.type);

@@ -29,6 +29,8 @@
     /* let the menu close and release its scroll lock first */
     setTimeout(function(){requestAnimationFrame(function(){glide(id)})},document.body.classList.contains('no-scroll')?60:0);
   },true);
+  /* browser back/forward between in-page links */
+  addEventListener('popstate',function(){var id=location.hash.slice(1);glide(id&&/^[\w-]+$/.test(id)&&document.getElementById(id)?id:'top')});
   /* arriving from another page with /#inquire etc. */
   var h0=location.hash.slice(1);
   if(h0&&/^[\w-]+$/.test(h0)){
