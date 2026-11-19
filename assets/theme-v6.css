@@ -33,3 +33,7 @@ main{min-height:100vh}
 /* pause section snapping + smooth scrolling while the site scrolls for you (menu/buttons/wheel paging).
    Lived in the shop stylesheet before the prints were hidden; needed on every page. */
 html.js-gliding,html.js-gliding.in-steps{scroll-snap-type:none!important;scroll-behavior:auto!important}
+
+/* in-page links: quick fade instead of a long scroll (header stays) */
+main,.site-footer{transition:opacity .24s ease}
+html.nav-fade main,html.nav-fade .site-footer{opacity:0}
