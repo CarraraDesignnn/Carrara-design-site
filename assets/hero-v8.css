@@ -125,7 +125,7 @@
 /* phones, light mode: the fade over the bottom of the cover turns white (not black), headline goes brand grey */
 @media(max-width:700px){
   .theme-light .hs-scrim,.theme-light .hero-v3 .hero-media:after{background:linear-gradient(to bottom,#f5f5f300 0%,#f5f5f300 38%,#f5f5f347 55%,#f5f5f39e 72%,#f5f5f3d1 90%)!important}
-  .theme-light .hero-v3 .hero-title,.theme-light .hero-v3[data-tone=dark] .hero-title,.theme-light .hero-v3:not([data-tone]) .hero-title{color:var(--brand-grey,#9b9c9b)!important}
+  .theme-light .hero-v3 .hero-title,.theme-light .hero-v3[data-tone=dark] .hero-title,.theme-light .hero-v3:not([data-tone]) .hero-title{color:#1c1c1c!important}
   .theme-light .hero-v3 .hs-ui,.theme-light .hero-v3[data-tone=dark] .hs-ui{color:#101010!important}
   .theme-light .hero-v3 .hs-tabs,.theme-light .hero-v3[data-tone=dark] .hs-tabs{background:#00000014!important}
   .theme-light .hero-v3 .hs-tabs .hs-seg.is-on{background:#ffffffd9!important;color:#101010!important}
