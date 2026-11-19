@@ -50,7 +50,12 @@
     function show(i){
       var prev=cur;cur=(i+SLIDES.length)%SLIDES.length;var s=SLIDES[cur];
       load(cur);var nx=(cur+1)%SLIDES.length;setTimeout(function(){load(nx)},2500);
-      els.forEach(function(el,k){el.classList.toggle('is-on',k===cur)});
+      var target=cur,shown=false;
+      function reveal(){if(shown||cur!==target)return;shown=true;els.forEach(function(el,k){el.classList.toggle('is-on',k===target)})}
+      var nv=s.type==='reel'&&els[cur].querySelector('video');
+      /* keep what's on screen (the still poster on first load) until the video has a real frame: no black flash */
+      if(nv&&nv.readyState<3){var ok=function(){nv.removeEventListener('playing',ok);if(nv.requestVideoFrameCallback)nv.requestVideoFrameCallback(function(){reveal()});else setTimeout(reveal,80)};nv.addEventListener('playing',ok);setTimeout(reveal,3000)}
+      else reveal();
       if(prev!==cur){var pv=els[prev].querySelector('video');if(pv){pv.pause()}}
       hero.setAttribute('data-tone',s.tone||'dark');hero.setAttribute('data-slide',s.type);
       segs.forEach(function(b,k){b.classList.toggle('is-done',k<cur);b.classList.toggle('is-on',k===cur);b.setAttribute('aria-selected',k===cur);if(k!==cur){var f=b.querySelector('i');f.style.animation='none'}});
