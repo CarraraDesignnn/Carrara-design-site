@@ -120,3 +120,26 @@ html.theme-light body.has-pj:not(.pj-solid) .theme-ico{border-color:#ffffff59!im
 html.theme-light body.has-pj:not(.pj-solid) .ti-knob{background:#fff!important}
 html.theme-light body.has-pj:not(.pj-solid) .ti-sun{color:#101010!important}
 html.theme-light body.has-pj:not(.pj-solid) .ti-moon{color:#fff!important}
+
+/* v1.1: tighter rhythm, detail cards under the facts */
+.pj-intro{padding:clamp(56px,9vh,110px) var(--pad) clamp(36px,5vh,56px)}
+.pj-text{padding-top:clamp(64px,10vh,120px)}
+.pj-spec,.pj-close{padding-top:clamp(64px,10vh,120px)}
+.pj-media{margin-top:clamp(40px,6vh,72px)}
+.pj-strip{margin-top:clamp(64px,10vh,120px)}
+.pj-cards{margin-top:clamp(44px,7vh,80px)}
+.pj-cards .pj-track figure{width:min(64vw,340px)}
+.pj-track figcaption{margin-top:14px}
+.pj-track figcaption strong{display:block;font-family:var(--display);font-weight:700;font-style:italic;font-size:17px;line-height:1.2}
+.pj-track figcaption span{display:block;margin-top:5px;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.pj-cards .pj-track img{transition:transform .6s cubic-bezier(.2,.6,.3,1)}
+@media(hover:hover){.pj-cards .pj-track figure:hover img{transform:scale(1.02)}}
+@media(max-width:700px){
+  .pj-intro{padding:52px var(--pad) 32px}
+  .pj-lead{font-size:20px;line-height:1.5}
+  .pj-facts dl>div{padding:18px 14px 18px 0}
+  .pj-facts dd{font-size:14.5px}
+  .pj-text{padding-top:64px}
+  .pj-spec,.pj-close{padding-top:64px}
+  .pj-strip{margin-top:64px}.pj-cards{margin-top:44px}
+}
