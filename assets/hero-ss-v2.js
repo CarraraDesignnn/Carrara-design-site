@@ -21,14 +21,17 @@
   seen[(first.getAttribute('src')||'').split('?')[0]]=1;if(P.heroMobile)seen[P.heroMobile]=1;
   (P.heroSlides||[]).forEach(add);
   if(!P.heroSlides){[].forEach.call(document.querySelectorAll('#art .ap-f img, #art figure img, #arc .arc-cmp-f img, #arc .arc-f img'),function(im){if(im.closest('.ap-cmp'))return;add(im.getAttribute('src'))})}
-  srcs=srcs.slice(0,6);if(!srcs.length)return;
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+  srcs=shuffle(srcs).slice(0,6);if(!srcs.length)return;
   var layer=document.createElement('div');layer.className='hero-ss';layer.setAttribute('aria-hidden','true');
   var slides=srcs.map(function(s,i){var im=document.createElement('img');im.alt='';im.decoding='async';im.dataset.src=s;im.className='ss'+(i%2?' ss-alt':'');layer.appendChild(im);return im});
   (hero.querySelector('picture')||first).insertAdjacentElement('afterend',layer);
-  var all=[null].concat(slides),cur=0,timer=0,HOLD=2600;
+  var all=[null].concat(slides),cur=0,timer=0,HOLD=2600,queue=[];
+  /* cover first, then the rest in random order; reshuffle each round, never the same photo twice in a row */
+  function pick(){if(!queue.length){queue=shuffle(all.map(function(_,i){return i}));if(queue[0]===cur)queue.push(queue.shift())}return queue.shift()}
   function prep(i){var im=all[i];if(im&&!im.src)im.src=im.dataset.src}
   function next(){
-    var n=(cur+1)%all.length,im=all[n];prep(n);prep((n+1)%all.length);
+    var n=pick(),im=all[n];prep(n);if(queue.length)prep(queue[0]);
     var go=function(){
       slides.forEach(function(s){if(s!==im)s.classList.remove('on')});
       if(im){im.classList.remove('kb');void im.offsetWidth;im.classList.add('on','kb')}
@@ -38,7 +41,8 @@
     if(im&&!(im.complete&&im.naturalWidth)){im.onload=go;im.onerror=function(){timer=setTimeout(next,HOLD)}}else go();
   }
   var running=false;
-  function start(){if(running)return;running=true;prep(1);timer=setTimeout(next,HOLD)}
+  queue=shuffle(slides.map(function(_,i){return i+1}));
+  function start(){if(running)return;running=true;prep(queue[0]);timer=setTimeout(next,HOLD)}
   function stop(){running=false;clearTimeout(timer)}
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){es[0].isIntersecting&&!document.hidden?start():stop()},{threshold:.3}).observe(hero);else start();
   document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
