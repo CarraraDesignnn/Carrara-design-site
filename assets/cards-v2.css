@@ -8,3 +8,6 @@
 .card.is-pressed .card-media:before,.card-hit:focus-visible .card-media:before{opacity:1;transform:scale(1)}
 .card-media:after{z-index:2}
 .card-overlay{z-index:3}
+/* minimal: no name printed on the photo; the name shows only on hover / press */
+.card-hit:after{display:none}
+.card-overlay .card-type{display:none}
