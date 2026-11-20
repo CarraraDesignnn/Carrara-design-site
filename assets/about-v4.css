@@ -65,3 +65,15 @@ html.theme-light .ab-close .btn-light:hover{background:#6e6e6c!important;color:#
 .ab-close .btn-light{min-height:48px;padding:0 34px;background:transparent;color:#fff;border:1.5px solid #ffffffe6;border-radius:999px;font-size:11.5px;letter-spacing:.16em}
 .ab-close .btn-light:hover{background:#fff;color:#101010}
 .ab-zs-logo{height:clamp(24px,2.2vw,32px)}
+/* tighter rhythm on phones */
+@media(max-width:800px){
+  .ab-hero-copy{padding-top:26px}
+  .ab-statement{padding:48px var(--pad) 8px}
+  .ab-statement p{font-size:21px;line-height:1.45}
+  .ab-person,.ab-person.rev{margin-top:44px;gap:18px}
+  .ab-role{margin:8px 0 16px}
+  .ab-story{margin-top:64px}
+  .ab-tex{margin-top:64px;padding:80px var(--pad)}
+  .ab-zs2{margin-top:64px}
+  .ab-close{margin-top:64px;padding:52px var(--pad) 64px}
+}
