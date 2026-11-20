@@ -38,3 +38,20 @@
   .ab-person.rev figure{order:0}
 }
 html.theme-light .ab-person h2,html.theme-light .ab-next h2{color:#9b9c9b}
+/* Zennsport */
+.ab-zs{margin-top:clamp(80px,13vh,140px)}
+.ab-zs-hero{position:relative;height:min(88svh,760px);min-height:440px;overflow:hidden;background:#000 center/cover no-repeat;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 var(--pad) clamp(40px,8vh,80px);text-align:center}
+.ab-zs-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,#0000 35%,#000000b3 100%)}
+.ab-zs-hero>*{position:relative}
+.ab-zs-logo{width:min(70vw,420px);height:auto}
+.ab-zs-hero p{margin:18px 0 0;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#ffffffcc}
+.ab-zs-text{max-width:680px;margin:0 auto;padding:clamp(56px,9vh,100px) var(--pad) 0;text-align:center}
+.ab-zs-text h2{margin:0 0 20px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px)}
+.ab-zs-text p{margin:0 0 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;opacity:.86}
+.ab-zs .pj-strip{margin-top:clamp(44px,7vh,80px)}
+.ab-zs-cta{text-align:center;padding-top:clamp(40px,6vh,64px)}
+.ab-zs-cta .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 34px;background:transparent;color:var(--white);border:1.5px solid currentColor;border-radius:999px;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .35s,color .35s}
+.ab-zs-cta .btn:hover{background:var(--white);color:var(--black)}
+html.theme-light .ab-zs-text h2{color:#9b9c9b}
+html.theme-light .ab-zs-cta .btn{color:#6e6e6c}
+html.theme-light .ab-zs-cta .btn:hover{background:#6e6e6c;color:#f5f5f3}
