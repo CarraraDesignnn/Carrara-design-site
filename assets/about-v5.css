@@ -77,3 +77,16 @@ html.theme-light .ab-close .btn-light:hover{background:#6e6e6c!important;color:#
   .ab-zs2{margin-top:64px}
   .ab-close{margin-top:64px;padding:52px var(--pad) 64px}
 }
+/* Zennsport breathing room */
+.ab-zs-copy .pj-eyebrow{margin-bottom:18px}
+.ab-zs-h{margin-bottom:30px}
+.ab-zs-copy .ab-zs-cta{margin-top:36px}
+@media(max-width:800px){
+  .ab-zs2{margin-top:96px;gap:40px}
+  .ab-zs-h{margin-bottom:26px}
+  .ab-zs-copy .ab-zs-cta{margin-top:32px}
+  .ab-close{margin-top:88px}
+}
+.ab-zs2 .ab-zs-h{margin:0 0 30px}
+.ab-zs2 img.ab-zs-logo{width:auto;height:clamp(26px,2.4vw,34px);max-width:72%;border-radius:0}
+.ab-zs2 .ab-zs-copy .pj-eyebrow{margin:0 0 18px}
