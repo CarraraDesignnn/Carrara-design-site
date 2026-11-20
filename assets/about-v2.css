@@ -1,0 +1,40 @@
+/* About page v2: film hero, split portraits, story carousel, studio textures */
+.ab-hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#000;color:#fff}
+.ab-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.ab-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,#00000073 0%,#0000 22%,#0000 55%,#000000b3 100%)}
+.ab-hero-copy{position:absolute;z-index:1;left:0;right:0;bottom:clamp(40px,9vh,96px);padding:0 var(--pad);text-align:center}
+.ab-hero h1{margin:0;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(40px,6vw,92px);line-height:1;letter-spacing:-.01em;color:#fff!important}
+.ab-hero p{margin:16px 0 0;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#ffffffcc}
+.ab-statement{max-width:900px;margin:0 auto;padding:clamp(80px,14vh,150px) var(--pad) clamp(40px,7vh,80px);text-align:center}
+.ab-statement p{margin:0;font-size:clamp(22px,2.4vw,34px);font-weight:300;line-height:1.4}
+.ab-person{max-width:1400px;margin:clamp(40px,7vh,80px) auto 0;padding:0 var(--pad);display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.ab-person.rev{grid-template-columns:1fr 1.45fr}
+.ab-person.rev figure{order:2}
+.ab-person figure{margin:0}
+.ab-person img{display:block;width:100%;height:auto;border-radius:6px}
+.ab-person h2{margin:0;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px);line-height:1.05}
+.ab-role{margin:10px 0 22px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.ab-person p.ab-bio{margin:0 0 1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;opacity:.86}
+.ab-tex{position:relative;margin-top:clamp(80px,13vh,140px);padding:clamp(90px,16vh,170px) var(--pad);background:#000 center/cover no-repeat;color:#fff;text-align:center}
+.ab-tex:before{content:"";position:absolute;inset:0;background:#0000008c}
+.ab-tex>*{position:relative;max-width:640px;margin-left:auto;margin-right:auto}
+.ab-tex h2{margin:0 0 22px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px);color:#fff!important}
+.ab-tex p{margin:0 0 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;color:#ffffffdb}
+.ab-story .pj-track figure{width:min(70vw,380px)}
+.ab-next{max-width:680px;margin:0 auto;padding:clamp(80px,13vh,140px) var(--pad) 0;text-align:center}
+.ab-next h2{margin:0 0 20px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px)}
+.ab-next p{margin:0 0 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;opacity:.86}
+.ab-link{display:inline-block;margin-top:8px;color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+@media(max-width:800px){
+  .ab-hero{height:auto;min-height:0;padding-top:64px}
+  .ab-hero img{position:relative;display:block;height:auto;aspect-ratio:3/2.3;object-position:50% 62%}
+  .ab-hero:after{display:none}
+  .ab-hero-copy{position:static;padding:30px var(--pad) 0}
+  .ab-hero h1{color:var(--white)!important}
+  html.theme-light .ab-hero{background:var(--black)}
+  html.theme-light .ab-hero h1{color:#9b9c9b!important}
+  html.theme-light .ab-hero p{color:var(--muted)}
+  .ab-person,.ab-person.rev{grid-template-columns:1fr;gap:22px}
+  .ab-person.rev figure{order:0}
+}
+html.theme-light .ab-person h2,html.theme-light .ab-next h2{color:#9b9c9b}
