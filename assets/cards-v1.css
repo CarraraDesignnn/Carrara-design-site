@@ -1,0 +1,10 @@
+/* Home featured commissions: fade to the interior close-up on hover (mouse) or while pressed (touch) */
+.card-media:before{content:"";position:absolute;inset:0;z-index:1;background:center/cover no-repeat;opacity:0;transform:scale(1.04);transition:opacity .6s var(--ease,ease),transform 1.2s var(--ease,ease);pointer-events:none}
+.card-hit[href="/work/manthey-gt3-rs/"] .card-media:before{background-image:url(/img/card-alt/manthey-gt3-rs.jpg)}
+.card-hit[href="/work/urban-bamboo-gt2-rs/"] .card-media:before{background-image:url(/img/card-alt/urban-bamboo-gt2-rs.jpg)}
+.card-hit[href="/work/carrera-gt/"] .card-media:before{background-image:url(/img/card-alt/carrera-gt.jpg)}
+.card-hit[href="/work/huayra-bc/"] .card-media:before{background-image:url(/img/card-alt/huayra-bc.jpg)}
+@media(hover:hover){.card-hit:hover .card-media:before{opacity:1;transform:scale(1)}}
+.card.is-pressed .card-media:before,.card-hit:focus-visible .card-media:before{opacity:1;transform:scale(1)}
+.card-media:after{z-index:2}
+.card-overlay{z-index:3}
