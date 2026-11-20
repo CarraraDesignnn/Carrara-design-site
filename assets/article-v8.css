@@ -251,3 +251,13 @@ html.ap-snap .site-footer{scroll-snap-align:end}
   .ap-sheet .art-wishes li{font-size:11.5px;padding-bottom:7px;grid-template-columns:26px 1fr;line-height:1.35}
   .ap-sheet .ap-h{margin-bottom:12px}
 }
+
+/* hero slideshow (crossfade + slow zoom) */
+.art-hero .hero-ss{position:absolute;inset:0;pointer-events:none}
+.art-hero .hero-ss img.ss{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.02);animation:none;transition:opacity 1.4s ease}
+.art-hero .hero-ss img.ss.on{opacity:1}
+.art-hero img.kb,.art-hero .hero-ss img.ss.kb{animation:heroKB 7s linear forwards}
+.art-hero .hero-ss img.ss.ss-alt.kb{animation-name:heroKB2}
+@keyframes heroKB{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+@keyframes heroKB2{from{transform:scale(1.1) translateX(-1%)}to{transform:scale(1.02) translateX(0)}}
+@media(prefers-reduced-motion:reduce){.art-hero .hero-ss{display:none}}
