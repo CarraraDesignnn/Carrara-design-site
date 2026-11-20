@@ -28,7 +28,7 @@
   /* next project + CTA */
   var W=(window.WORK||[]).filter(function(w){return w.slug}),i=W.map(function(w){return w.slug}).indexOf(P.slug),next=W.length?W[(i+1)%W.length]:null;
   if(next&&next.slug!==P.slug)h+='<a class="pj-next" href="/work/'+esc(next.slug)+'/"><span class="pj-next-in">'+(next.img?'<img src="'+esc(next.img.replace(/-800\.jpg$/,'-1400.jpg'))+'" alt="" loading="lazy" draggable="false">':'')+'<span class="pj-next-copy"><span>Next project</span><strong>'+esc(next.title)+'</strong></span></span></a>';
-  h+='<section class="pj-cta"><h2 class="h3">Have a Car in Mind? Let’s Specify It Together.</h2><a class="btn btn-light" href="/#inquire">Start a commission</a></section>';
+  h+='<section class="pj-cta"><h2 class="h3">Have a car in mind? Let’s specify it together.</h2><a class="btn btn-light" href="/#inquire">Start a commission</a></section>';
   root.innerHTML=h;
   document.title=P.title+' — Carrara Design';
 
