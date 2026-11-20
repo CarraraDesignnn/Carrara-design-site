@@ -15,11 +15,12 @@
 .ab-person h2{margin:0;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px);line-height:1.05}
 .ab-role{margin:10px 0 22px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
 .ab-person p.ab-bio{margin:0 0 1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;opacity:.86}
-.ab-tex{position:relative;margin-top:clamp(80px,13vh,140px);padding:clamp(90px,16vh,170px) var(--pad);background:#000 center/cover no-repeat;color:#fff;text-align:center}
-.ab-tex:before{content:"";position:absolute;inset:0;background:#0000008c}
-.ab-tex>*{position:relative;max-width:640px;margin-left:auto;margin-right:auto}
-.ab-tex h2{margin:0 0 22px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px);color:#fff!important}
-.ab-tex p{margin:0 0 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;color:#ffffffdb}
+.ab-tex{position:relative;margin-top:clamp(90px,15vh,160px);padding:clamp(110px,20vh,200px) var(--pad);background:#000 center/cover no-repeat;color:#fff}
+.ab-tex:before{content:"";position:absolute;inset:0;background:#000000a6}
+.ab-tex-in{position:relative;max-width:620px;margin:0 auto;text-align:center}
+.ab-tex .pj-eyebrow{color:#ffffffa6}
+.ab-tex h2{margin:0 0 26px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(30px,3vw,46px);color:#fff!important}
+.ab-tex-in p:not(.pj-eyebrow){margin:0 auto 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.85;color:#ffffffdb}
 .ab-story .pj-track figure{width:min(70vw,380px)}
 .ab-next{max-width:680px;margin:0 auto;padding:clamp(80px,13vh,140px) var(--pad) 0;text-align:center}
 .ab-next h2{margin:0 0 20px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(28px,2.8vw,42px)}
@@ -38,18 +39,29 @@
   .ab-person.rev figure{order:0}
 }
 html.theme-light .ab-person h2,html.theme-light .ab-next h2{color:#9b9c9b}
-/* Zennsport: same text column + media as the rest of the page */
-.ab-zs-h{line-height:1}
-.ab-zs-logo{display:block;height:clamp(30px,3.2vw,44px);width:auto}
+/* Zennsport: two columns like the portraits */
+.ab-zs2{margin-top:clamp(110px,17vh,180px);grid-template-columns:1fr .8fr}
+.ab-zs2 figure img{border-radius:12px}
+.ab-zs-copy p:not(.pj-eyebrow){margin:0 0 1.1em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.8;opacity:.86}
+.ab-zs-h{margin:0 0 24px;line-height:1}
+.ab-zs-logo{display:block;height:clamp(28px,2.8vw,40px);width:auto}
 html:not(.theme-light) .ab-zs-logo{filter:invert(1)}
-.pj-text .ab-zs-cta{margin-top:30px}
-.ab-zs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 34px;color:var(--white);border:1.5px solid currentColor;border-radius:999px;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;opacity:1;transition:background .35s,color .35s}
+.ab-zs-copy .ab-zs-cta{margin-top:28px;opacity:1}
+.ab-zs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 34px;color:var(--white);border:1.5px solid currentColor;border-radius:999px;font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .35s,color .35s}
 .ab-zs-btn:hover{background:var(--white);color:var(--black)}
 html.theme-light .ab-zs-btn{color:#6e6e6c}
 html.theme-light .ab-zs-btn:hover{background:#6e6e6c;color:#f5f5f3}
-/* R Spyder photo kept modest, full studio frame like zennsport.com */
-.ab-zs-photo{max-width:900px}
-/* close: hairline, then a portfolio card like "Next project", then the commission CTA */
-.ab-portfolio{position:relative;margin-top:clamp(110px,17vh,180px);padding-top:clamp(56px,9vh,96px)}
-.ab-portfolio:before{content:"";position:absolute;top:0;left:var(--pad);right:var(--pad);height:1px;background:var(--line)}
-@media(min-width:801px){.ab-portfolio .pj-next-in{aspect-ratio:21/9}}
+@media(max-width:800px){.ab-zs2{grid-template-columns:1fr}.ab-zs2 figure{order:-1}}
+/* close: hairline, one centered line, two quiet buttons */
+.ab-close{max-width:1400px;margin:clamp(110px,17vh,180px) auto 0;padding:clamp(70px,11vh,120px) var(--pad) clamp(90px,14vh,150px);text-align:center;position:relative}
+.ab-close:before{content:"";position:absolute;top:0;left:var(--pad);right:var(--pad);height:1px;background:var(--line)}
+.ab-close h2{margin:0 auto;max-width:22ch}
+.ab-close-btns{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 28px;margin-top:30px}
+.ab-ghost{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px;opacity:.85;transition:opacity .3s,border-color .3s}
+.ab-ghost:hover{opacity:1;border-color:currentColor}
+html.theme-light .ab-close h2{color:#9b9c9b}
+html.theme-light .ab-close .btn-light{color:#6e6e6c!important;border-color:#6e6e6c!important;background:transparent!important}
+html.theme-light .ab-close .btn-light:hover{background:#6e6e6c!important;color:#f5f5f3!important}
+.ab-close .btn-light{min-height:48px;padding:0 34px;background:transparent;color:#fff;border:1.5px solid #ffffffe6;border-radius:999px;font-size:11.5px;letter-spacing:.16em}
+.ab-close .btn-light:hover{background:#fff;color:#101010}
+.ab-zs-logo{height:clamp(24px,2.2vw,32px)}
