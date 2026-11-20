@@ -47,8 +47,9 @@ html:not(.theme-light) .ab-zs-logo{filter:invert(1)}
 .ab-zs-btn:hover{background:var(--white);color:var(--black)}
 html.theme-light .ab-zs-btn{color:#6e6e6c}
 html.theme-light .ab-zs-btn:hover{background:#6e6e6c;color:#f5f5f3}
-/* transition back to Carrara Design */
-.ab-divider{display:flex;align-items:center;gap:clamp(18px,3vw,32px);max-width:1200px;margin:clamp(110px,18vh,190px) auto 0;padding:0 var(--pad)}
-.ab-divider span{flex:1;height:1px;background:var(--line)}
-.ab-divider img{width:64px;height:auto;opacity:.9}
-.ab-divider+.pj-cta{padding-top:clamp(56px,9vh,96px)}
+/* R Spyder photo kept modest, full studio frame like zennsport.com */
+.ab-zs-photo{max-width:900px}
+/* close: hairline, then a portfolio card like "Next project", then the commission CTA */
+.ab-portfolio{position:relative;margin-top:clamp(110px,17vh,180px);padding-top:clamp(56px,9vh,96px)}
+.ab-portfolio:before{content:"";position:absolute;top:0;left:var(--pad);right:var(--pad);height:1px;background:var(--line)}
+@media(min-width:801px){.ab-portfolio .pj-next-in{aspect-ratio:21/9}}
