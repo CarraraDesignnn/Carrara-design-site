@@ -1,7 +1,0 @@
-/* Closing call to action on project + archive pages: centered, button below; grey button in light mode */
-.pj-cta,.art-cta,.arc-page .art-cta{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px}
-.pj-cta h2,.art-cta h2{max-width:22ch;margin:0 auto}
-html.theme-light .pj-cta .btn-light,html.theme-light .art-cta .btn-light{background:#6e6e6c;border-color:#6e6e6c;color:#f5f5f3}
-html.theme-light .pj-cta .btn-light:hover,html.theme-light .art-cta .btn-light:hover{background:#4f4f4d;border-color:#4f4f4d;color:#f5f5f3}
-/* light mode: display-font headings on the light background use the same soft grey as the home page headings */
-html.theme-light .pj .pj-h2,html.theme-light .pj-films figcaption,html.theme-light .pj-text h2,html.theme-light .pj-spec h2{color:#9b9c9b}
