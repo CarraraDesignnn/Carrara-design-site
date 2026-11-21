@@ -96,3 +96,8 @@ html.theme-light .ab-close .btn-light:hover{background:#6e6e6c!important;color:#
 .ab-story{margin-top:clamp(64px,10vh,120px)}
 .ab-story-img{max-width:1000px}
 .ab-story-img img{aspect-ratio:3/2;object-fit:cover}
+/* phones: Zennsport photo after the text, button centered */
+@media(max-width:800px){
+  .ab-zs2 figure{order:2}
+  .ab-zs-copy .ab-zs-cta{text-align:center}
+}
