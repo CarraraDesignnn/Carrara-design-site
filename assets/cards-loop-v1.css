@@ -1,0 +1,5 @@
+/* Phones: featured commissions as one large, swipeable, looping row */
+@media(max-width:700px){
+  .work .rail{display:flex;grid-template-columns:none;grid-auto-rows:auto;justify-content:flex-start;gap:12px;padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch}
+  .work .rail .card{flex:0 0 72vw;height:calc(72vw / .78);scroll-snap-align:start}
+}
