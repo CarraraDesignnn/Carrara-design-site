@@ -1,0 +1,9 @@
+/* Product pages: the Made by Hand section lines up with the rest of the page (same left edge and width) */
+.pp-craft{margin-top:clamp(72px,10vw,140px)}
+.pp-craft .pj-media{max-width:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0}
+.pp-craft .pj-text{max-width:760px;margin-left:0;margin-right:0;padding-left:0;padding-right:0}
+.pp-craft .pj-strip-head{max-width:none;margin-left:0;margin-right:0;padding-left:0;padding-right:0}
+.pp-craft .pj-track{padding-left:0;padding-right:var(--pad);scroll-padding:0;margin-right:calc(var(--pad) * -1)}
+/* v2: photos removed, text follows straight on */
+.pp-craft .pj-text{padding-top:0}
+.pp-craft .pj-text + .pj-text{padding-top:1.15em}
