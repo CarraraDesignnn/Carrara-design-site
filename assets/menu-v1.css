@@ -1,0 +1,16 @@
+/* Menu button on static pages (replaces the old Back link). Base styles live in app-cd2663.css. */
+.page-header .header-menu{padding:10px 0;color:inherit;-webkit-tap-highlight-color:transparent}
+.page-header .header-menu:hover{opacity:.7}
+.menu-list a[aria-current="page"]{color:var(--white)}
+html.theme-light .menu-list a[aria-current="page"]{color:#101010}
+
+/* Light mode over a project's photo hero: keep the burger white like the other header items */
+html.theme-light body.has-pj .page-header:not(.is-solid):not(.is-menu) .header-menu{color:#fff}
+html.theme-light body.has-pj .page-header:not(.is-solid):not(.is-menu) .burger i{background:#fff}
+
+/* Light mode with the menu open: the menu is light, so the header goes dark */
+html.theme-light body.has-pj .page-header.is-menu{color:#101010!important;background:transparent!important}
+html.theme-light body.has-pj .page-header.is-menu a{color:#101010!important}
+html.theme-light body.has-pj .page-header.is-menu .header-cta{border-color:#101010!important}
+html.theme-light body.has-pj .page-header.is-menu .logo-mark{content:url(/logo-dark.png)!important}
+html.theme-light body.has-pj.menu-open .theme-ico{border-color:rgba(16,16,16,.25)!important;color:#101010!important}
