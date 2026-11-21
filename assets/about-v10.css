@@ -107,3 +107,15 @@ html.theme-light .ab-close .btn-light:hover{background:#6e6e6c!important;color:#
   .ab-zs2>figure{display:none}
   .ab-zs2 img.ab-zs-mimg{display:block;width:100%;height:auto;border-radius:12px;margin:0 0 30px}
 }
+/* Anthony + Tanner side by side */
+.ab-duo{max-width:1400px;margin:clamp(40px,7vh,80px) auto 0;padding:0 var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,48px);align-items:start}
+.ab-card figure{margin:0 0 22px}
+.ab-card img{display:block;width:100%;height:auto;border-radius:6px}
+.ab-card h2{margin:0;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(24px,2.2vw,32px);line-height:1.1}
+.ab-card .ab-role{margin:8px 0 16px}
+.ab-card p.ab-bio{margin:0 0 .9em;font-size:var(--pj-text,17px);font-weight:300;line-height:1.75;opacity:.86}
+html.theme-light .ab-card h2{color:#9b9c9b}
+@media(max-width:800px){
+  .ab-duo{grid-template-columns:1fr;gap:40px;margin-top:40px}
+  .ab-card figure{margin-bottom:16px}
+}
