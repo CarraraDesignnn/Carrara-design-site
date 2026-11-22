@@ -1,0 +1,74 @@
+/* Home: "What a Commission Means" v3 (commission-v6.js). Replaces the old first screen; "By the Numbers" stays. */
+#pricing.cm-ready .scene-a{display:none!important}
+.cm-scene{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}
+.cm-a{padding:clamp(88px,11vh,112px) var(--pad) clamp(28px,5vh,56px)}
+.cm-head{width:100%;max-width:1440px;margin:0 auto clamp(26px,4vh,40px);text-align:left}
+.cm-head .eyebrow{margin:0 0 14px}
+.cm-head .h3{margin:0}
+.cm-lead{margin:0;color:var(--muted);font-size:16px;line-height:1.6;font-weight:300}
+.cm-rail{list-style:none;margin:0 auto;padding:0;width:100%;max-width:1440px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.6vw,24px)}
+.cm-card{min-width:0}
+.cm-media{position:relative;display:block;width:100%;aspect-ratio:3/4;max-height:56vh;border-radius:18px;overflow:hidden;background:var(--graphite,#141414);isolation:isolate;transform:translateZ(0);-webkit-mask-image:-webkit-radial-gradient(white,black);-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;outline:none}
+.cm-media img,.cm-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .6s ease,transform 1.2s var(--ease,ease)}
+.cm-media video{opacity:0}
+.cm-media.is-film video{opacity:1}
+.cm-media.is-film img{opacity:0;transform:scale(1.04)}
+.cm-media:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,#00000080 0%,#0000 32%,#0000 70%,#00000059 100%);pointer-events:none}
+.cm-over{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px 18px;pointer-events:none;text-align:center;opacity:1;transition:opacity .5s ease}
+.cm-media.is-film .cm-over{opacity:0}
+.cm-num{display:block;font-size:11px;font-stretch:105%;letter-spacing:.3em;color:#ffffffd9}
+.cm-name{margin-top:12px;font-size:clamp(21px,1.75vw,26px);font-weight:600;line-height:1.1;color:#fff}
+.cm-play{position:absolute;z-index:2;right:16px;bottom:16px;width:34px;height:34px;border:1px solid #ffffffb3;border-radius:50%;pointer-events:none;transition:opacity .4s ease}
+.cm-play:after{content:"";position:absolute;left:13px;top:10px;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff}
+.cm-media.is-film .cm-play{opacity:0}
+.cm-copy{text-align:left;margin:14px 4px 0;color:var(--muted);font-size:14px;line-height:1.5;font-weight:300;max-width:32ch}
+.cm-media:focus-visible{box-shadow:0 0 0 2px var(--white)}
+
+.cm-foot{width:100%;max-width:1440px;margin:clamp(22px,4vh,40px) auto 0;padding-top:clamp(18px,3vh,28px);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap}
+.cm-team{margin:0;font-size:15px;font-weight:300;color:var(--white)}
+.cm-book{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.cm-book span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cm-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 32px;border:1.5px solid var(--white);border-radius:999px;color:var(--white);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .35s ease,color .35s ease}
+.cm-btn:hover{background:var(--white);color:var(--black)}
+@media(max-width:700px){
+  .cm-foot{margin:18px var(--pad) 0;width:auto;padding-top:16px;flex-direction:column;align-items:center;text-align:center;gap:14px}
+  .cm-team{font-size:13.5px;max-width:30ch}
+  .cm-book{flex-direction:column;gap:10px}
+  .cm-book span{font-size:9px;letter-spacing:.16em}
+
+  .cm-a{padding:84px 0 24px}
+  .cm-head{padding:0 var(--pad);margin-bottom:22px;text-align:left}
+  .cm-lead{font-size:14px;line-height:1.5;max-width:34ch;margin:0}
+  .cm-rail{display:flex;gap:12px;padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .cm-rail::-webkit-scrollbar{display:none}
+  .cm-card{flex:0 0 74vw;scroll-snap-align:start}
+  .cm-media{max-height:54svh}
+  .cm-name{font-size:23px}
+  .cm-copy{font-size:13.5px;margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.cm-media img,.cm-media video{transition:none}}
+/* v11: desktop row scrolls sideways (trackpad, or click and drag), loose snapping */
+@media(min-width:701px){
+  .cm-rail{display:flex;gap:clamp(14px,1.6vw,24px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;cursor:grab;max-width:none;width:calc(100% + 2 * var(--pad));margin:0 calc(-1 * var(--pad));padding:0 var(--pad);scroll-padding:0 var(--pad)}
+  .cm-rail::-webkit-scrollbar{display:none}
+  .cm-rail.is-drag{cursor:grabbing;scroll-snap-type:none}
+  .cm-card{flex:0 0 min(calc((100vw - 2 * var(--pad) - 72px) / 3.4),calc(56vh * .75));scroll-snap-align:start}
+  .cm-rail .cm-media img{-webkit-user-drag:none}
+}
+/* v13: number and title sit under the image, above the line */
+.cm-cap{padding:18px 4px 0;text-align:left}
+.cm-cap .cm-num{display:block;font-size:11px;letter-spacing:.3em;color:var(--muted);margin:0 0 8px}
+.cm-cap .cm-name{margin:0 0 8px;font-size:clamp(19px,1.5vw,23px);font-weight:600;line-height:1.15;color:inherit}
+.cm-cap .cm-copy{margin:0;padding:0}
+
+/* v15: sideways only, never scrolls up and down */
+.cm-rail{overflow-y:hidden!important;overscroll-behavior-y:auto!important;touch-action:pan-x pan-y}
+
+/* v16: big stage number fades onto the card on hover (mouse) or while a thumb rests on it; no small number below */
+.cm-big{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:300;font-size:clamp(64px,6vw,104px);line-height:1;letter-spacing:-.02em;color:#fff;opacity:0;transition:opacity .45s ease;pointer-events:none}
+@media(hover:hover){.cm-media:hover .cm-big{opacity:1}}
+.cm-media.is-held .cm-big{opacity:1}
+
+/* v18: a card can fade to a second photo instead of a film */
+.cm-media .cm-alt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;z-index:1}
+.cm-media.is-film .cm-alt{opacity:1;transform:none}
