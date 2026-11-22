@@ -1,0 +1,18 @@
+/* hero-v10: centred Bugatti-style cover, no toggle, outlined pill button, white text in light mode, no light-mode overlays */
+.hs-tabs,.hs-cap{display:none!important}
+.hero-v3 .hero-content{align-items:center;text-align:center}
+.hero-v3 .hero-eyebrow{display:none!important}
+.hero-v3 .hero-title{font-size:clamp(30px,3.8vw,56px);font-weight:400;font-stretch:100%;letter-spacing:.14em;text-transform:uppercase;line-height:1.12;margin:0 0 34px;max-width:none}
+.hero-v3 .hero-btn{display:inline-flex;align-items:center;justify-content:center;gap:0;min-height:46px;padding:0 36px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.hero-v3 .hero-btn:after{content:none;display:none}
+.hero-v3 .hero-btn:hover{background:currentColor}
+@media(max-width:700px){.hero-v3 .hero-title{font-size:26px;letter-spacing:.1em;margin-bottom:26px}.hero-v3 .hero-btn{min-height:44px;padding:0 28px;font-size:10px}.hero-v3 .hero-content{padding-bottom:max(120px,20svh)!important}}
+
+/* Light mode: all cover text white, no gradient overlays */
+.theme-light .hero-v3 .hero-content,.theme-light .hero-v3 .hero-title,.theme-light .hero-v3 .hero-btn,.theme-light .hero-v3 .hero-btn:hover{color:#fff!important}
+.theme-light .hero-v3 .hero-btn{border-color:#fff!important}
+.theme-light .hero-v3 .hero-btn:hover{background:#fff!important;color:#101010!important}
+.theme-light .hs-scrim,.theme-light .hero-shade,.theme-light .hero-v3 .hero-media:after{display:none!important;background:none!important}
+
+/* v11: cover title always white, light mode included (beats the older light-tone rule in hero-v9) */
+html.theme-light .hero-v3 .hero-title,html.theme-light .hero-v3[data-tone] .hero-title{color:#fff!important}
