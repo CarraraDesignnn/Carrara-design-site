@@ -24,3 +24,8 @@
 @media(max-width:700px){
   .hero-v3 .hs-scrim,.theme-light .hero-v3 .hs-scrim,.hero-v3:not([data-tone=dark]) .hs-scrim{opacity:1!important;display:block!important;background:linear-gradient(to bottom,#0000 0%,#0000 58%,#0000001f 74%,#00000059 90%,#00000080 100%)!important}
 }
+
+/* v10e: clearly visible light-mode gradient on phones and desktop, short band at the bottom */
+@media(max-width:700px){
+  html .hero-v3 .hs-scrim{opacity:1!important;visibility:visible!important;display:block!important;background:linear-gradient(to bottom,#0000 0%,#0000 55%,#0000004d 75%,#000000a6 100%)!important}
+}
