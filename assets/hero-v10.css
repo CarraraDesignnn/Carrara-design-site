@@ -19,3 +19,8 @@
 @media(max-width:700px){.hero-v3 .hero-content{padding-bottom:max(120px,20svh)!important}}
 
 /* v10c: clips play 3 seconds each, then cut to the next */
+
+/* v10d: a clearly visible but shallow light-mode shade on phones */
+@media(max-width:700px){
+  .hero-v3 .hs-scrim,.theme-light .hero-v3 .hs-scrim,.hero-v3:not([data-tone=dark]) .hs-scrim{opacity:1!important;display:block!important;background:linear-gradient(to bottom,#0000 0%,#0000 58%,#0000001f 74%,#00000059 90%,#00000080 100%)!important}
+}
