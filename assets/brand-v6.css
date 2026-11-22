@@ -1,0 +1,137 @@
+/* Carrara Design type system
+   - Display headings: Helvetica Neue Bold Italic (grey #9B9C9B in light mode)
+   - Everything else: Barlow (Light for long text, Regular for body and labels,
+     Medium/SemiBold for names, values and buttons) */
+:root{--font:"Barlow","Helvetica Neue",Arial,sans-serif;--display:"Helvetica Neue",Helvetica,Arial,sans-serif;--brand-grey:#9b9c9b}
+html,body,button,input,select,textarea{font-family:var(--font)}
+body{font-weight:400;font-stretch:normal}
+*{font-stretch:normal !important}
+
+/* 1. Display headings */
+.hero-title,.h2,.h3,.shop-teaser-hook,.drop-pair-title,.pp-title,.pp-story-title,.art-title,.art-ch-t,.art-next strong,.steps-head{
+  font-family:var(--display) !important;font-weight:700 !important;font-style:italic !important;text-transform:none !important;letter-spacing:-.015em !important}
+.theme-light .h2,.theme-light .h3,.theme-light .shop-teaser-hook,.theme-light .drop-pair-title,.theme-light .pp-title,.theme-light .pp-story-title,.theme-light .art-ch-t,.theme-light .steps-head,.theme-light .hero-title{color:var(--brand-grey)}
+
+/* 2. Sub-headings, names and values: Barlow Medium/SemiBold */
+.step-title,.card-name,.drop-title,.drop-pair .drop-title,.pp-more-card span,.art-meta dd,.pp-specs dd,.art-spec dd,.drop-price,.pp-bar-name{font-family:var(--font);font-weight:500;font-style:normal}
+.step-title{font-weight:600;letter-spacing:-.005em}
+.card-name{font-weight:600}
+
+/* 3. Labels: Barlow Regular, uppercase, tracked, grey */
+.eyebrow,.drop-kicker,.art-ch-n,.art-kicker,.pp-specs dt,.art-meta dt,.art-spec dt,.card-type,.drop-edition,.drop-left,.art-f figcaption,.hero-caption,.pp-back,.pp-story-link{font-family:var(--font);font-weight:400;font-style:normal}
+
+/* 4. Long and lead text: Barlow Light */
+.statement,.art-lead,.art-quote blockquote,.pp-blurb,.drop-pair-sub,.hero-sub,.art-ch-b p:first-child{font-family:var(--font);font-weight:300}
+.body,.art-ch-b p,.pp-desc,.pp-story-copy p,.art-story p{font-weight:400}
+
+/* 5. Buttons and navigation: Barlow Medium, uppercase */
+.btn,.header-cta,.menu-list a,.header-back,.drop-add,.drop-view,.drop-chip{font-family:var(--font);font-weight:500;font-style:normal}
+
+/* Big numerals keep their light, airy weight */
+.odo,.odo *,.steps-num,.steps-num *,.price-num,.count b{font-family:var(--font)}
+
+/* Light mode logo: grey CD, colored stripes kept */
+.theme-light .logo-mark,.theme-light .footer-logo,.theme-light .legal-mark,html.theme-light .header .logo-mark{content:url(/logo-grey.png) !important}
+
+/* Smaller display headings, site-wide */
+.hero-title{font-size:clamp(36px,3.5vw,50px)!important}
+.h2{font-size:clamp(27px,3.2vw,46px)!important}
+.h3,.shop-teaser-hook,.steps-head,.pp-story-title{font-size:clamp(25px,2.4vw,34px)!important}
+.drop-pair-title{font-size:clamp(25px,2.7vw,38px)!important}
+.pp-title{font-size:clamp(30px,3vw,44px)!important}
+.step-title{font-size:clamp(20px,1.9vw,28px)!important}
+
+/* Remove the scroll-tracking dots on every page */
+.pager,.pager-alt{display:none!important}
+
+/* "View all" beside Featured Commissions */
+.work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.work-all{flex:none;padding-bottom:8px;font:500 11px/1 var(--font);letter-spacing:.24em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;opacity:.75}
+.work-all:hover{opacity:1}
+.work-all:after{content:" →"}
+
+/* v5: small caps set in a monospace, Bugatti-style (JetBrains Mono, self-hosted). Headings stay Barlow. */
+@font-face{font-family:'Carrara Mono';src:url(/fonts/carrara-mono-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+.ab-hero p,
+.ab-role,
+.ab-link,
+.ab-zs-btn,
+.ab-ghost,
+.eyebrow,
+.btn,
+.header-menu,
+.header-cta,
+.menu-foot,
+.hero-caption,
+.team-name,
+.service-title,
+.card-meta,
+.marques,
+.contact dt,
+.field label,
+.field-select select,
+.legal,
+.hero-link,
+.via legend,
+.via-opt span,
+.pager-label,
+.stat-label,
+.page-header .header-back,
+.hero-eyebrow,
+.card-type,
+.card-link,
+.project-page p,
+.theme-toggle,
+.card-hit:after,
+.footer-label,
+.footer-bottom,
+.sticky-cta,
+.arc-credit,
+.arc-nav a,
+.art-kicker,
+.art-cue,
+.art-meta dt,
+.art-ph figcaption,
+.art-ph.is-empty span,
+.art-quote figcaption,
+.art-spec dt,
+.art-next-copy p,
+.art-f figcaption,
+.art-ch-n,
+.art-cmp-l,
+.art-cmp-r,
+.art-sheet-k,
+.art-sheet dt,
+.ap-hint,
+.ap-meta dt,
+.ap-f figcaption,
+.ap-all,
+.work-all,
+.cm-book span,
+.cm-btn,
+.hero-btn,
+.pj-cta .btn-light,
+.art-cta .btn-light,
+.field-select select:invalid,
+.hero-v3 .hero-btn,
+.hs-cap,
+.hs-tabs .hs-seg,
+.pj-eyebrow,
+.pj-facts dt,
+.pj-cmp-tag,
+.pj-spec dt,
+.pj-next-copy span,
+.pj-all,
+.pj-film-cta,
+.steps .step .step-title,
+.wk-chip,
+.wk-count,
+.wk-meta,
+.cm-cap .cm-num{font-family:'Carrara Mono',ui-monospace,Menlo,monospace!important;font-weight:400!important;letter-spacing:.14em!important;font-stretch:normal!important}
+
+/* v6: footer uses the CARRARA DESIGN wordmark (white in dark mode, grey in light mode) with a small Italian flag dash beneath */
+.site-footer .footer-logo{content:url(/wordmark-white.png)!important;display:block;height:auto!important;width:min(300px,72vw);max-width:none;margin:0 0 10px}
+html.theme-light .site-footer .footer-logo{content:url(/wordmark-grey.png)!important}
+.footer-flag{display:flex;gap:7px;margin:0 0 22px calc(min(300px,72vw) * .097)}
+.footer-flag i{display:block;width:24px;height:3px;border-radius:2px;background:#4e765c}
+.footer-flag i+i{background:#aa2f39}
