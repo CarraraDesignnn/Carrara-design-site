@@ -24,7 +24,7 @@
         '<video muted playsinline loop preload="none" data-src="'+IMG+s.vid+'.mp4" disablepictureinpicture></video>'+
         '<span class="cm-over"><span class="cm-num">'+s.n+'</span><span class="cm-name">'+s.name+'</span></span>'+
         '</div><p class="cm-copy">'+s.copy+'</p></li>'}).join('')+
-      '</ol></div></div>';
+      '</ol><p class="cm-legacy"><span class="cm-legacy-k">Legacy.</span> Many Carrara Design commissions go on to define their chassis, becoming the reference specification for that car, and they regularly sell for well above standard prices of comparable cars.</p></div></div>';
     sec.insertAdjacentHTML('afterbegin',h);
     sec.classList.add('cm-ready');sec.setAttribute('aria-labelledby','cm-title');
     return sec.querySelector('.cm');

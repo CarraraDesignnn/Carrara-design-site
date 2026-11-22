@@ -47,3 +47,5 @@
   .cm-copy{font-size:13.5px;margin-top:12px}
 }
 @media(prefers-reduced-motion:reduce){.cm-media img,.cm-media video{transition:none}}
+.cm-legacy{width:100%;max-width:1440px;margin:clamp(26px,4vh,40px) auto 0;font-size:clamp(14px,1.1vw,16px);line-height:1.6;color:var(--muted);text-align:left}
+.cm-legacy-k{color:#fff;font-weight:600}
