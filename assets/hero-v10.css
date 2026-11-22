@@ -9,3 +9,10 @@
 .hero-v3 .hero-btn:hover{background:currentColor}
 .hero-v3 .hero-btn:hover{color:inherit}
 @media(max-width:700px){.hero-v3 .hero-title{font-size:26px;letter-spacing:.1em;margin-bottom:26px}.hero-v3 .hero-btn{min-height:44px;padding:0 28px;font-size:10px}}
+
+/* v10b: drop the eyebrow, lift the title, keep it white and remove light-mode overlays */
+.hero-v3 .hero-eyebrow{display:none!important}
+.theme-light .hero-v3 .hero-title,.theme-light .hero-v3[data-tone] .hero-title,.theme-light .hero-v3:not([data-tone]) .hero-title{color:#fff!important}
+.theme-light .hero-v3 .hero-btn{color:#fff!important;border-color:#fff!important}
+.theme-light .hs-scrim,.theme-light .hero-shade,.theme-light .hero-v3 .hero-media:after{display:none!important;background:none!important}
+@media(max-width:700px){.hero-v3 .hero-content{padding-bottom:max(120px,20svh)!important}}
