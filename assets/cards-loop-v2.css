@@ -1,0 +1,12 @@
+/* Phones: featured commissions as one large, swipeable, looping row */
+@media(max-width:700px){
+  .work .rail{display:flex;grid-template-columns:none;grid-auto-rows:auto;justify-content:flex-start;gap:12px;padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch}
+  .work .rail .card{flex:0 0 72vw;height:calc(72vw / .78);scroll-snap-align:start}
+}
+/* v2: desktop too, as a sideways row with loose snapping (trackpad, or click and drag) */
+@media(min-width:701px){
+  .work .rail{display:flex;grid-template-columns:none;grid-auto-rows:auto;justify-content:flex-start;gap:clamp(14px,1.6vw,24px);padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scroll-padding:0 var(--pad);cursor:grab}
+  .work .rail.is-drag{cursor:grabbing;scroll-snap-type:none}
+  .work .rail .card{--fw:min(calc((100vw - 2 * var(--pad) - 72px) / 3.4),calc((100svh - 300px) * .78));flex:0 0 var(--fw);width:var(--fw);height:calc(var(--fw) / .78);scroll-snap-align:start}
+  .work .rail img{-webkit-user-drag:none}
+}
