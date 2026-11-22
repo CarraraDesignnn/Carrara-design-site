@@ -1,0 +1,23 @@
+/* Phones: featured commissions as one large, swipeable, looping row */
+@media(max-width:700px){
+  .work .rail{display:flex;grid-template-columns:none;grid-auto-rows:auto;justify-content:flex-start;gap:12px;padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch}
+  .work .rail .card{flex:0 0 72vw;height:calc(72vw / .78);scroll-snap-align:start}
+}
+/* v2: desktop too, as a sideways row with loose snapping (trackpad, or click and drag) */
+@media(min-width:701px){
+  .work .rail{display:flex;grid-template-columns:none;grid-auto-rows:auto;justify-content:flex-start;gap:clamp(14px,1.6vw,24px);padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scroll-padding:0 var(--pad);cursor:grab}
+  .work .rail.is-drag{cursor:grabbing;scroll-snap-type:none}
+  .work .rail .card{--fw:min(calc((100vw - 2 * var(--pad) - 72px) / 3.4),calc((100svh - 300px) * .78));flex:0 0 var(--fw);width:var(--fw);height:calc(var(--fw) / .78);scroll-snap-align:start}
+  .work .rail img{-webkit-user-drag:none}
+}
+
+/* v3: type and name sit below each featured card (like the commission cards); hover or thumb still fades to the alternate shot */
+.work .rail .card{height:auto!important}
+.work .rail .card-hit{display:block;height:auto;color:inherit;text-decoration:none}
+.work .rail .card-media{height:auto!important;aspect-ratio:.78!important}
+.work .rail .card-media:after,.work .rail .card-hit:after{display:none!important}
+.work .rail .card-overlay{position:static!important;inset:auto!important;opacity:1!important;display:block!important;padding:16px 4px 0!important;text-align:left!important;transition:none!important}
+.work .rail .card-top{align-items:flex-start!important;gap:8px!important}
+.work .rail .card-overlay .card-type{display:block!important;margin:0;font-size:11px!important;color:var(--muted)!important;text-shadow:none!important}
+.work .rail .card-name{margin:0;color:inherit!important;text-shadow:none!important;white-space:normal!important;font-size:clamp(19px,1.5vw,23px)!important;line-height:1.15}
+html.theme-light .work .rail .card-overlay .card-type{color:rgba(16,16,16,.6)!important}
