@@ -11,7 +11,7 @@
     {type:'reel',src:'/img/about/craft/green.mp4',poster:'/img/about/craft/green.jpg',blur:'/img/about/craft/green.jpg',ratio:'4/5',title:T}
   ];
 
-  var IMG_MS=5000,REEL_MAX=120000,FALLBACK_MS=7000;
+  var IMG_MS=5000,REEL_MAX=3000,FALLBACK_MS=7000;
   var hero=document.querySelector('.hero-v3');if(!hero)return;
   var media=hero.querySelector('.hero-media'),shade=hero.querySelector('.hero-shade'),content=hero.querySelector('.hero-content'),title=hero.querySelector('.hero-title');
   if(!media||!content||!title)return;
