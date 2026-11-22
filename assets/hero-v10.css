@@ -14,5 +14,6 @@
 .hero-v3 .hero-eyebrow{display:none!important}
 .theme-light .hero-v3 .hero-title,.theme-light .hero-v3[data-tone] .hero-title,.theme-light .hero-v3:not([data-tone]) .hero-title{color:#fff!important}
 .theme-light .hero-v3 .hero-btn{color:#fff!important;border-color:#fff!important}
-.theme-light .hs-scrim,.theme-light .hero-shade,.theme-light .hero-v3 .hero-media:after{display:none!important;background:none!important}
+.theme-light .hero-shade,.theme-light .hero-v3 .hero-media:after{display:none!important;background:none!important}
+.theme-light .hs-scrim{opacity:1!important;display:block!important;background:linear-gradient(to bottom,#0000 0%,#0000 62%,#00000026 82%,#0000003d 100%)!important}
 @media(max-width:700px){.hero-v3 .hero-content{padding-bottom:max(120px,20svh)!important}}
