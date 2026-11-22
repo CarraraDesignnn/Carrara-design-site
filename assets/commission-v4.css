@@ -41,7 +41,7 @@
   .cm-rail{display:flex;gap:12px;padding:0 var(--pad);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .cm-rail::-webkit-scrollbar{display:none}
   .cm-card{flex:0 0 74vw;scroll-snap-align:start}
-  .cm-media{max-height:46svh}
+  .cm-media{max-height:40svh}
   .cm-name{font-size:23px}
   .cm-copy{font-size:13.5px;margin-top:12px}
 }
