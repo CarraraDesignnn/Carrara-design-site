@@ -1,0 +1,23 @@
+/* Home: "What a Commission Means" v27: statement, three benefits, one film. */
+#pricing.cm-ready .scene-a{display:none!important}
+.cm-scene{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}
+.cm-a{padding:clamp(88px,11vh,112px) var(--pad) clamp(28px,5vh,56px)}
+.cmx-wrap{width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,88px);align-items:center}
+.cmx-text .eyebrow{margin:0 0 14px}
+.cmx-text .h3{margin:0 0 18px}
+.cmx-lead{margin:0 0 clamp(24px,4vh,40px);max-width:46ch;font-size:clamp(16px,1.2vw,18px);line-height:1.6;font-weight:300;color:var(--muted)}
+.cmx-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(127,127,127,.25)}
+.cmx-list li{padding:clamp(14px,2.2vh,20px) 0;border-bottom:1px solid rgba(127,127,127,.25)}
+.cmx-list h3{margin:0 0 6px;font-size:clamp(17px,1.3vw,20px);font-weight:600;line-height:1.2;color:inherit}
+.cmx-list p{margin:0;max-width:48ch;font-size:15px;line-height:1.55;font-weight:300;color:var(--muted)}
+.cmx-film{position:relative;border-radius:18px;overflow:hidden;background:var(--graphite,#141414);aspect-ratio:16/10;max-height:72svh;-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.cmx-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:900px){
+  .cm-a{padding:84px var(--pad) 32px}
+  .cmx-wrap{grid-template-columns:1fr;gap:0}
+  .cmx-text{display:contents}
+  .cmx-text .eyebrow{order:1}.cmx-text .h3{order:2}.cmx-lead{order:3;margin-bottom:22px}
+  .cmx-film{order:4;border-radius:16px;margin-bottom:8px}
+  .cmx-list{order:5}
+  .cmx-list p{font-size:14px}
+}
