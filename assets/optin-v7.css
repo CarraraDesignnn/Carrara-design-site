@@ -1,0 +1,62 @@
+/* Contact form opt-in pill: small, quiet */
+.optin{display:flex;margin:-4px 0 2px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.optin input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.optin-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border:1px solid rgba(127,127,127,.35);border-radius:999px;font-size:12px;line-height:1;color:var(--muted);transition:border-color .25s ease,color .25s ease,background-color .25s ease;user-select:none}
+.optin-dot{width:12px;height:12px;border-radius:50%;border:1px solid currentColor;box-sizing:border-box;transition:background-color .2s ease,box-shadow .2s ease}
+.optin:hover .optin-pill{border-color:rgba(127,127,127,.6)}
+.optin input:checked+.optin-pill{color:inherit;border-color:currentColor}
+.optin input:checked+.optin-pill .optin-dot{background:currentColor;box-shadow:inset 0 0 0 2px var(--bg,#000)}
+html.theme-light .optin input:checked+.optin-pill .optin-dot{box-shadow:inset 0 0 0 2px #fff}
+.optin input:focus-visible+.optin-pill{outline:2px solid rgba(127,127,127,.6);outline-offset:2px}
+/* v3: even spacing — clear of the message line, closer to the button; balanced padding */
+.optin{margin:10px 0 -8px}
+.optin-pill{gap:9px;padding:8px 15px 8px 11px;font-size:12px;line-height:1.2}
+.optin-dot{width:11px;height:11px;flex:none}
+@media(max-width:700px){.optin{margin:8px 0 -6px}}
+
+/* footer newsletter */
+.fsub{width:100%;max-width:340px;margin-top:26px}
+.fsub-label{margin-bottom:12px!important}
+.fsub-row{display:flex;align-items:center;gap:6px;padding:4px 4px 4px 16px;border:1px solid rgba(127,127,127,.35);border-radius:999px;transition:border-color .25s ease}
+.fsub-row:focus-within{border-color:rgba(127,127,127,.7)}
+.fsub input{flex:1;min-width:0;padding:9px 0;border:0;background:transparent;color:inherit;font:inherit;font-size:15px;outline:none}
+.fsub input::placeholder{color:var(--muted)}
+.fsub button{flex:none;padding:9px 16px;border:0;border-radius:999px;background:var(--white,#fff);color:var(--black,#000);font-family:'Carrara Mono',ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
+.fsub button:disabled{opacity:.5}
+.fsub-msg{margin:10px 0 0;font-size:13px;color:inherit}
+.fsub-msg:empty{display:none}
+.fsub-legal{margin:10px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted);opacity:.8}
+.fsub.is-done .fsub-row,.fsub.is-done .fsub-legal{display:none}
+html.theme-light .fsub button{background:#111;color:#fff}
+
+/* phones: the footer fits on one screen under the header (it snaps to the page end), and the contact
+   section fills the full screen even with Safari's toolbar hidden, so the footer never peeks in */
+@media(max-width:700px){
+  #inquire.inquire{min-height:100lvh}
+  .site-footer{padding:28px 0 20px}
+  .site-footer .footer-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 20px}
+  .site-footer .footer-brand{grid-column:1 / -1}
+  .site-footer .footer-brand p{margin-top:8px}
+  .site-footer .footer-col{gap:9px}
+  .site-footer .footer-col a{font-size:14px}
+  .site-footer .footer-col a{word-break:break-word}
+  .site-footer .fsub{grid-column:1 / -1;max-width:none;margin:4px 0 0}
+  .site-footer .footer-bottom{margin-top:22px;padding-top:18px}
+}
+
+/* newsletter as its own grid item: under Contact on desktop and tablet */
+.site-footer .fsub{grid-column:3;margin-top:-22px}
+@media(max-width:900px) and (min-width:701px){.site-footer .fsub{grid-column:2}}
+@media(max-width:700px){.site-footer .fsub{grid-column:1 / -1;margin-top:4px}}
+
+/* v7: the footer is a full screen of its own, like every other section, so neither it nor the contact
+   section ever shows a sliver of the other. Content sits in the middle, the © bar and flag at the bottom. */
+.site-footer{min-height:100vh;min-height:100lvh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding:clamp(96px,12vh,140px) 0 0!important;scroll-snap-align:start!important;scroll-snap-stop:always}
+html.ap-snap .site-footer{scroll-snap-align:start!important}
+.site-footer .footer-grid{width:100%;margin-top:auto;margin-bottom:auto}
+.site-footer .footer-bottom{margin-top:clamp(40px,6vh,72px);padding-bottom:28px}
+#inquire.inquire{min-height:100vh;min-height:100lvh}
+@media(max-width:700px){
+  .site-footer{padding-top:96px!important}
+  .site-footer .footer-bottom{margin-top:28px;padding-bottom:22px}
+}
