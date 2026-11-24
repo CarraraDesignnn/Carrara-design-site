@@ -1,4 +1,4 @@
-/* v17: Made by Hand copy names the CGI work. v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v18: longer Family Portrait copy about the two Sonderwunsch Porsches. v17: Made by Hand copy names the CGI work. v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -71,7 +71,7 @@ window.PRINTS={
     editionText:"Available in December only",
     editionSpec:"Available to order in December only. Never printed again after December.",
     fine:"Available to order in December only. Never printed again after that.",
-    blurb:"James’ 911 GT2 RS and 911 GT3 RS, together in one group photo.",
+    blurb:"A render of two of the most iconic Sonderwunsch Porsches, shown together: James’ 911 GT2 RS in Urban Bamboo Chromaflair and his 911 GT3 RS with the Manthey Kit. We specified both cars with James, and this group portrait puts them side by side.",
     highlights:[
       "20 × 30 in fine art giclée print, unframed",
       "Natural white 200gsm enhanced matte art paper",
@@ -80,7 +80,7 @@ window.PRINTS={
     ],
     madeByHand:{
       paras:[
-        "Fine automotive CGI: a hyper-resolution render of both cars together, as one group photo."
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification files we used to design both cars. The detail goes down to the stitching in the leather and the carbon fiber weave on each car, so you can read every panel up close."
       ],
       image:{
         src:"/img/p/family/duo-bts-1600.jpg",
@@ -88,7 +88,7 @@ window.PRINTS={
       }
     },
     story:{},
-    transition:"Both cars are real. We specified each one with James.",
+    transition:"Both cars are real. The GT2 RS was delivered in 2019, and the GT3 RS was the first car to bring the Manthey Kit into the Sonderwunsch process.",
     commissions:[
       {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
       {image:"/img/manthey-hero2.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
