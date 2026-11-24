@@ -1,5 +1,5 @@
-/* shop-drop-v3: Family Portrait sits in the same half-width column as the framed prints, keeping its landscape photo */
+/* shop-drop-v4: Family Portrait spans the full width of the two framed prints above it, landscape, no overflow */
 .drop-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.drop-secondary{max-width:none;width:calc(50% - 8px);margin-top:40px;overflow:hidden}
+.drop-secondary{width:100%;max-width:100%;margin-top:40px;overflow:hidden;box-sizing:border-box}
 .drop-secondary .drop-media{width:100%;max-width:100%;aspect-ratio:3/2;height:auto;overflow:hidden}
 .drop-secondary .drop-media img{width:100%;height:100%;object-fit:cover;display:block}
