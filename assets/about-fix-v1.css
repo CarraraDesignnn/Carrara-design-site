@@ -1,0 +1,4 @@
+/* about-fix-v1: Zennsport button aligned with its text, even space above and below it */
+html:not(#t) body .ab-zs2 .ab-zs-copy .ab-zs-cta{margin:24px 0 0!important;text-align:left!important}
+html:not(#t) body .ab-zs2 .ab-zs-copy p:not(.pj-eyebrow):not(.ab-zs-cta):last-of-type{margin-bottom:0}
+@media(max-width:800px){html:not(#t) body .ab-close{margin-top:56px!important}}
