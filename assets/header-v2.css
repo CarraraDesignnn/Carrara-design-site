@@ -1,0 +1,2 @@
+/* header-v2: on desktop, page headers sit at the top of the page and scroll away with it instead of floating over the content */
+@media(min-width:801px){html:not(#t):not(#u) body .header.page-header{position:absolute!important}}
