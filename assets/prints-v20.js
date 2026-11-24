@@ -32,7 +32,7 @@ window.PRINTS={
       }
     },
     story:{
-      transition:"Both prints show real cars we specified for clients. This GT3 RS is one of the Serafino Collection cars we worked on with James, built with Porsche’s Sonderwunsch team and Manthey Racing.",
+      transition:"This GT3 RS was built from our render file. It is one of the Serafino Collection cars we specified with James, alongside Porsche’s Sonderwunsch team and Manthey Racing.",
       image:"/img/manthey-hero2.jpg",
       link:"/work/manthey-gt3-rs/"
     }
@@ -59,7 +59,7 @@ window.PRINTS={
       }
     },
     story:{
-      transition:"Both prints show real cars we specified for clients. This GT2 RS is one of the Serafino Collection cars we designed with James, built around the Urban Bamboo Chromaflair paint.",
+      transition:"This GT2 RS was built from our render file. It is one of the Serafino Collection cars we designed with James, around the Urban Bamboo Chromaflair paint.",
       image:"/img/gt2rs-real-front.jpg",
       link:"/work/urban-bamboo-gt2-rs/"
     }
