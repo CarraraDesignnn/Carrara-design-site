@@ -1,6 +1,0 @@
-/* drop-swap-v1 (preview): behind-the-scenes creative over each print on hover or a resting thumb */
-html:not(#t):not(#u) body .drop-swap{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;z-index:1;border-radius:inherit;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-html:not(#t):not(#u) body .drop-swap.in-grid{inset:auto;border-radius:var(--radius,14px)}
-html:not(#t):not(#u) body .drop-swap.is-on{opacity:1}
-html:not(#t):not(#u) body .shop-teaser-media .drop-chip{z-index:2}
-@media(prefers-reduced-motion:reduce){html:not(#t):not(#u) body .drop-swap{transition:none}}
