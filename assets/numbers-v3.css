@@ -1,0 +1,10 @@
+/* numbers-v3: figures in the heading face; italic digits no longer clipped by the rolling boxes; normal letter spacing; tight section spacing */
+html:not(#t):not(#u) body :is(.odo,.odo span,.odo-sym,.steps-price strong){font-family:var(--display)!important;font-weight:700!important;font-style:italic!important;letter-spacing:0!important}
+html.theme-light .odo,html.theme-light .odo span,html.theme-light .steps-price strong{color:var(--brand-grey)}
+html:not(#t):not(#u) body .odo-digit{overflow:visible!important;clip-path:inset(0 -.4em);margin-right:.02em}
+html:not(#t):not(#u) body .stat{gap:8px;padding-top:18px}
+html:not(#t):not(#u) body .stats-grid{row-gap:24px}
+html:not(#t):not(#u) body .odo{line-height:1!important;padding-right:.12em}
+html:not(#t):not(#u) body .steps-price{margin-top:32px;padding-top:20px}
+html:not(#t):not(#u) body .steps-price strong{line-height:1.05!important;margin-top:10px;padding-right:.12em}
+.steps-cta{display:inline-flex;margin-top:24px}
