@@ -1,0 +1,8 @@
+/* labels-v1: drop the small labels that only repeat the heading beneath them */
+.eyebrow{display:none!important}
+.pj-eyebrow:has(+ .pj-h2){display:none!important}
+/* What a Commission Means: no empty row where the label was */
+.steps .scene-a .steps-head{margin-top:calc(var(--gap,16px) * -1)}
+/* commission card titles: larger, tighter tracking (Bugatti-style mono caps) */
+html body #pricing .step .step-title{font-size:15px!important;letter-spacing:.09em!important;line-height:1.25;margin:0 0 6px}
+@media(max-width:700px){html body #pricing .step .step-title{font-size:12px!important;letter-spacing:.07em!important;margin:0}}
