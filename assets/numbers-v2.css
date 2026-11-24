@@ -1,9 +1,0 @@
-/* numbers-v2: figures in the heading face; tighter spacing around figures, labels, price and button */
-html:not(#t):not(#u) body :is(.odo,.odo span,.odo-sym,.steps-price strong){font-family:var(--display)!important;font-weight:700!important;font-style:italic!important;letter-spacing:-.02em!important}
-html.theme-light .odo,html.theme-light .odo span,html.theme-light .steps-price strong{color:var(--brand-grey)}
-html:not(#t):not(#u) body .stat{gap:8px;padding-top:18px}
-html:not(#t):not(#u) body .stats-grid{row-gap:24px}
-html:not(#t):not(#u) body .odo{line-height:1!important;padding-right:.08em}
-html:not(#t):not(#u) body .steps-price{margin-top:32px;padding-top:20px}
-html:not(#t):not(#u) body .steps-price strong{line-height:1!important;margin-top:10px;padding-right:.08em}
-.steps-cta{display:inline-flex;margin-top:24px}
