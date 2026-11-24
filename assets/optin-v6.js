@@ -1,4 +1,4 @@
-/* v5: wording leads with commissions. v4: newsletter is its own footer grid item. v3: also a newsletter signup in the footer, under Contact.
+/* v6: form checkbox reads "Send me the latest updates from the studio". v5: v4: newsletter is its own footer grid item. v3: also a newsletter signup in the footer, under Contact.
    Contact form: small "keep me posted" pill. If ticked when the inquiry is sent, the email is also added to the
    Shopify customer list as subscribed to email marketing (Storefront API customerCreate). The inquiry itself is
    unchanged; the tick also shows in the inquiry email as "marketing: Yes". */
@@ -14,7 +14,7 @@
   function add(form){
     if(form.querySelector('.optin'))return;
     var foot=form.querySelector('.form-foot');if(!foot)return;
-    foot.insertAdjacentHTML('beforebegin','<label class="optin field-full"><input type="checkbox" name="marketing" value="Yes"><span class="optin-pill"><span class="optin-dot" aria-hidden="true"></span>Send me new commissions and print releases</span></label>');
+    foot.insertAdjacentHTML('beforebegin','<label class="optin field-full"><input type="checkbox" name="marketing" value="Yes"><span class="optin-pill"><span class="optin-dot" aria-hidden="true"></span>Send me the latest updates from the studio</span></label>');
     form.addEventListener('submit',function(){
       var box=form.querySelector('.optin input'),em=form.querySelector('input[type=email]'),nm=form.querySelector('input[name=name]');
       if(box&&box.checked&&em&&em.checkValidity()&&em.value&&!(form.querySelector('[name="company-website"]')||{}).value)subscribe(em.value.trim(),nm&&nm.value);
