@@ -59,3 +59,11 @@
 .cmb-card:after,.cmb-card.is-on:after{height:40%;opacity:.6}
 .cmb-card.is-on .cmb-base{transform:scale(1.025)}
 @media(max-width:700px){.cmb-label,.cmb-card.is-hero .cmb-label{font-size:10px;letter-spacing:.12em}}
+
+/* v32: one plain line under each label, always visible */
+.cmb-line{margin:8px 0 0;max-width:36ch;font-size:clamp(14px,1.05vw,16px);line-height:1.45;font-weight:400;color:rgba(255,255,255,.9)}
+.cmb-card.is-hero .cmb-line{max-width:44ch;font-size:clamp(15px,1.2vw,18px)}
+.cmb-card:after,.cmb-card.is-on:after{height:55%;opacity:.85}
+@media(max-width:700px){.cmb-line{font-size:12.5px;line-height:1.35;margin-top:6px}.cmb-card.is-hero .cmb-line{font-size:14px}}
+.cmb-card:after,.cmb-card.is-on:after{height:65%;opacity:1;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.45) 45%,rgba(0,0,0,0) 100%)}
+.cmb-label,.cmb-line{text-shadow:0 1px 10px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.35)}

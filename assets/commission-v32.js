@@ -1,14 +1,15 @@
-/* Home: "What a Commission Means" v31 (Configure, Consult, Deliver: labels only) — swaps to a second image on hover or while a thumb rests on it; the original layout: one film and two images, each with a small label. The images do the talking.
+/* v32: one plain line under each label, always visible.
+   Home: "What a Commission Means" v31 (Configure, Consult, Deliver: labels only) — swaps to a second image on hover or while a thumb rests on it; the original layout: one film and two images, each with a small label. The images do the talking.
    Each card shows its label; hovering (mouse) or resting a thumb on it reveals the line and the second photo or film.
    Review's film is its normal face. Replaces only the old first screen of #pricing; "By the Numbers" stays. */
 (function(){
   var IMG='/img/commission/';
   /* base / alt: {img:'name', w:[widths]} or {vid:'name', poster:'name'}; pos = object-position */
   var STAGES=[
-    {name:'Configure',cls:'is-hero',copy:'',
+    {name:'Configure',cls:'is-hero',copy:'Your exact car, modelled in 3D and changed live as we decide together.',
       base:{vid:'step-sessions',poster:'b-sessions-poster',loop:true,root:'/img/'},alt:{img:'x-desk',w:[900,1600],pos:'60% 50%'}},
-    {name:'Consult',copy:'',base:{img:'x-expertise',w:[700,1400],pos:'40% 55%'},alt:{img:'b1-swatch',w:[900,1600],pos:'62% 50%'}},
-    {name:'Deliver',copy:'',base:{img:'c4-manthey',w:[600,1050],pos:'50% 50%'},alt:{vid:'c4-delivery'}}
+    {name:'Consult',copy:'We go through the programme’s options and what you want from the car.',base:{img:'x-expertise',w:[700,1400],pos:'40% 55%'},alt:{img:'b1-swatch',w:[900,1600],pos:'62% 50%'}},
+    {name:'Deliver',copy:'The final specification, checked line by line before it goes to the factory.',base:{img:'c4-manthey',w:[600,1050],pos:'50% 50%'},alt:{vid:'c4-delivery'}}
   ];
 
   var sec=document.getElementById('pricing');if(!sec)return;
@@ -33,7 +34,7 @@
       '</div><ol class="cmb-grid">'+
       STAGES.map(function(s){return '<li class="cmb-card '+(s.cls||'')+'" tabindex="0" aria-label="'+s.name+'">'+
         layer(s.base,'cmb-base')+layer(s.alt,'cmb-alt')+
-        '<div class="cmb-info"><h3 class="cmb-label">'+s.name+'</h3>'+
+        '<div class="cmb-info"><h3 class="cmb-label">'+s.name+'</h3>'+(s.copy?'<p class="cmb-line">'+s.copy+'</p>':'')+
         '</div></li>'}).join('')+
       '</ol></div></div>';
     sec.insertAdjacentHTML('afterbegin',h);
