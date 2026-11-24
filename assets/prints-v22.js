@@ -33,7 +33,7 @@ window.PRINTS={
     },
     story:{
       transition:"This GT3 RS was built from our render file. It is one of the Serafino Collection cars we specified with James, alongside Porsche’s Sonderwunsch team and Manthey Racing.",
-      image:"/img/manthey-hero2.jpg",
+      image:"/img/p/manthey/front2-desk-2000.jpg",
       link:"/work/manthey-gt3-rs/"
     }
   },
@@ -91,7 +91,7 @@ window.PRINTS={
     transition:"Both cars were built from our render files. The GT2 RS was delivered in 2019, and the GT3 RS was the first car to bring the Manthey Kit into the Sonderwunsch process.",
     commissions:[
       {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
-      {image:"/img/manthey-hero2.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
+      {image:"/img/p/manthey/front2-desk-2000.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
     ]
   }
 };
