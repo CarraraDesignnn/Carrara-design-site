@@ -1,0 +1,9 @@
+/* about-fix-v2: tighter intro spacing. Zennsport button aligned with its text, even space above and below it */
+html:not(#t) body .ab-zs2 .ab-zs-copy .ab-zs-cta{margin:24px 0 0!important;text-align:left!important}
+html:not(#t) body .ab-zs2 .ab-zs-copy p:not(.pj-eyebrow):not(.ab-zs-cta):last-of-type{margin-bottom:0}
+@media(max-width:800px){html:not(#t) body .ab-close{margin-top:56px!important}}
+
+/* tighter space between the names, the statement and the bios */
+html:not(#t) body .ab-statement{padding:clamp(24px,4vh,40px) var(--pad) 0!important}
+html:not(#t) body .ab-duo{margin-top:clamp(32px,5vh,56px)!important}
+@media(max-width:800px){html:not(#t) body .ab-statement{padding:24px var(--pad) 0!important}html:not(#t) body .ab-duo{margin-top:28px!important}}
