@@ -1,0 +1,7 @@
+/* pp-v8: on desktop the Made by Hand media sits beside its text instead of above it */
+@media (min-width:900px){
+  .pp-craft{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+  .pp-craft .pp-film{max-width:none;margin:0}
+  .pp-craft .pp-film video,.pp-craft .pp-film img{width:100%;height:auto;display:block;border-radius:14px}
+  .pp-craft .pj-text{max-width:none}
+}
