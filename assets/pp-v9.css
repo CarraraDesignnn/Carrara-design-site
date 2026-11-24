@@ -1,0 +1,11 @@
+/* pp-v9: tighter vertical rhythm on print pages (Made by Hand, commission line, commission card) */
+.pp-craft{margin-top:56px}
+.pp-craft .pj-text p:not(.pj-eyebrow){margin:0 0 .8em;line-height:1.6}
+.pp-craft .pj-h2{margin:0 0 16px}
+.pp-craft .pp-film{margin:0 0 24px}
+.pp-transition{margin-top:48px;padding-top:20px}
+.pp-transition p:not(.drop-kicker){line-height:1.6}
+.pp-transition .drop-kicker{margin:0 0 10px}
+.pp-transition+.pp-commission,.pp-commission-grid{margin-top:20px}
+.pp-commission-grid{gap:12px}
+@media (min-width:900px){.pp-craft{gap:40px}}
