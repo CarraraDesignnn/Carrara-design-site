@@ -6,8 +6,8 @@
 (function(){
   var SWAPS={
     1:{mode:'cover', src:'/img/step-sessions-still.jpg', pos:'40% 62%'},
-    2:{mode:'reveal',src:'/img/step-expertise-hover.jpg',pos:'78% 60%'},
-    3:{mode:'reveal',src:'/img/step-investment-hover.jpg',pos:'72% 50%'}
+    2:{mode:'reveal',src:'/img/step-expertise-hover-2.jpg',pos:'50% 55%'},
+    3:{mode:'reveal',src:'/img/step-investment-hover-2.jpg',pos:'50% 58%'}
   };
   var sec=document.getElementById('pricing');if(!sec)return;
   function hydrated(){return Object.keys(sec).some(function(k){return k.indexOf('__react')===0})}
