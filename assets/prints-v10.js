@@ -1,4 +1,4 @@
-/* v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -32,6 +32,7 @@ window.PRINTS={
       }
     },
     story:{
+      transition:"Both prints show real cars we specified for clients. This GT3 RS is one of the Serafino Collection cars we worked on with James, built with Porsche’s Sonderwunsch team and Manthey Racing.",
       image:"/img/manthey-hero2.jpg",
       link:"/work/manthey-gt3-rs/"
     }
@@ -58,6 +59,7 @@ window.PRINTS={
       }
     },
     story:{
+      transition:"Both prints show real cars we specified for clients. This GT2 RS is one of the Serafino Collection cars we designed with James, built around the Urban Bamboo Chromaflair paint.",
       image:"/img/gt2rs-real-front.jpg",
       link:"/work/urban-bamboo-gt2-rs/"
     }
