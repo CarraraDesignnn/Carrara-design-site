@@ -1,6 +1,8 @@
-/* hover swap faces sit on top of their card and fade away on hover or thumb */
+/* hover swap: 'cover' faces fade away on hover, 'reveal' faces fade in on hover */
 .steps .steps-media>.swap-face{z-index:0;transition:opacity .6s ease;cursor:default;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-user-drag:none;-webkit-tap-highlight-color:transparent}
-.steps .steps-media>.swap-face.is-off{opacity:0!important}
+.steps .steps-media>.swap-face.is-cover.is-on{opacity:0!important}
+.steps .steps-media>.swap-face.is-reveal{opacity:0!important}
+.steps .steps-media>.swap-face.is-reveal.is-on{opacity:1!important}
 .steps .steps-media>.swap-1{grid-area:a}
 .steps .steps-media>.swap-2{grid-area:b}
 .steps .steps-media>.swap-3{grid-area:c}
