@@ -1,4 +1,4 @@
-/* v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -67,9 +67,9 @@ window.PRINTS={
   "family-portrait-the-serafino-collection":{
     size:"20 × 30 in",
     format:"Unframed print",
-    editionText:"Not a limited edition",
-    editionSpec:"Preorder, then on sale through December. Never printed again after December.",
-    fine:"Not a limited edition. Preorder now, on sale through December, and never printed again.",
+    editionText:"Available in December only",
+    editionSpec:"Available to order in December only. Never printed again after December.",
+    fine:"Available to order in December only. Never printed again after that.",
     blurb:"Both Serafino Collection cars in one group photo: James’ 911 GT2 RS and 911 GT3 RS, rendered together on a polished marble floor. Built from the same specification files as the framed prints.",
     highlights:[
       "20 × 30 in fine art giclée print, unframed",
