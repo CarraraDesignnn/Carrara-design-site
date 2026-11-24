@@ -1,0 +1,16 @@
+/* header-v4: in light mode, page headers keep the frosted white bar at all times (same as the homepage, header-v1),
+   including over photo heroes, so the logo, menu and toggle stay dark there too */
+html.theme-light:not(#t):not(#u) body .header.page-header:not(.is-menu){background:#f5f5f3e0!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)!important;color:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .page-header:not(.is-menu) a{color:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .page-header:not(.is-menu) .logo-mark{content:url(/logo-grey.png)!important}
+html.theme-light:not(#t):not(#u) body.has-pj .page-header:not(.is-menu) .header-cta{border-color:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .page-header:not(.is-menu) .header-menu{color:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .page-header:not(.is-menu) .burger i{background:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .theme-ico{border-color:rgba(16,16,16,.22)!important;color:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .ti-knob{background:#101010!important}
+html.theme-light:not(#t):not(#u) body.has-pj .ti-sun{color:#fff!important}
+html.theme-light:not(#t):not(#u) body.has-pj .ti-moon{color:#101010!important}
+/* footer on desktop: contact and Instagram sit at the right edge */
+@media(min-width:801px){
+  html:not(#t):not(#u) body .site-footer .footer-grid>.footer-col:last-child{grid-column:-2/-1;justify-self:end;text-align:right;align-items:flex-end}
+}

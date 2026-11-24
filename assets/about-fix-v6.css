@@ -1,0 +1,20 @@
+/* about-fix-v6: Zennsport wordmark centred, one R Spyder photo on desktop, button centred on phones */
+html:not(#t):not(#u) body .ab-zs-logo{margin-left:auto;margin-right:auto}
+html:not(#t):not(#u) body .ab-zs-h{text-align:center}
+html:not(#t):not(#u) body .ab-zs-cta{text-align:center!important}
+/* studio photo sits inside the story, between its two paragraphs */
+html:not(#t):not(#u) body .pj-text > .pj-media{padding:0;margin:clamp(28px,4vh,40px) 0;max-width:none}
+/* "What's next" label above the Zennsport wordmark, as a lead-in */
+html:not(#t):not(#u) body .ab-zs2 .pj-eyebrow{display:block!important;text-align:center;margin:0 0 22px;opacity:.6}
+/* thin line running down from the label to the wordmark */
+html:not(#t):not(#u) body .ab-zs2 .pj-eyebrow::after{content:"";display:block;width:1px;height:clamp(44px,7vh,72px);margin:16px auto 0;background:currentColor;opacity:.7}
+/* pull the section up so the label sits in the gap after the previous text */
+html:not(#t):not(#u) body .ab-person.ab-zs2{margin-top:clamp(28px,4vh,48px)!important}
+/* desktop: Zennsport stacks in one centred column, like on phones */
+@media(min-width:801px){
+  html:not(#t):not(#u) body .ab-person.ab-zs2{display:block;max-width:var(--pj-col,760px);margin-left:auto!important;margin-right:auto!important;padding:0 var(--pad)}
+  html:not(#t):not(#u) body .ab-zs2>figure{display:none}
+  html:not(#t):not(#u) body .ab-zs2 img.ab-zs-mimg{display:block!important;width:100%;height:auto;border-radius:16px;margin:0 0 34px}
+}
+/* desktop: Along the Way follows the mouse, so the arrows aren't needed */
+@media(hover:hover) and (pointer:fine){html:not(#t):not(#u) body .ab-story .pj-strip-nav{display:none!important}}
