@@ -1,0 +1,2 @@
+/* header-v1: in light mode the top bar keeps its frosted white background from the start, not only after scrolling */
+html.theme-light .header:not(.is-menu){background:#f5f5f3e0!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
