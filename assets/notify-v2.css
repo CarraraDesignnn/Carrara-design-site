@@ -1,0 +1,26 @@
+/* notify-v2: "Get notified" page for the print drop */
+html:not(#t):not(#u) body .nt{min-height:100svh;display:flex;align-items:center;padding:110px var(--pad) 64px;box-sizing:border-box}
+html:not(#t):not(#u) body .nt-in{width:100%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+html:not(#t):not(#u) body .nt-media{margin:0;border-radius:16px;overflow:hidden}
+html:not(#t):not(#u) body .nt-media img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+html:not(#t):not(#u) body .nt-h{margin:0 0 16px;font-family:var(--display);font-weight:700;font-style:italic;font-size:clamp(32px,4vw,52px);line-height:1.05}
+html:not(#t):not(#u) body .nt-body{margin:0 0 26px;font-weight:300;line-height:1.7;opacity:.86}
+html:not(#t):not(#u) body .nt-row{display:flex;gap:10px}
+html:not(#t):not(#u) body .nt-row input{flex:1 0 auto;min-width:0;height:48px!important;min-height:48px;box-sizing:border-box;-webkit-appearance:none;appearance:none;padding:0 18px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-size:16px;opacity:.9}
+html:not(#t):not(#u) body .nt-row input::placeholder{color:inherit;opacity:.5}
+html:not(#t):not(#u) body .nt-row .btn{flex:none;min-height:48px}
+html:not(#t):not(#u) body .nt-msg{margin:12px 0 0;min-height:1.2em;font-size:14px}
+html:not(#t):not(#u) body .nt-legal{margin:6px 0 0;font-size:12px;opacity:.55;line-height:1.5}
+html:not(#t):not(#u) body .nt-form.is-done .nt-row{display:none}
+html:not(#t):not(#u) body .nt-form.is-done .nt-msg{font-size:17px}
+@media(max-width:800px){
+  html:not(#t):not(#u) body .nt{padding:96px var(--pad) 48px;align-items:flex-start}
+  html:not(#t):not(#u) body .nt-in{grid-template-columns:1fr;gap:24px}
+  html:not(#t):not(#u) body .nt-row{flex-direction:column}
+  html:not(#t):not(#u) body .nt-row .btn{width:100%}
+}
+/* build clip plays over the photo on hover or a resting thumb */
+html:not(#t):not(#u) body .nt-media{position:relative;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none}
+html:not(#t):not(#u) body .nt-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
+html:not(#t):not(#u) body .nt-media.is-on video{opacity:1}
+@media(prefers-reduced-motion:reduce){html:not(#t):not(#u) body .nt-media video{transition:none}}
