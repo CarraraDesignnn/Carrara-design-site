@@ -1,4 +1,4 @@
-/* v41: homepage hero uses the framed prints, not the secondary print. v40: homepage: framed prints lead, secondary print sits beneath. v39: per-product fine print, format, edition text, commission grid, framed links. v38: print-specific Made by Hand, no films; "30 × 40 in Framed Print" under the title. v33: consent line under the waitlist. v32: drop waitlist adds the email to Shopify customers, subscribed to email marketing. */
+/* v42: homepage hero line names the limit and the December print. v41: homepage hero uses the framed prints, not the secondary print. v40: homepage: framed prints lead, secondary print sits beneath. v39: per-product fine print, format, edition text, commission grid, framed links. v38: print-specific Made by Hand, no films; "30 × 40 in Framed Print" under the title. v33: consent line under the waitlist. v32: drop waitlist adds the email to Shopify customers, subscribed to email marketing. */
 /* Carrara Design monthly drops: products and cart live from Shopify (Storefront API)
    Shopify tags per product:  drop-01, drop-02 …  (which drop it belongs to)
                               (edition size is fixed at 10 below; edition-NN tags are ignored)
@@ -217,7 +217,7 @@
     if(d.live&&p){
       if(kick)kick.textContent=dropLabel(d.number)+' · '+month;
       if(title)title.textContent=multi?collectionName(MAINH.map(function(x){return clean(x.title)})):clean(p.title);
-      if(sub)sub.textContent=multi?'Prints from this drop. Each listing shows its own edition details.':subFor(p)+'. '+fineFor(p);
+      if(sub)sub.textContent=multi?'Two framed prints, limited to 10 each. The Family Portrait is available in December only.':subFor(p)+'. '+fineFor(p);
       if(lft)lft.textContent=multi?(function(){var e=MAINH[0].edition,same=MAINH.every(function(x){return x.edition===e});return same&&e?e+' of each':'Limited editions'})():editionLine(p);
       slot.innerHTML='';slot.classList.add('is-empty');
     }else{
