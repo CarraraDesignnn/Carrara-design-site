@@ -1,4 +1,4 @@
-/* type-v3: one type system for the whole site — 6 roles, 3 typefaces (Lead and Small folded into Body; one label size; quieter footer).
+/* type-v5: one type system for the whole site — 6 roles, 3 typefaces (Lead and Small folded into Body; one label size; quieter footer).
    Display / Heading: Helvetica Neue Bold Italic.  Title / Lead / Body / Small / Figure: Barlow.  Label: Carrara Mono caps.
    Every rule is prefixed with html:not(#t) so it outranks the older per-section rules. */
 :root{
@@ -68,3 +68,9 @@ html:not(#t):not(#u) body .site-footer .footer-logo{margin-left:auto!important;m
 html:not(#t):not(#u) body .site-footer .footer-brand p{margin-left:auto!important;margin-right:auto!important;max-width:34ch!important;text-align:center}
 html:not(#t):not(#u) body .site-footer .fsub{margin-top:0!important}
 html:not(#t):not(#u) body .site-footer .footer-bottom{margin-top:clamp(40px,5vw,56px)!important}
+
+/* Footer: Italian flag stripe sits on the top edge of the footer (in place of the grey rule); even space under the copyright on every page */
+html:not(#t):not(#u) body .site-footer{border-top:0!important}
+html:not(#t):not(#u) body .site-footer::after{top:0!important;bottom:auto!important}
+html:not(#t):not(#u) body .site-footer .footer-bottom{padding-bottom:28px!important}
+@media(max-width:700px){html:not(#t):not(#u) body .site-footer .footer-bottom{padding-bottom:24px!important}}
