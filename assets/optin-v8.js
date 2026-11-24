@@ -1,4 +1,4 @@
-/* v7: footer line reads "Updates from the studio. Unsubscribe anytime." v6: form checkbox reads "Send me the latest updates from the studio". v5: v4: newsletter is its own footer grid item. v3: also a newsletter signup in the footer, under Contact.
+/* v8: footer line mentions print drops. v7: footer line reads "Print drops and updates from the studio. Unsubscribe anytime." v6: form checkbox reads "Send me the latest updates from the studio". v5: v4: newsletter is its own footer grid item. v3: also a newsletter signup in the footer, under Contact.
    Contact form: small "keep me posted" pill. If ticked when the inquiry is sent, the email is also added to the
    Shopify customer list as subscribed to email marketing (Storefront API customerCreate). The inquiry itself is
    unchanged; the tick also shows in the inquiry email as "marketing: Yes". */
@@ -26,7 +26,7 @@
     col.insertAdjacentHTML('beforeend','<form class="fsub" novalidate><p class="footer-label fsub-label">Newsletter</p>'+
       '<div class="fsub-row"><label class="vh" for="fsub-email">Email</label><input id="fsub-email" type="email" required placeholder="Email address" autocomplete="email" inputmode="email">'+
       '<button type="submit" aria-label="Sign up">Join</button></div>'+
-      '<p class="fsub-msg" aria-live="polite"></p><p class="fsub-legal">Updates from the studio. Unsubscribe anytime.</p></form>');
+      '<p class="fsub-msg" aria-live="polite"></p><p class="fsub-legal">Print drops and updates from the studio. Unsubscribe anytime.</p></form>');
     var f=col.querySelector('.fsub'),i=f.querySelector('input'),b=f.querySelector('button'),m=f.querySelector('.fsub-msg');
     f.addEventListener('submit',function(e){e.preventDefault();
       if(!i.value||!i.checkValidity()){m.textContent='Please enter a valid email.';return}
