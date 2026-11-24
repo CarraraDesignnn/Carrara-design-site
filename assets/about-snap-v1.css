@@ -1,0 +1,40 @@
+/* about-snap-v1: About page scrolls in full-screen sections, like the homepage */
+html.ab-snap{scroll-snap-type:y mandatory}
+html:not(#t):not(#u) body .ab-panel{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;scroll-snap-stop:always;padding:96px 0 48px;box-sizing:border-box}
+html:not(#t):not(#u) body .ab-panel > *:first-child{margin-top:0!important;padding-top:0!important}
+html:not(#t):not(#u) body .ab-panel > *:last-child{margin-bottom:0!important}
+/* opening screen: photo fills the screen down to the statement */
+html:not(#t):not(#u) body .ab-p-hero{padding:0 0 clamp(28px,5vh,48px)}
+html:not(#t):not(#u) body .ab-p-hero .ab-hero{height:auto;flex:1 1 auto;min-height:0}
+html:not(#t):not(#u) body .ab-p-hero .ab-statement{padding-top:clamp(24px,4vh,40px)!important}
+html:not(#t):not(#u) body .ab-p-close{padding-bottom:0;justify-content:flex-start;padding-top:0}
+html:not(#t):not(#u) body .ab-p-close .ab-close{flex:1 0 auto;display:flex;flex-direction:column;justify-content:center;margin:0 auto!important;width:100%;box-sizing:border-box}
+/* Zennsport wordmark centred */
+html:not(#t):not(#u) body .ab-zs-logo{margin-left:auto;margin-right:auto}
+html:not(#t):not(#u) body .ab-zs-h{text-align:center}
+@media(max-width:800px){
+  html:not(#t):not(#u) body .ab-panel{padding:84px 0 36px}
+  html:not(#t):not(#u) body .ab-p-hero{padding:0 0 32px;justify-content:flex-start}
+  html:not(#t):not(#u) body .ab-p-hero .ab-hero{flex:0 0 auto}
+  /* each bio gets its own screen */
+  html:not(#t):not(#u) body .ab-p-duo{display:block;min-height:0;padding:0;scroll-snap-align:none}
+  html:not(#t):not(#u) body .ab-p-duo .ab-duo{display:block;margin:0!important;padding:0}
+  html:not(#t):not(#u) body .ab-p-duo .ab-card{min-height:100svh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;scroll-snap-stop:always;padding:84px var(--pad) 36px;box-sizing:border-box;margin:0}
+}
+@media(prefers-reduced-motion:reduce){html.ab-snap{scroll-snap-type:none}}
+/* studio photo screen: photo sized to the screen */
+html:not(#t):not(#u) body .ab-p-studio .pj-media{margin:0 auto!important;width:100%;box-sizing:border-box}
+html:not(#t):not(#u) body .ab-p-studio .pj-media img{width:100%;max-height:calc(100svh - 170px);object-fit:cover}
+/* Made by Hand: keep text and the two photos on one screen */
+@media(min-width:801px){
+  html:not(#t):not(#u) body .ab-p-craft .pj-pair img{max-height:calc(100svh - 400px);object-fit:cover}
+  html:not(#t):not(#u) body .ab-p-craft .pj-pair{margin-top:32px!important}
+  html:not(#t):not(#u) body .ab-zs-mimg{display:none!important}
+}
+@media(max-width:800px){
+  /* opening photo fills the screen above the title */
+  html:not(#t):not(#u) body .ab-p-hero .ab-hero{flex:1 1 auto;display:flex;flex-direction:column}
+  html:not(#t):not(#u) body .ab-p-hero .ab-hero img{flex:1 1 auto;min-height:0;aspect-ratio:auto;height:auto;object-fit:cover}
+  html:not(#t):not(#u) body .ab-p-studio .pj-media img{aspect-ratio:4/5;max-height:calc(100svh - 150px)}
+}
+html.ab-snap .site-footer{scroll-snap-align:end}
