@@ -1,4 +1,4 @@
-/* v32: one plain line under each label, always visible.
+/* v33: line shows only on hover or while a finger rests on the card. v32: one plain line under each label, always visible.
    Home: "What a Commission Means" v31 (Configure, Consult, Deliver: labels only) — swaps to a second image on hover or while a thumb rests on it; the original layout: one film and two images, each with a small label. The images do the talking.
    Each card shows its label; hovering (mouse) or resting a thumb on it reveals the line and the second photo or film.
    Review's film is its normal face. Replaces only the old first screen of #pricing; "By the Numbers" stays. */
