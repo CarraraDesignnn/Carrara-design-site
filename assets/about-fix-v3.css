@@ -1,0 +1,5 @@
+/* about-fix-v3: Zennsport wordmark centred, one R Spyder photo on desktop, button centred on phones */
+html:not(#t):not(#u) body .ab-zs-logo{margin-left:auto;margin-right:auto}
+html:not(#t):not(#u) body .ab-zs-h{text-align:center}
+@media(min-width:801px){html:not(#t):not(#u) body .ab-zs-mimg{display:none!important}}
+@media(max-width:800px){html:not(#t):not(#u) body .ab-zs-cta{text-align:center!important}}
