@@ -1,0 +1,15 @@
+/* /work/ v9: two even grids, Specification and Livery Design */
+html:not(#t):not(#u) body .wk-head{margin-bottom:clamp(36px,5vw,64px)}
+html:not(#t):not(#u) body .wk-sec+.wk-sec{margin-top:clamp(64px,8vw,112px)}
+html:not(#t):not(#u) body .wk-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+html:not(#t):not(#u) body .wk-sec-head h2{margin:0}
+html:not(#t):not(#u) body .wk-count{margin:0}
+html:not(#t):not(#u) body .wk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3vw,44px) clamp(16px,1.8vw,28px)}
+html:not(#t):not(#u) body .wk-grid .wk-img{aspect-ratio:4/5}
+html:not(#t):not(#u) body .wk-grid .wk-name{font-size:clamp(15px,1.25vw,18px)}
+@media(max-width:700px){
+  html:not(#t):not(#u) body .wk-grid{grid-template-columns:1fr 1fr;gap:26px 12px}
+  html:not(#t):not(#u) body .wk-sec-head{margin-bottom:16px}
+}
+html:not(#t):not(#u) body .wk-grid .wk-name{margin-top:14px}
+html:not(#t):not(#u) body .wk-grid .wk-tag+.wk-name{margin-top:7px}
