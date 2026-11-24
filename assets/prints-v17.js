@@ -1,4 +1,4 @@
-/* v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v17: Made by Hand copy names the CGI work. v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -22,7 +22,7 @@ window.PRINTS={
     ],
     madeByHand:{
       paras:[
-        "Every print starts as a hyper-resolution render, built by our team from the same specification file we used to design the car. The detail goes down to the last stitch and the carbon fiber weave."
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification file we used to design the car. The detail goes down to the last stitch and the carbon fiber weave."
       ],
       video:{
         mp4:"/img/p/manthey/blender-build.mp4",
@@ -49,7 +49,7 @@ window.PRINTS={
     ],
     madeByHand:{
       paras:[
-        "Every print starts as a hyper-resolution render, built by our team from the same specification file we used to design the car. The detail goes down to individual stitches in the leather and the weave of the carbon fiber."
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification file we used to design the car. The detail goes down to individual stitches in the leather and the weave of the carbon fiber."
       ],
       video:{
         mp4:"/img/p/gt2rs/blender-build.mp4",
@@ -80,7 +80,7 @@ window.PRINTS={
     ],
     madeByHand:{
       paras:[
-        "A hyper-resolution render of both cars together, as one group photo."
+        "Fine automotive CGI: a hyper-resolution render of both cars together, as one group photo."
       ],
       image:{
         src:"/img/p/family/duo-bts-1600.jpg",
