@@ -1,0 +1,7 @@
+/* about-fix-v3: Zennsport wordmark centred, one R Spyder photo on desktop, button centred on phones */
+html:not(#t):not(#u) body .ab-zs-logo{margin-left:auto;margin-right:auto}
+html:not(#t):not(#u) body .ab-zs-h{text-align:center}
+@media(min-width:801px){html:not(#t):not(#u) body .ab-zs-mimg{display:none!important}}
+@media(max-width:800px){html:not(#t):not(#u) body .ab-zs-cta{text-align:center!important}}
+/* studio photo sits inside the story, between its two paragraphs */
+html:not(#t):not(#u) body .pj-text > .pj-media{padding:0;margin:clamp(28px,4vh,40px) 0;max-width:none}

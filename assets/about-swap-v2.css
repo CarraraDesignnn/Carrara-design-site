@@ -1,0 +1,10 @@
+/* about-swap-v2: Made by Hand photos swap to studio film on hover or a resting thumb */
+.ab-sw{position:relative;display:block;border-radius:16px;overflow:hidden;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.ab-sw img{display:block}
+.ab-sw video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none;background:transparent}
+.ab-sw.is-on video{opacity:1}
+.pj-pair .ab-sw img{aspect-ratio:4/5;object-fit:cover;width:100%}
+@media(prefers-reduced-motion:reduce){.ab-sw video{transition:none}}
+.ab-sw .ab-alt-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
+.ab-sw.is-on .ab-alt-img{opacity:1}
+@media(prefers-reduced-motion:reduce){.ab-sw .ab-alt-img{transition:none}}
