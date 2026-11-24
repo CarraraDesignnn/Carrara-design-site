@@ -1,6 +1,8 @@
 /* v18: longer Family Portrait copy about the two Sonderwunsch Porsches. v17: Made by Hand copy names the CGI work. v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
+/* the month this drop is labelled with on the homepage and shop */
+window.DROP_MONTH="December";
 window.PRINT_HIGHLIGHTS=[
   "Hyper-resolution fine automotive CGI, every texture recreated down to the last stitch and carbon fiber weave",
   "Hand-stained solid wood box frame with a specialist wax finish that brings out the natural grain and warmth of the wood",
