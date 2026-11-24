@@ -1,4 +1,4 @@
-/* v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -70,7 +70,7 @@ window.PRINTS={
     editionText:"Available in December only",
     editionSpec:"Available to order in December only. Never printed again after December.",
     fine:"Available to order in December only. Never printed again after that.",
-    blurb:"Both Serafino Collection cars in one group photo: James’ 911 GT2 RS and 911 GT3 RS. Built from the same specification files as the framed prints.",
+    blurb:"James’ 911 GT2 RS and 911 GT3 RS, together in one group photo.",
     highlights:[
       "20 × 30 in fine art giclée print, unframed",
       "Natural white 200gsm enhanced matte art paper",
@@ -79,7 +79,7 @@ window.PRINTS={
     ],
     madeByHand:{
       paras:[
-        "The same hyper-resolution render as the framed prints, with both cars in one group photo."
+        "A hyper-resolution render of both cars together, as one group photo."
       ],
       image:{
         src:"/img/p/family/duo-bts-1600.jpg",
@@ -87,7 +87,7 @@ window.PRINTS={
       }
     },
     story:{},
-    transition:"Both cars are real, and we specified each one with James. This print shows them together.",
+    transition:"Both cars are real. We specified each one with James.",
     commissions:[
       {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
       {image:"/img/manthey-hero2.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
