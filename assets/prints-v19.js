@@ -88,7 +88,7 @@ window.PRINTS={
       }
     },
     story:{},
-    transition:"Both cars are real. The GT2 RS was delivered in 2019, and the GT3 RS was the first car to bring the Manthey Kit into the Sonderwunsch process.",
+    transition:"Both cars were built from our render files. The GT2 RS was delivered in 2019, and the GT3 RS was the first car to bring the Manthey Kit into the Sonderwunsch process.",
     commissions:[
       {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
       {image:"/img/manthey-hero2.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
