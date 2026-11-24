@@ -67,7 +67,7 @@ window.PRINTS={
   "family-portrait-the-serafino-collection":{
     secondary:true,
     size:"20 × 30 in",
-    format:"Unframed print",
+    format:"Fine Art Print",
     editionText:"Available in December only",
     editionSpec:"Available to order in December only. Never printed again after December.",
     fine:"Available to order in December only. Never printed again after that.",
