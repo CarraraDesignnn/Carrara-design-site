@@ -1,4 +1,4 @@
-/* v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -12,11 +12,8 @@ window.PRINT_HIGHLIGHTS=[
 window.PRINTS={
   "serafino-gt3rs-framed-print":{
     size:"30 × 40 in",
-    blurb:"James’ GT3 RS in Geyser Grey Metallic with the Manthey Kit, another Serafino Collection car specified with him. Every option was chosen in collaboration, and the print shows the finished specification.",
+    blurb:"Framed print of James’ 911 GT3 RS in Geyser Grey Metallic with the Manthey Kit, one of the Serafino Collection cars specified with him. Every option was chosen in collaboration, and the print shows the finished specification.",
     highlights:[
-      "Porsche 911 GT3 RS with Manthey Kit",
-      "Geyser Grey Metallic paint",
-      "Extensive Sonderwunsch options, designed with James",
       "30 × 40 in fine art giclée print, limited to 10",
       "Solid wood box frame in black, hand-stained and wax finished",
       "20 mm front face, 33 mm from the wall",
@@ -41,10 +38,8 @@ window.PRINTS={
   },
   "serafino-gt2rs":{
     size:"30 × 40 in",
-    blurb:"James’ 911 GT2 RS in Urban Bamboo Chromaflair, one of the Serafino Collection cars we designed with him. The specification was built together, option by option, and this print shows the car exactly as it was specified.",
+    blurb:"Framed print of James’ 911 GT2 RS in Urban Bamboo Chromaflair, one of the Serafino Collection cars we designed with him. The specification was built together, option by option, and this print shows the car exactly as it was specified.",
     highlights:[
-      "Porsche 911 GT2 RS in Urban Bamboo Chromaflair",
-      "Extensive Sonderwunsch options, designed with James",
       "30 × 40 in fine art giclée print, limited to 10",
       "Solid wood box frame in black, hand-stained and wax finished",
       "20 mm front face, 33 mm from the wall",
