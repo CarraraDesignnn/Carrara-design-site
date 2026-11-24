@@ -1,4 +1,0 @@
-/* numbers-v1 (preview): figures in the heading face; price leads into a Start a commission button */
-html:not(#t):not(#u) body :is(.odo,.odo span,.odo-sym,.steps-price strong){font-family:var(--display)!important;font-weight:700!important;font-style:italic!important;letter-spacing:-.02em!important}
-html.theme-light .odo,html.theme-light .odo span,html.theme-light .steps-price strong{color:var(--brand-grey)}
-.steps-cta{display:inline-flex;margin-top:28px}
