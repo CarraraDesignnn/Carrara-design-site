@@ -1,4 +1,4 @@
-/* type-v2: one type system for the whole site — 6 roles, 3 typefaces (Lead and Small folded into Body; one label size; quieter footer).
+/* type-v3: one type system for the whole site — 6 roles, 3 typefaces (Lead and Small folded into Body; one label size; quieter footer).
    Display / Heading: Helvetica Neue Bold Italic.  Title / Lead / Body / Small / Figure: Barlow.  Label: Carrara Mono caps.
    Every rule is prefixed with html:not(#t) so it outranks the older per-section rules. */
 :root{
@@ -59,3 +59,12 @@ html:not(#t):not(#u) body .site-footer a[href$="#pricing"]{display:none!importan
 html:not(#t):not(#u) body .site-footer .footer-bottom span:not(:first-child){display:none!important}
 html:not(#t):not(#u) body .site-footer .footer-col{gap:14px}
 html:not(#t):not(#u) body .site-footer .footer-col a{line-height:1.35!important}
+
+/* Footer: sized to its content (no full-screen block), wordmark and tagline centred above the links */
+html:not(#t):not(#u) body .site-footer{min-height:0!important;justify-content:flex-start!important;padding:clamp(56px,8vw,88px) 0 0!important;scroll-snap-align:end!important;scroll-snap-stop:normal!important}
+html:not(#t):not(#u) body .site-footer .footer-grid{margin-top:0!important;margin-bottom:0!important;row-gap:clamp(32px,4vw,48px)!important}
+html:not(#t):not(#u) body .site-footer .footer-brand{grid-column:1 / -1!important;text-align:center;display:flex;flex-direction:column;align-items:center}
+html:not(#t):not(#u) body .site-footer .footer-logo{margin-left:auto!important;margin-right:auto!important}
+html:not(#t):not(#u) body .site-footer .footer-brand p{margin-left:auto!important;margin-right:auto!important;max-width:34ch!important;text-align:center}
+html:not(#t):not(#u) body .site-footer .fsub{margin-top:0!important}
+html:not(#t):not(#u) body .site-footer .footer-bottom{margin-top:clamp(40px,5vw,56px)!important}
