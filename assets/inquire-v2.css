@@ -1,0 +1,4 @@
+/* inquire-v2: minimalist contact section — no background photo, no form panel or border; the opt-in is a plain checkbox line, not a pill */
+html:not(#t) body .inquire .inquire-bg{display:none!important}
+html:not(#t) body .inquire :is(.form,.form-done){background:none!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding:0!important}
+html:not(#t) body .optin-pill,html:not(#t) body .optin input:checked+.optin-pill,html:not(#t) body .optin:hover .optin-pill{border:0!important;border-radius:0!important;padding:0!important;background:none!important}
