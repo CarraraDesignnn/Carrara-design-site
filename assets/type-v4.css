@@ -24,7 +24,7 @@ html:not(#t):not(#u) body :is(.pj-lead,.pj-hero-tag,.pj-close p,.ab-statement p)
   font-family:var(--font)!important;font-size:var(--t-body)!important;font-weight:400!important;font-style:normal!important;letter-spacing:normal!important;text-transform:none!important;line-height:1.6!important}
 
 /* Former small text: now Body */
-html:not(#t):not(#u) body :is(.cart-note,.fsub-legal,.step-body,.optin-pill,.form-note,.pj-credits,.pj-cap,.waitlist-legal,.cart-price,.pj-track figcaption span,.cart-note a,.fsub-legal a){
+html:not(#t):not(#u) body :is(.cart-note,.fsub-legal,.step-body,.optin-pill,.optin-pill span,.form-note,.pj-credits,.pj-cap,.waitlist-legal,.cart-price,.pj-track figcaption span,.cart-note a,.fsub-legal a){
   font-family:var(--font)!important;font-size:var(--t-body)!important;font-weight:400!important;font-style:normal!important;letter-spacing:normal!important;text-transform:none!important;line-height:1.6!important}
 
 /* Title */
@@ -45,7 +45,7 @@ html:not(#t):not(#u) body :is(.odo,.odo span,.odo-sym,.steps-price strong,.cd b)
 html:not(#t):not(#u) body .odo-strip span{line-height:1!important}
 
 /* Label */
-html:not(#t):not(#u) body :is(.footer-col a,.site-footer nav a,.pj-eyebrow,.btn,.header-cta,.header-label,.work-all,.ab-ghost,.ab-zs-btn,.card-type,.footer-label,.stat-label,.wk-tag,.pj-cmp-tag,.ab-role,.form label,.field label,dt,.legal span,.footer-bottom span,.fsub button,.fsub-row button,.menu-foot a,.menu-num,.pj-next-copy span,.drop-kicker,.drop-edition,.drop-left,.drop-chip,.drop-view,.pp-back,.cart-rm,.pp-commission-kicker,.cd i,.drop-rules b,.ab-hero-copy p,.pp-story-link,.pp-framed-link,.drop-add,.cart-checkout,.waitlist button,.optin-pill,.header-menu){
+html:not(#t):not(#u) body :is(.footer-col a,.site-footer nav a,.pj-eyebrow,.btn,.header-cta,.header-label,.work-all,.ab-ghost,.ab-zs-btn,.card-type,.footer-label,.stat-label,.wk-tag,.pj-cmp-tag,.ab-role,.form label,.field label,dt,.legal span,.footer-bottom span,.fsub button,.fsub-row button,.menu-foot a,.menu-num,.pj-next-copy span,.drop-kicker,.drop-edition,.drop-left,.drop-chip,.drop-view,.pp-back,.cart-rm,.pp-commission-kicker,.cd i,.drop-rules b,.ab-hero-copy p,.pp-story-link,.pp-framed-link,.drop-add,.cart-checkout,.waitlist button,.header-menu){
   font-family:'Carrara Mono',ui-monospace,Menlo,monospace!important;font-size:var(--t-label)!important;font-weight:400!important;font-style:normal!important;
   letter-spacing:var(--t-track)!important;text-transform:uppercase!important;line-height:1.35!important}
 html:not(#t):not(#u) body .optin-pill{text-transform:none!important;font-family:var(--font)!important;letter-spacing:normal!important}
