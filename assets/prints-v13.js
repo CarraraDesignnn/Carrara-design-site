@@ -1,4 +1,4 @@
-/* v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+/* v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
    Print detail content, keyed by Shopify product handle.
    Edit text here; price, stock and photos still come from Shopify. */
 window.PRINT_HIGHLIGHTS=[
@@ -91,10 +91,6 @@ window.PRINTS={
     commissions:[
       {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
       {image:"/img/manthey-hero2.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
-    ],
-    framedLinks:[
-      {href:"/shop/print/?p=chromaflair-gt2-rs-the-serafino-collection",label:"Limited framed print: 911 GT2 RS"},
-      {href:"/shop/print/?p=manthey-gt3-rs-the-serafino-collection",label:"Limited framed print: 911 GT3 RS"}
     ]
   }
 };
