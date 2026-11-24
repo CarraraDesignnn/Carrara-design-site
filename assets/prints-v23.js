@@ -68,9 +68,9 @@ window.PRINTS={
     secondary:true,
     size:"20 × 30 in",
     format:"Fine Art Print",
-    editionText:"Available in December only",
-    editionSpec:"Available to order in December only. Never printed again after December.",
-    fine:"Available to order in December only. Never printed again after that.",
+    editionText:"Available through December",
+    editionSpec:"Preorder now, available through December 31. Never printed again after that.",
+    fine:"Preorder now, available through December. Never printed again after that.",
     blurb:"A render of two of the most iconic Sonderwunsch Porsches, shown together: James’ 911 GT2 RS in Urban Bamboo Chromaflair and his 911 GT3 RS with the Manthey Kit. We specified both cars with James, and this group portrait puts them side by side.",
     highlights:[
       "20 × 30 in fine art giclée print, unframed",

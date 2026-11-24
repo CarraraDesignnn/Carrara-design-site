@@ -217,7 +217,7 @@
     if(d.live&&p){
       if(kick)kick.textContent=dropLabel(d.number)+' · '+month;
       if(title)title.textContent=multi?collectionName(MAINH.map(function(x){return clean(x.title)})):clean(p.title);
-      if(sub)sub.textContent=multi?'Two framed prints, limited to 10 each. The Family Portrait is available in December only.':subFor(p)+'. '+fineFor(p);
+      if(sub)sub.textContent=multi?'Two framed prints, limited to 10 each. The Family Portrait is available through December.':subFor(p)+'. '+fineFor(p);
       if(lft)lft.textContent=multi?(function(){var e=MAINH[0].edition,same=MAINH.every(function(x){return x.edition===e});return same&&e?e+' of each':'Limited editions'})():editionLine(p);
       slot.innerHTML='';slot.classList.add('is-empty');
     }else{
