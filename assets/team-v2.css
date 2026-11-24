@@ -1,0 +1,14 @@
+/* team-v2 (live): homepage Made by Hand section */
+html:not(#t):not(#u) body .team-in{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;max-width:1400px;margin:0 auto}
+html:not(#t):not(#u) body .team-media{position:relative;display:block;border-radius:16px;overflow:hidden;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none}
+html:not(#t):not(#u) body .team-media img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 55%;max-height:68svh}
+html:not(#t):not(#u) body .team-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease;pointer-events:none}
+html:not(#t):not(#u) body .team-media.is-on video{opacity:1}
+html:not(#t):not(#u) body .team-copy h2{margin:0 0 18px}
+html:not(#t):not(#u) body .team-copy .body{margin:0}
+html:not(#t):not(#u) body .team-link{display:inline-block;margin-top:26px}
+@media(max-width:800px){
+  html:not(#t):not(#u) body .team-in{grid-template-columns:1fr;gap:22px}
+  html:not(#t):not(#u) body .team-media img{aspect-ratio:4/3;max-height:40svh}
+}
+@media(prefers-reduced-motion:reduce){html:not(#t):not(#u) body .team-media video{transition:none}}
