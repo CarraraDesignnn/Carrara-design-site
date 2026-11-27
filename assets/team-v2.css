@@ -1,4 +1,4 @@
-/* team-v2 (live): homepage Made by Hand section */
+/* team-v2 (preview): homepage Made by Hand section */
 html:not(#t):not(#u) body .team-in{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;max-width:1400px;margin:0 auto}
 html:not(#t):not(#u) body .team-media{position:relative;display:block;border-radius:16px;overflow:hidden;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none}
 html:not(#t):not(#u) body .team-media img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 55%;max-height:68svh}

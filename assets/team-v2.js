@@ -1,4 +1,4 @@
-/* team-v2 (live): "Made by Hand" studio section on the homepage, between the print drop and What a Commission Means.
+/* team-v2 (preview): "Made by Hand" studio section on the homepage, between the print drop and What a Commission Means.
    Inserted after the app hydrates. Photo swaps to the studio clip on hover or a resting thumb. */
 (function(){
   function hydrated(){var s=document.getElementById('pricing');return s&&Object.keys(s).some(function(k){return k.indexOf('__react')===0})}

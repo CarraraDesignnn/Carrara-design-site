@@ -1,0 +1,7 @@
+/* pp-v7: commission pair grid and framed print links on the Family Portrait page */
+.pp-commission-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.pp-commission-grid .pp-commission{margin:0;aspect-ratio:4/3}
+.pp-framed-links{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.pp-framed-link{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:6px;align-self:flex-start}
+.pp-framed-link:hover{border-color:#fff}
+@media (max-width:560px){.pp-commission-grid{grid-template-columns:1fr}.pp-commission-grid .pp-commission{aspect-ratio:2/1}}

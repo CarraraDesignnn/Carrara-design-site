@@ -1,0 +1,3 @@
+/* home-drop-v1: secondary print sits beneath the main drop, left aligned and smaller */
+.drop-secondary{margin-top:56px;max-width:440px}
+.drop-secondary .drop-media{aspect-ratio:3/2}

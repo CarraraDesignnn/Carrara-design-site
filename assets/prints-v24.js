@@ -1,0 +1,102 @@
+/* v18: longer Family Portrait copy about the two Sonderwunsch Porsches. v17: Made by Hand copy names the CGI work. v16: Family Portrait marked secondary on the homepage. v15: shorter Family Portrait copy. v14: plainer Family Portrait copy. v13: removed the framed-print links that duplicated the commission cards. v12: Family Portrait is available in December only (not a unit cap). v11: Family Portrait 20x30 print, per-product fine print and edition text. v10: transition line above the commission card. v9: print-only highlights, blurb names the car. v8: thin commission card, video above Made by Hand, no render-to-reality cards.
+   Print detail content, keyed by Shopify product handle.
+   Edit text here; price, stock and photos still come from Shopify. */
+/* the month this drop is labelled with on the homepage and shop */
+window.DROP_MONTH="December";
+window.PRINT_HIGHLIGHTS=[
+  "Hyper-resolution fine automotive CGI, every texture recreated down to the last stitch and carbon fiber weave",
+  "Hand-stained solid wood box frame with a specialist wax finish that brings out the natural grain and warmth of the wood",
+  "20mm on the front face and 33mm deep from the wall, for a clean, contemporary shadow-line look",
+  "Museum-quality Giclée print",
+  "Delivered fully assembled",
+  "Hangs from a cobra hook"
+];
+window.PRINTS={
+  "serafino-gt3rs-framed-print":{
+    size:"30 × 40 in",
+    blurb:"Framed print of James’ 911 GT3 RS in Geyser Grey Metallic with the Manthey Kit, one of the Serafino Collection cars specified with him. Every option was chosen in collaboration, and the print shows the finished specification.",
+    highlights:[
+      "30 × 40 in fine art giclée print, limited to 10",
+      "Solid wood box frame in black, hand-stained and wax finished",
+      "20 mm front face, 33 mm from the wall",
+      "Perspex acrylic glaze",
+      "Delivered fully assembled"
+    ],
+    madeByHand:{
+      paras:[
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification file we used to design the car. The detail goes down to the last stitch and the carbon fiber weave."
+      ],
+      video:{
+        mp4:"/img/p/manthey/blender-build.mp4",
+        mov:"/img/p/manthey/blender-build.mov",
+        poster:"/img/p/manthey/blender-build-poster.jpg",
+        alt:"The GT3 RS render being built in the Blender viewport"
+      }
+    },
+    story:{
+      transition:"This GT3 RS was built from our render file. It is one of the Serafino Collection cars we specified with James, alongside Porsche’s Sonderwunsch team and Manthey Racing.",
+      image:"/img/p/manthey/front2-desk-2000.jpg",
+      link:"/work/manthey-gt3-rs/"
+    }
+  },
+  "serafino-gt2rs":{
+    size:"30 × 40 in",
+    blurb:"Framed print of James’ 911 GT2 RS in Urban Bamboo Chromaflair, one of the Serafino Collection cars we designed with him. The specification was built together, option by option, and this print shows the car exactly as it was specified.",
+    highlights:[
+      "30 × 40 in fine art giclée print, limited to 10",
+      "Solid wood box frame in black, hand-stained and wax finished",
+      "20 mm front face, 33 mm from the wall",
+      "Perspex acrylic glaze",
+      "Delivered fully assembled"
+    ],
+    madeByHand:{
+      paras:[
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification file we used to design the car. The detail goes down to individual stitches in the leather and the weave of the carbon fiber."
+      ],
+      video:{
+        mp4:"/img/p/gt2rs/blender-build.mp4",
+        mov:"/img/p/gt2rs/blender-build.mov",
+        poster:"/img/p/gt2rs/blender-build-poster.jpg",
+        alt:"The GT2 RS render being built in the Blender viewport"
+      }
+    },
+    story:{
+      transition:"This GT2 RS was built from our render file. It is one of the Serafino Collection cars we designed with James, around the Urban Bamboo Chromaflair paint.",
+      image:"/img/gt2rs-real-front.jpg",
+      link:"/work/urban-bamboo-gt2-rs/"
+    }
+  },
+  "family-portrait-the-serafino-collection":{
+    secondary:true,
+    size:"20 × 30 in",
+    format:"Fine Art Print",
+    editionText:"Available through December",
+    editionSpec:"Preorder now, available through December 31. Never printed again after that.",
+    fine:"Preorder now, available through December. Never printed again after that.",
+    blurb:"A render of two of the most iconic Sonderwunsch Porsches, shown together: James’ 911 GT2 RS in Urban Bamboo Chromaflair and his 911 GT3 RS with the Manthey Kit. We specified both cars with James, and this group portrait puts them side by side.",
+    highlights:[
+      "20 × 30 in fine art giclée print, unframed",
+      "Natural white 200gsm enhanced matte art paper",
+      "Smooth texture with a matte finish that removes glare",
+      "Ships rolled in a protective tube"
+    ],
+    madeByHand:{
+      paras:[
+        "Fine automotive CGI: a hyper-resolution render built by our team from the same specification files we used to design both cars. The detail goes down to the stitching in the leather and the carbon fiber weave on each car, so you can read every panel up close."
+      ],
+      image:{
+        src:"/img/p/family/duo-bts-1600.jpg",
+        alt:"The GT2 RS and GT3 RS group render"
+      }
+    },
+    story:{},
+    transition:"Both cars were built from our render files. The GT2 RS was delivered in 2019, and the GT3 RS was the first car to bring the Manthey Kit into the Sonderwunsch process.",
+    commissions:[
+      {image:"/img/gt2rs-real-front.jpg",link:"/work/urban-bamboo-gt2-rs/",kicker:"Urban Bamboo Chromaflair",title:"The 911 GT2 RS commission"},
+      {image:"/img/p/manthey/front2-desk-2000.jpg",link:"/work/manthey-gt3-rs/",kicker:"Geyser Grey Metallic with Manthey Kit",title:"The 911 GT3 RS commission"}
+    ]
+  }
+};
+/* current Shopify handles */
+window.PRINTS["manthey-gt3-rs-the-serafino-collection"]=window.PRINTS["serafino-gt3rs-framed-print"];
+window.PRINTS["chromaflair-gt2-rs-the-serafino-collection"]=window.PRINTS["serafino-gt2rs"];
