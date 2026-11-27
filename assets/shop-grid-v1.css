@@ -1,0 +1,6 @@
+/* shop-grid-v1: on wide screens all three prints sit in one row (Family Portrait becomes a normal 4:5 card) */
+@media(min-width:1100px){
+  .drop-pair{grid-template-columns:repeat(3,minmax(0,clamp(260px,calc((100svh - 440px) * .8),420px)))}
+  .drop-top .drop-pair .drop-card.is-wide{grid-column:auto;margin-top:0}
+  .drop-top .drop-pair .drop-card.is-wide .drop-media{aspect-ratio:4/5}
+}
