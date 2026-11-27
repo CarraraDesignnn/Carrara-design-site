@@ -23,7 +23,11 @@ html:not(#t):not(#u) body .r2r-card{margin:0 auto;display:flex;flex-direction:co
 .r2r-cmp.is-drag .r2r-knob{transform:scale(1.08)}
 .r2r-cmp input{position:absolute;inset:0;z-index:4;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
 /* footer: project link left, three dots right */
-.r2r-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:18px}
+.r2r-foot{display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"name dots cta";align-items:center;gap:16px;width:100%;margin-top:18px}
+.r2r-foot .r2r-name{grid-area:name;justify-self:start}
+.r2r-foot .r2r-dots{grid-area:dots}
+html:not(#t):not(#u) body .r2r-cta{grid-area:cta;justify-self:end;margin:0}
+@media(max-width:700px){.r2r-foot{grid-template-columns:1fr auto;grid-template-columns:1fr;grid-template-areas:"dots" "name" "cta";row-gap:12px}.r2r-foot .r2r-dots{justify-self:center;margin-bottom:4px}html:not(#t):not(#u) body .r2r-cta{justify-self:start}}
 html:not(#t):not(#u) body .r2r-name{margin:0}
 .r2r-dots{display:flex;gap:2px}
 .r2r-dot{position:relative;width:30px;height:30px;padding:0;border:0;background:transparent;cursor:pointer;color:inherit}

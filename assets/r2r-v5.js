@@ -1,4 +1,4 @@
-/* r2r-v3: minimal (project link + dots), placed between What a Commission Means and By the Numbers. r2r-v2: homepage "From Render to Reality" showcase, after What a Commission Means.
+/* r2r-v5: adds Start your commission link. r2r-v3: minimal (project link + dots), placed between What a Commission Means and By the Numbers. r2r-v2: homepage "From Render to Reality" showcase, after What a Commission Means.
    GT3 RS: render and reality clips side by side. Huayra BC and GT2 RS: drag-to-compare sliders.
    Clear named tabs plus arrows to switch; auto-rotation stops once someone uses it. */
 (function(){
@@ -32,7 +32,7 @@
       +'<div class="r2r-card">'
         +'<div class="r2r-stage">'+PAIRS.map(function(p,i){return '<div class="r2r-pair r2r-films'+(i?'':' is-on')+'" aria-hidden="'+(i?'true':'false')+'">'+(p.kind==='films'?film(p.a,'Render')+film(p.b,'Reality'):still(p.render,p.name+', render','Render')+still(p.real,p.name+', delivered','Reality'))+'</div>'}).join('')+'</div>'
         +'<div class="r2r-foot"><a class="r2r-name work-all" href="'+PAIRS[0].href+'">'+PAIRS[0].name+'</a>'
-        +'<div class="r2r-dots" role="tablist" aria-label="Projects">'+PAIRS.map(function(p,i){return '<button type="button" role="tab" class="r2r-dot'+(i?'':' is-on')+'" aria-selected="'+(i?'false':'true')+'" aria-label="'+esc(p.name)+'"><i></i></button>'}).join('')+'</div></div>'
+        +'<div class="r2r-dots" role="tablist" aria-label="Projects">'+PAIRS.map(function(p,i){return '<button type="button" role="tab" class="r2r-dot'+(i?'':' is-on')+'" aria-selected="'+(i?'false':'true')+'" aria-label="'+esc(p.name)+'"><i></i></button>'}).join('')+'</div><a class="r2r-cta work-all" href="#inquire">Start your commission</a></div>'
       +'</div></div>';
     if(before)before.parentNode.insertBefore(s,before);else anchor.insertAdjacentElement('afterend',s);
 
