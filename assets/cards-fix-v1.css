@@ -1,0 +1,2 @@
+/* cards-fix-v1: room under the Featured Commissions names so the strip never trims the bottom of the letters (iOS Safari) */
+.work .rail{padding-bottom:14px!important;margin-bottom:-14px!important}
