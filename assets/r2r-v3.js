@@ -1,4 +1,4 @@
-/* r2r-v2: homepage "From Render to Reality" showcase, after What a Commission Means.
+/* r2r-v3: minimal (project link + dots), placed between What a Commission Means and By the Numbers. r2r-v2: homepage "From Render to Reality" showcase, after What a Commission Means.
    GT3 RS: render and reality clips side by side. Huayra BC and GT2 RS: drag-to-compare sliders.
    Clear named tabs plus arrows to switch; auto-rotation stops once someone uses it. */
 (function(){
@@ -23,23 +23,19 @@
       +'<input type="range" min="0" max="100" value="50" step="0.1" aria-label="Drag to compare the render with the delivered car"></div>';
   }
   function start(){
-    var anchor=document.getElementById('pricing')||document.getElementById('team');if(!anchor)return false;if(document.getElementById('r2r'))return true;
-    var s=document.createElement('section');s.id='r2r';s.className='panel r2r';s.setAttribute('aria-labelledby','r2r-title');
+    if(document.getElementById('r2r'))return true;var before=document.querySelector('#pricing .scene-b'),anchor=document.getElementById('pricing');if(!before&&!anchor)return false;
+    var s=document.createElement('div');s.id='r2r';s.className='panel r2r steps-scene';s.setAttribute('aria-labelledby','r2r-title');
     s.innerHTML='<div class="wrap r2r-in">'
       +'<header class="r2r-head"><h2 id="r2r-title" class="h3">From Render to Reality</h2>'
       +'<p class="body">Every project starts as a render. Here is what we designed, next to the car that was delivered.</p></header>'
       +'<div class="r2r-card">'
         +'<div class="r2r-stage">'+PAIRS.map(function(p,i){return '<div class="r2r-pair r2r-'+p.kind+(i?'':' is-on')+'" aria-hidden="'+(i?'true':'false')+'">'+(p.kind==='films'?film(p.a,'Render')+film(p.b,'Reality'):compare(p))+'</div>'}).join('')+'</div>'
-        +'<div class="r2r-nav">'
-          +'<button type="button" class="r2r-arrow prev" aria-label="Previous project">←</button>'
-          +'<div class="r2r-tabs" role="tablist" aria-label="Projects">'+PAIRS.map(function(p,i){return '<button type="button" role="tab" class="r2r-tab'+(i?'':' is-on')+'" aria-selected="'+(i?'false':'true')+'">'+p.tab+'<i></i></button>'}).join('')+'</div>'
-          +'<button type="button" class="r2r-arrow next" aria-label="Next project">→</button>'
-        +'</div>'
-        +'<a class="r2r-name work-all" href="'+PAIRS[0].href+'">'+PAIRS[0].name+'</a>'
+        +'<div class="r2r-foot"><a class="r2r-name work-all" href="'+PAIRS[0].href+'">'+PAIRS[0].name+'</a>'
+        +'<div class="r2r-dots" role="tablist" aria-label="Projects">'+PAIRS.map(function(p,i){return '<button type="button" role="tab" class="r2r-dot'+(i?'':' is-on')+'" aria-selected="'+(i?'false':'true')+'" aria-label="'+esc(p.name)+'"><i></i></button>'}).join('')+'</div></div>'
       +'</div></div>';
-    anchor.insertAdjacentElement('afterend',s);
+    if(before)before.parentNode.insertBefore(s,before);else anchor.insertAdjacentElement('afterend',s);
 
-    var pairs=[].slice.call(s.querySelectorAll('.r2r-pair')),tabs=[].slice.call(s.querySelectorAll('.r2r-tab')),name=s.querySelector('.r2r-name');
+    var pairs=[].slice.call(s.querySelectorAll('.r2r-pair')),tabs=[].slice.call(s.querySelectorAll('.r2r-dot')),name=s.querySelector('.r2r-name');
     var cur=0,timer=0,visible=false,auto=true,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
     function vids(i){return [].slice.call(pairs[i].querySelectorAll('video'))}
     function play(i){vids(i).forEach(function(v){if(!v.getAttribute('src'))v.src=v.dataset.src;try{v.currentTime=0}catch(e){}var p=v.play();p&&p.catch&&p.catch(function(){})})}
@@ -57,7 +53,7 @@
       if(byUser)userTook();
       stop(cur);cur=(i+pairs.length)%pairs.length;
       pairs.forEach(function(p,k){p.classList.toggle('is-on',k===cur);p.setAttribute('aria-hidden',k===cur?'false':'true')});
-      tabs.forEach(function(t,k){t.classList.toggle('is-on',k===cur);t.setAttribute('aria-selected',k===cur?'true':'false');var f=t.querySelector('i');f.style.animation='none';void f.offsetWidth;f.style.animation=''});
+      tabs.forEach(function(t,k){t.classList.toggle('is-on',k===cur);t.setAttribute('aria-selected',k===cur?'true':'false');});
       name.textContent=PAIRS[cur].name;name.href=PAIRS[cur].href;
       if(visible){play(cur);if(pairs[cur]._hint)pairs[cur]._hint()}
       schedule();
@@ -65,8 +61,6 @@
     function userTook(){if(!auto)return;auto=false;s.classList.add('is-manual');clearTimeout(timer)}
     function schedule(){clearTimeout(timer);if(auto&&visible&&!reduce)timer=setTimeout(function(){show(cur+1)},HOLD)}
     tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k,true)})});
-    s.querySelector('.r2r-arrow.prev').addEventListener('click',function(){show(cur-1,true)});
-    s.querySelector('.r2r-arrow.next').addEventListener('click',function(){show(cur+1,true)});
     /* swipe between projects on the clips only (sliders use the drag) */
     var x0=null,y0=null;
     s.querySelector('.r2r-stage').addEventListener('touchstart',function(e){if(e.target.closest('.r2r-cmp')){x0=null;return}var t=e.touches[0];x0=t.clientX;y0=t.clientY},{passive:true});
