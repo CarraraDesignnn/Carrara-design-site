@@ -6,14 +6,15 @@
     {tab:'GT3 RS',name:'James’ Manthey GT3 RS',href:'/work/manthey-gt3-rs/',kind:'films',
      a:{video:'/img/p/manthey/render.mp4',poster:'/img/p/manthey/render-poster.jpg'},
      b:{video:'/img/p/manthey/reality.mp4',poster:'/img/p/manthey/reality-poster.jpg'}},
-    {tab:'Huayra BC',name:'Sparky’s Huayra BC',href:'/work/huayra-bc/',kind:'compare',pos:'50% 62%',
+    {tab:'Huayra BC',name:'Sparky’s Huayra BC',href:'/work/huayra-bc/',kind:'stills',
      render:'/img/p/huayra/cmp2-render-1400.jpg',real:'/img/p/huayra/cmp2-real-1400.jpg'},
-    {tab:'GT2 RS',name:'James’ Chromaflair GT2 RS',href:'/work/urban-bamboo-gt2-rs/',kind:'compare',pos:'50% 50%',
+    {tab:'GT2 RS',name:'James’ Chromaflair GT2 RS',href:'/work/urban-bamboo-gt2-rs/',kind:'stills',
      render:'/img/p/gt2rs/cmp3-render-1400.jpg',real:'/img/p/gt2rs/cmp3-real-1400.jpg'}
   ];
   var HOLD=8000;
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
   function film(m,label){return '<figure class="r2r-side"><div class="r2r-frame"><video muted loop playsinline preload="none" poster="'+m.poster+'" data-src="'+m.video+'"></video><span class="r2r-tag">'+label+'</span></div></figure>'}
+  function still(src,alt,label){return '<figure class="r2r-side"><div class="r2r-frame"><img src="'+src+'" alt="'+esc(alt)+'" loading="lazy" decoding="async" draggable="false"><span class="r2r-tag">'+label+'</span></div></figure>'}
   function compare(p){
     return '<div class="r2r-cmp" style="--p:50%">'
       +'<img class="r2r-real" src="'+p.real+'" alt="'+esc(p.name)+', delivered" loading="lazy" decoding="async" draggable="false" style="object-position:'+p.pos+'">'
@@ -29,7 +30,7 @@
       +'<header class="r2r-head"><h2 id="r2r-title" class="h3">From Render to Reality</h2>'
       +'<p class="body">Every project starts as a render. Here is what we designed, next to the car that was delivered.</p></header>'
       +'<div class="r2r-card">'
-        +'<div class="r2r-stage">'+PAIRS.map(function(p,i){return '<div class="r2r-pair r2r-'+p.kind+(i?'':' is-on')+'" aria-hidden="'+(i?'true':'false')+'">'+(p.kind==='films'?film(p.a,'Render')+film(p.b,'Reality'):compare(p))+'</div>'}).join('')+'</div>'
+        +'<div class="r2r-stage">'+PAIRS.map(function(p,i){return '<div class="r2r-pair r2r-films'+(i?'':' is-on')+'" aria-hidden="'+(i?'true':'false')+'">'+(p.kind==='films'?film(p.a,'Render')+film(p.b,'Reality'):still(p.render,p.name+', render','Render')+still(p.real,p.name+', delivered','Reality'))+'</div>'}).join('')+'</div>'
         +'<div class="r2r-foot"><a class="r2r-name work-all" href="'+PAIRS[0].href+'">'+PAIRS[0].name+'</a>'
         +'<div class="r2r-dots" role="tablist" aria-label="Projects">'+PAIRS.map(function(p,i){return '<button type="button" role="tab" class="r2r-dot'+(i?'':' is-on')+'" aria-selected="'+(i?'false':'true')+'" aria-label="'+esc(p.name)+'"><i></i></button>'}).join('')+'</div></div>'
       +'</div></div>';
