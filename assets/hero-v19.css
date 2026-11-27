@@ -145,3 +145,9 @@ html:not(#t):not(#u):not(#v) body .hero-v3 .hero-title{font-size:var(--t-heading
 @keyframes hsKB{from{transform:scale(1.02)}to{transform:scale(1.13)}}
 @keyframes hsKB2{from{transform:scale(1.13) translateX(-1.5%)}to{transform:scale(1.02) translateX(0)}}
 @media(prefers-reduced-motion:reduce){.hs-photo img,.hs-photo img.kb{animation:none;transform:none}}
+
+/* v19: light mode shows the render stills full-bleed with the same dark shading and white headline as dark mode */
+html.theme-light .hero-v3 .hs-photo{background:#000!important}
+html.theme-light .hero-v3 .hs-photo img{left:0!important;width:100%!important;-webkit-mask-image:none!important;mask-image:none!important}
+html.theme-light .hero-v3[data-slide=photo] .hs-scrim{display:block!important;opacity:1!important;background:linear-gradient(to bottom,#0000 0%,#0000 40%,#00000052 60%,#000000a8 80%,#000000d1 100%)!important}
+html.theme-light .hero-v3[data-slide=photo] .hero-title{color:#fff!important}

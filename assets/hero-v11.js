@@ -1,4 +1,4 @@
-/* Home cover slideshow (v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
+/* Home cover slideshow (v11: only nearby slides kept in memory; v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
 (function(){
   var T='From Render to Reality';
   /* v9: slow-zoom render stills (own crop per screen shape) with a film after every two stills */
@@ -68,9 +68,15 @@
 
     function load(i){
       var s=SLIDES[i],el=els[i];if(!s||el._loaded)return;el._loaded=true;
-      if(s.type==='reel'){var v=el.querySelector('video');v.src=(!mobile.matches&&s.hd)?s.hd:s.src;v.preload='auto';v.addEventListener('ended',function(){if(cur===i)next()})}
+      if(s.type==='reel'){var v=el.querySelector('video');v.src=(!mobile.matches&&s.hd)?s.hd:s.src;v.preload='auto';if(!el._ended){el._ended=true;v.addEventListener('ended',function(){if(cur===i)next()})}}
       else if(s.type!=='base'){el.querySelector('img').src=(mobile.matches&&s.mobile)?s.mobile:s.src}
     }
+    function unload(i){
+      var s=SLIDES[i],el=els[i];if(!s||!el._loaded)return;el._loaded=false;
+      if(s.type==='reel'){var v=el.querySelector('video');try{v.pause()}catch(e){}v.removeAttribute('src');try{v.load()}catch(e){}}
+      else{var im=el.querySelector('img');if(im)im.removeAttribute('src')}
+    }
+    function trim(){var n=SLIDES.length;for(var k=0;k<n;k++){var d=Math.min((k-cur+n)%n,(cur-k+n)%n);if(d>1)unload(k)}}
     function setTitle(t){
       if(title.textContent===t)return;
       title.classList.add('hs-out');
@@ -80,7 +86,7 @@
       var seg=segs[cur].querySelector('i');seg.style.animation='none';void seg.offsetWidth;seg.style.animation='hsfill '+ms+'ms linear forwards';seg.style.animationPlayState=(visible&&!reduce)?'running':'paused'}
     function show(i){
       var prev=cur;cur=(i+SLIDES.length)%SLIDES.length;var s=SLIDES[cur];
-      load(cur);var nx=(cur+1)%SLIDES.length;setTimeout(function(){load(nx)},2500);
+      load(cur);var nx=(cur+1)%SLIDES.length;setTimeout(function(){load(nx)},1500);setTimeout(trim,1200);
       var target=cur,shown=false;
       function reveal(){if(shown||cur!==target)return;shown=true;var ti=els[target].querySelector('.hs-photo img,img');if(SLIDES[target].type==='photo'&&ti){ti.classList.remove('kb');void ti.offsetWidth;ti.classList.add('kb')}els.forEach(function(el,k){el.classList.toggle('is-on',k===target)})}
       var nv=s.type==='reel'&&els[cur].querySelector('video');
