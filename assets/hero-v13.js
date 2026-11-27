@@ -1,4 +1,4 @@
-/* Home cover slideshow (v12: GT3 RS reel removed; v11: only nearby slides kept in memory; v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
+/* Home cover slideshow (v13: random order, behind-the-scenes clips play in full; v12: GT3 RS reel removed; v11: only nearby slides kept in memory; v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
 (function(){
   var T='From Render to Reality';
   /* v9: slow-zoom render stills (own crop per screen shape) with a film after every two stills */
@@ -24,15 +24,17 @@
     {type:'photo',src:'/img/hero/r/tourbillon-cabin-desk.jpg',mobile:'/img/hero/r/tourbillon-cabin-mob.jpg',desk:true,mob:true,title:T}
   ];
   var FILMS=[
-    {type:'reel',src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:T},
-    {type:'reel',src:'/img/about/craft/model.mp4',poster:'/img/about/craft/model.jpg',blur:'/img/about/craft/model.jpg',ratio:'4/5',title:T},
-    {type:'reel',src:'/img/about/craft/sign.mp4',poster:'/img/about/craft/sign.jpg',blur:'/img/about/craft/sign.jpg',ratio:'4/5',title:T},
+    {type:'reel',full:true,src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:T},
+    {type:'reel',full:true,src:'/img/about/craft/model.mp4',poster:'/img/about/craft/model.jpg',blur:'/img/about/craft/model.jpg',ratio:'4/5',title:T},
+    {type:'reel',full:true,src:'/img/about/craft/sign.mp4',poster:'/img/about/craft/sign.jpg',blur:'/img/about/craft/sign.jpg',ratio:'4/5',title:T},
     {type:'reel',src:'/img/about/craft/render.mp4',poster:'/img/about/craft/render.jpg',blur:'/img/about/craft/render.jpg',ratio:'4/5',title:T},
     {type:'reel',src:'/img/about/craft/interior.mp4',poster:'/img/about/craft/interior.jpg',blur:'/img/about/craft/interior.jpg',ratio:'4/5',title:T},
     {type:'reel',src:'/img/about/craft/green.mp4',poster:'/img/about/craft/green.jpg',blur:'/img/about/craft/green.jpg',ratio:'4/5',title:T}
   ];
   var PHONE=matchMedia('(max-width: 700px)').matches;
-  var SLIDES=[],st=STILLS.filter(function(s){return PHONE?s.mob:s.desk}),f=0;
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+  /* random order on every visit: stills and films shuffled separately, still two stills then a film */
+  var SLIDES=[],st=shuffle(STILLS.filter(function(s){return PHONE?s.mob:s.desk})),f=0;FILMS=shuffle(FILMS);
   st.forEach(function(s,i){SLIDES.push(s);if(i%2===1&&f<FILMS.length)SLIDES.push(FILMS[f++])});
 
   var IMG_MS=3400,REEL_MAX=3000,FALLBACK_MS=7000;
@@ -100,10 +102,10 @@
       if(s.cap){cap.textContent=s.cap;cap.classList.add('is-on');if(s.href){cap.setAttribute('href',s.href);cap.classList.add('is-link');cap.removeAttribute('tabindex')}else{cap.removeAttribute('href');cap.classList.remove('is-link')}}else{cap.classList.remove('is-on')}
       if(s.type==='reel'){
         var v=els[cur].querySelector('video');try{v.currentTime=0}catch(e){}
-        var ms=Math.min(REEL_MAX,((v.duration&&isFinite(v.duration))?v.duration*1000:FALLBACK_MS));
+        var ms=((v.duration&&isFinite(v.duration))?v.duration*1000:FALLBACK_MS);if(!s.full)ms=Math.min(REEL_MAX,ms);
         if(visible&&!reduce){var p=v.play();if(p&&p.catch)p.catch(function(){})}
         schedule(ms);
-        if(!(v.duration>0))v.addEventListener('loadedmetadata',function once(){v.removeEventListener('loadedmetadata',once);if(cur===SLIDES.indexOf(s))schedule(Math.min(REEL_MAX,v.duration*1000))});
+        if(!(v.duration>0))v.addEventListener('loadedmetadata',function once(){v.removeEventListener('loadedmetadata',once);if(cur===SLIDES.indexOf(s))schedule(s.full?v.duration*1000:Math.min(REEL_MAX,v.duration*1000))});
       }else schedule(IMG_MS);
     }
     function next(){show(cur+1)}
