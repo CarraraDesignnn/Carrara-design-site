@@ -1,16 +1,17 @@
-/* feature-v1: "Featured in The Serafino Collection" block on project pages */
-.pj-feature{max-width:1040px;margin:0 auto;padding:clamp(80px,14vh,150px) var(--pad) 0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+/* feature-v2: "Featured in The Serafino Collection" block on project pages */
+.pj-feature{max-width:1040px;margin:0 auto;padding:clamp(80px,14vh,150px) var(--pad) 0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:clamp(32px,6vw,88px);row-gap:clamp(22px,3vw,34px);align-items:center}
+.pj-feature-head{grid-column:1/-1}
+.pj-feature-head .pj-h2{margin:0}
 .pj-feature-media{position:relative;display:block;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#111}
 .pj-feature-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .pj-feature-media:hover img{transform:scale(1.03)}
 .pj-feature-chip[hidden]{display:none}
 .pj-feature.is-sold .pj-feature-media img{filter:saturate(.85)}
-.pj-feature-copy .pj-h2{margin-bottom:18px}
 .pj-feature-body{margin:0 0 32px;max-width:440px;font-size:var(--pj-text);font-weight:300;line-height:1.75;opacity:.86}
 .pj-feature-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 26px}
 .pj-feature-status{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 @media(max-width:800px){
-  .pj-feature{grid-template-columns:1fr;gap:28px;max-width:520px}
+  .pj-feature{grid-template-columns:1fr;row-gap:24px;max-width:520px}
   .pj-feature-body{margin-bottom:26px}
 }
 @media(prefers-reduced-motion:reduce){.pj-feature-media img{transition:none}.pj-feature-media:hover img{transform:none}}

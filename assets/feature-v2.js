@@ -1,4 +1,4 @@
-/* feature-v1: "Featured in The Serafino Collection" block on the GT2 RS and GT3 RS project pages.
+/* feature-v2: "Featured in The Serafino Collection" block on the GT2 RS and GT3 RS project pages.
    Renders a complete block straight away (local photo, copy, link), then asks Shopify for the
    print's status and updates the tag/line: Live now · N of 10 left, Sold out, or a plain
    "Visit the shop" fallback if the product no longer exists. Looks finished in every state. */
@@ -13,18 +13,18 @@
   var printUrl='/shop/print/?p='+F.handle;
   var s=document.createElement('section');s.className='pj-feature';s.setAttribute('aria-labelledby','pj-feature-title');
   s.innerHTML=
-    '<a class="pj-feature-media" href="'+printUrl+'" aria-label="View the '+F.model+' print">'
+    '<header class="pj-feature-head"><p class="pj-eyebrow">As seen in</p><h2 class="pj-h2" id="pj-feature-title">The Serafino Collection</h2></header>'
+    +'<a class="pj-feature-media" href="'+printUrl+'" aria-label="View the '+F.model+' print">'
       +'<img src="'+F.img+'-1200.jpg" srcset="'+F.img+'-700.jpg 700w, '+F.img+'-1200.jpg 1200w" sizes="(max-width: 800px) 90vw, 440px" alt="Framed print of James’ '+F.model+'" loading="lazy" decoding="async" draggable="false">'
       +'<span class="drop-chip pj-feature-chip" hidden></span>'
     +'</a>'
     +'<div class="pj-feature-copy">'
-      +'<p class="pj-eyebrow">Featured in</p>'
-      +'<h2 class="pj-h2" id="pj-feature-title">The Serafino Collection</h2>'
       +'<p class="pj-feature-body">This '+F.model+' was built from our render file. That same render is now a 30 × 40 framed fine art print, limited to '+EDITION+'.</p>'
       +'<div class="pj-feature-actions"><a class="btn btn-light pj-feature-btn" href="'+printUrl+'">View the print</a>'
       +'<span class="pj-feature-status">Drop 01 · Edition of '+EDITION+'</span></div>'
     +'</div>';
-  var close=root.querySelector('.pj-close');close?root.insertBefore(s,close):root.appendChild(s);
+  /* high on the page: straight after the car's details */
+  var anchor=root.querySelector('.pj-facts')||root.querySelector('.pj-intro');anchor?anchor.insertAdjacentElement('afterend',s):root.appendChild(s);
 
   var chip=s.querySelector('.pj-feature-chip'),status=s.querySelector('.pj-feature-status'),btn=s.querySelector('.pj-feature-btn'),media=s.querySelector('.pj-feature-media');
   function setChip(html){chip.innerHTML=html;chip.hidden=false}
