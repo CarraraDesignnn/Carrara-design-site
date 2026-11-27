@@ -1,4 +1,4 @@
-/* Home cover slideshow (v11: only nearby slides kept in memory; v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
+/* Home cover slideshow (v12: GT3 RS reel removed; v11: only nearby slides kept in memory; v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
 (function(){
   var T='From Render to Reality';
   /* v9: slow-zoom render stills (own crop per screen shape) with a film after every two stills */
@@ -24,7 +24,6 @@
     {type:'photo',src:'/img/hero/r/tourbillon-cabin-desk.jpg',mobile:'/img/hero/r/tourbillon-cabin-mob.jpg',desk:true,mob:true,title:T}
   ];
   var FILMS=[
-    {type:'reel',src:'/img/reel-serafino.mp4',hd:'/img/reel-serafino-hd.mp4',poster:'/img/reel-serafino.jpg',blur:'/img/reel-serafino-blur.jpg',ratio:'9/16',title:T},
     {type:'reel',src:'/img/reel-studio.mp4',poster:'/img/reel-studio.jpg',blur:'/img/reel-studio-blur.jpg',ratio:'2/3',title:T},
     {type:'reel',src:'/img/about/craft/model.mp4',poster:'/img/about/craft/model.jpg',blur:'/img/about/craft/model.jpg',ratio:'4/5',title:T},
     {type:'reel',src:'/img/about/craft/sign.mp4',poster:'/img/about/craft/sign.jpg',blur:'/img/about/craft/sign.jpg',ratio:'4/5',title:T},
