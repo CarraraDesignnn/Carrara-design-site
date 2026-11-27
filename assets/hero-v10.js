@@ -1,19 +1,26 @@
-/* Home cover slideshow (v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
+/* Home cover slideshow (v10: faster, stronger slow zoom; v9: render stills + films; v7: films play back to back, no tabs or captions): render → reality pairs and reels, with a headline per slide. */
 (function(){
   var T='From Render to Reality';
   /* v9: slow-zoom render stills (own crop per screen shape) with a film after every two stills */
   var STILLS=[
     {type:'photo',src:'/img/hero/r/gt3rs-front-desk.jpg',mobile:'/img/hero/r/gt3rs-front-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/carrera-gt-desk.jpg',mobile:'/img/hero/r/carrera-gt-mob.jpg',desk:true,mob:false,title:T},
+    {type:'photo',src:'/img/hero/r/huayra-front-desk.jpg',mobile:'/img/hero/r/huayra-front-mob.jpg',desk:true,mob:true,title:T},
     {type:'photo',src:'/img/hero/r/jesko-front-desk.jpg',mobile:'/img/hero/r/jesko-front-mob.jpg',desk:true,mob:false,title:T},
-    {type:'photo',src:'/img/hero/r/lancia-desert-desk.jpg',mobile:'/img/hero/r/lancia-desert-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/gt2rs-rear34-desk.jpg',mobile:'/img/hero/r/gt2rs-rear34-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/gemera-side-desk.jpg',mobile:'/img/hero/r/gemera-side-mob.jpg',desk:true,mob:false,title:T},
+    {type:'photo',src:'/img/hero/r/gt3rs-wing-desk.jpg',mobile:'/img/hero/r/gt3rs-wing-mob.jpg',desk:true,mob:true,title:T},
     {type:'photo',src:'/img/hero/r/gt3sc-lagoon-desk.jpg',mobile:'/img/hero/r/gt3sc-lagoon-mob.jpg',desk:true,mob:false,title:T},
-    {type:'photo',src:'/img/hero/r/gt2rs-rear-desk.jpg',mobile:'/img/hero/r/gt2rs-rear-mob.jpg',desk:true,mob:true,title:T},
     {type:'photo',src:'/img/hero/r/gemera-meadow-desk.jpg',mobile:'/img/hero/r/gemera-meadow-mob.jpg',desk:true,mob:true,title:T},
-    {type:'photo',src:'/img/hero/r/gt3sc-cabin-desk.jpg',mobile:'/img/hero/r/gt3sc-cabin-mob.jpg',desk:true,mob:false,title:T},
-    {type:'photo',src:'/img/hero/r/tourbillon-ice-desk.jpg',mobile:'/img/hero/r/tourbillon-ice-mob.jpg',desk:true,mob:true,title:T},
-    {type:'photo',src:'/img/hero/r/jesko-runway-desk.jpg',mobile:'/img/hero/r/jesko-runway-mob.jpg',desk:true,mob:false,title:T},
+    {type:'photo',src:'/img/hero/r/huayra-rear-desk.jpg',mobile:'/img/hero/r/huayra-rear-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/gt2rs-wheel-desk.jpg',mobile:'/img/hero/r/gt2rs-wheel-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/gt3rs-side-desk.jpg',mobile:'/img/hero/r/gt3rs-side-mob.jpg',desk:true,mob:false,title:T},
     {type:'photo',src:'/img/hero/r/gemera-cabin-desk.jpg',mobile:'/img/hero/r/gemera-cabin-mob.jpg',desk:true,mob:false,title:T},
     {type:'photo',src:'/img/hero/r/tourbillon-top-desk.jpg',mobile:'/img/hero/r/tourbillon-top-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/jesko-runway-desk.jpg',mobile:'/img/hero/r/jesko-runway-mob.jpg',desk:true,mob:false,title:T},
+    {type:'photo',src:'/img/hero/r/gt2rs-rear-desk.jpg',mobile:'/img/hero/r/gt2rs-rear-mob.jpg',desk:true,mob:true,title:T},
+    {type:'photo',src:'/img/hero/r/gt3sc-cabin-desk.jpg',mobile:'/img/hero/r/gt3sc-cabin-mob.jpg',desk:true,mob:false,title:T},
+    {type:'photo',src:'/img/hero/r/gemera-engine-desk.jpg',mobile:'/img/hero/r/gemera-engine-mob.jpg',desk:true,mob:true,title:T},
     {type:'photo',src:'/img/hero/r/tourbillon-cabin-desk.jpg',mobile:'/img/hero/r/tourbillon-cabin-mob.jpg',desk:true,mob:true,title:T}
   ];
   var FILMS=[
@@ -29,7 +36,7 @@
   var SLIDES=[],st=STILLS.filter(function(s){return PHONE?s.mob:s.desk}),f=0;
   st.forEach(function(s,i){SLIDES.push(s);if(i%2===1&&f<FILMS.length)SLIDES.push(FILMS[f++])});
 
-  var IMG_MS=5200,REEL_MAX=3000,FALLBACK_MS=7000;
+  var IMG_MS=3400,REEL_MAX=3000,FALLBACK_MS=7000;
   var hero=document.querySelector('.hero-v3');if(!hero)return;
   var media=hero.querySelector('.hero-media'),shade=hero.querySelector('.hero-shade'),content=hero.querySelector('.hero-content'),title=hero.querySelector('.hero-title');
   if(!media||!content||!title)return;
@@ -46,7 +53,7 @@
       if(s.type==='reel'){
         el.innerHTML='<div class="hs-bg" style="background-image:url('+s.blur+')"></div><div class="hs-frame" style="aspect-ratio:'+s.ratio+'"><video muted playsinline preload="none" poster="'+s.poster+'"></video></div>';
       }else if(s.type==='photo'||s.type==='studio'){
-        el.innerHTML='<img alt="" decoding="async"'+(s.pos?' style="object-position:'+s.pos+'"':'')+'>';
+        el.innerHTML='<img alt="" decoding="async"'+(i%2?' class="kb-alt"':'')+(s.pos?' style="object-position:'+s.pos+'"':'')+'>';
       }
       layer.appendChild(el);return el;
     });
@@ -75,7 +82,7 @@
       var prev=cur;cur=(i+SLIDES.length)%SLIDES.length;var s=SLIDES[cur];
       load(cur);var nx=(cur+1)%SLIDES.length;setTimeout(function(){load(nx)},2500);
       var target=cur,shown=false;
-      function reveal(){if(shown||cur!==target)return;shown=true;els.forEach(function(el,k){el.classList.toggle('is-on',k===target)})}
+      function reveal(){if(shown||cur!==target)return;shown=true;var ti=els[target].querySelector('.hs-photo img,img');if(SLIDES[target].type==='photo'&&ti){ti.classList.remove('kb');void ti.offsetWidth;ti.classList.add('kb')}els.forEach(function(el,k){el.classList.toggle('is-on',k===target)})}
       var nv=s.type==='reel'&&els[cur].querySelector('video');
       /* keep what's on screen (the still poster on first load) until the video has a real frame: no black flash */
       if(nv&&nv.readyState<3){var ok=function(){nv.removeEventListener('playing',ok);if(nv.requestVideoFrameCallback)nv.requestVideoFrameCallback(function(){reveal()});else setTimeout(reveal,80)};nv.addEventListener('playing',ok);setTimeout(reveal,3000)}
